@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
-    public Character LastCharacter;
     public GameObject bush;
-    public Transform Land;
+    public Tilemap Land;
+
+    public float Left, Right;
+    public float Top, Bottom;
 
     public Text tmp;
     
@@ -26,7 +29,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void MoveBush() {
-
+    public void MoveBush() {
+        float x = Mathf.Round(Random.Range(Left, Right));
+        float y = Mathf.Round(Random.Range(Bottom, Top));
+        
+        bush.transform.position = new Vector2(x, y);
     }
 }
