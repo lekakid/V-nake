@@ -63,6 +63,11 @@ public class SnakeController : MonoBehaviour
             bodypos.RemoveAt(bodypos.Count - 1);
 
             for(int i = 0; i < bodypos.Count; i++) {
+                float d = bodypos[i].x - body[i].transform.position.x;
+                if(d > 0)
+                    body[i].GetComponent<SpriteRenderer>().flipX = true;
+                else if(d < 0)
+                    body[i].GetComponent<SpriteRenderer>().flipX = false;
                 body[i].transform.DOMove(bodypos[i], WalkDelay).SetEase(Ease.Linear);
             }
             yield return new WaitForSeconds(WalkDelay);
