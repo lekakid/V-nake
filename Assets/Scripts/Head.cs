@@ -1,23 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Head : MonoBehaviour
+public class Head : Character
 {
     public SnakeController Controller;
     public GameManager Manager;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     /// <summary>
     /// Sent when another object enters a trigger collider attached to this
@@ -34,6 +23,7 @@ public class Head : MonoBehaviour
 
         if(other.CompareTag("Block")) {
             // Game Over
+            Controller.StopGame();
         }
     }
 }

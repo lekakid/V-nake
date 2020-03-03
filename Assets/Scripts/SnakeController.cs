@@ -5,9 +5,10 @@ using DG.Tweening;
 
 public class SnakeController : MonoBehaviour
 {
-    public GameObject Head;
+    public Head Head;
     public Transform Bush;
     public float WalkDelay;
+    public float SpawnDelay;
 
     public CharacterManager CharacterManager;
 
@@ -15,7 +16,7 @@ public class SnakeController : MonoBehaviour
     Vector2 inputDir = Vector2.zero;
     Dir walkDir;
     Vector2 tailPos = Vector2.zero;
-    List<GameObject> body = new List<GameObject>();
+    List<Character> body = new List<Character>();
     List<Vector2> bodypos = new List<Vector2>();
 
     bool adding = false;
@@ -32,22 +33,18 @@ public class SnakeController : MonoBehaviour
     {
         if (Input.GetAxisRaw("Vertical") > 0 & walkDir != Dir.DOWN) {
             inputDir = Vector2.up;
-            walkDir = Dir.UP;
         }
 
         if (Input.GetAxisRaw("Vertical") < 0 & walkDir != Dir.UP) {
             inputDir = Vector2.down;
-            walkDir = Dir.UP;
         }
 
         if (Input.GetAxisRaw("Horizontal") > 0 & walkDir != Dir.LEFT) {
             inputDir = Vector2.right;
-            walkDir = Dir.RIGHT;
         }
 
         if (Input.GetAxisRaw("Horizontal") < 0 & walkDir != Dir.RIGHT) {
             inputDir = Vector2.left;
-            walkDir = Dir.LEFT;
         }
     }
 
@@ -60,13 +57,17 @@ public class SnakeController : MonoBehaviour
             tailPos = bodypos[bodypos.Count - 1];
             bodypos.RemoveAt(bodypos.Count - 1);
 
+            if(inputDir == Vector2.up)
+                walkDir = Dir.UP;
+            if(inputDir == Vector2.down)
+                walkDir = Dir.DOWN;
+            if(inputDir == Vector2.right)
+                walkDir = Dir.RIGHT;
+            if(inputDir == Vector2.left)
+                walkDir = Dir.LEFT;
+
             for(int i = 0; i < bodypos.Count; i++) {
-                float d = bodypos[i].x - body[i].transform.position.x;
-                if(d > 0)
-                    body[i].GetComponent<SpriteRenderer>().flipX = true;
-                else if(d < 0)
-                    body[i].GetComponent<SpriteRenderer>().flipX = false;
-                body[i].transform.DOMove(bodypos[i], WalkDelay).SetEase(Ease.Linear);
+                body[i].Walk(bodypos[i], WalkDelay);
             }
             yield return new WaitForSeconds(WalkDelay);
         }
@@ -75,12 +76,21 @@ public class SnakeController : MonoBehaviour
     public void AddTail() {
         adding = true;
 
-        GameObject tail = CharacterManager.SpawnCharacter();
+        Character tail = CharacterManager.SpawnCharacter().GetComponent<Character>();
         tail.transform.position = Bush.position;
+        tail.Spawn();
         
         body.Add(tail);
         bodypos.Add(tailPos);
 
         adding = false;
+    }
+
+    public void PlayGame() {
+        StartCoroutine("SnakeMove");
+    }
+
+    public void StopGame() {
+        StopCoroutine("SnakeMove");
     }
 }

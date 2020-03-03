@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3428569993093967105}
   - component: {fileID: 3428569993093967106}
   - component: {fileID: 3428569993093967107}
+  - component: {fileID: 2574016913146824025}
+  - component: {fileID: 4145864323739251279}
   m_Layer: 0
   m_Name: Brownie
   m_TagString: Block
@@ -101,3 +103,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &2574016913146824025
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3428569993093967108}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
+--- !u!114 &4145864323739251279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3428569993093967108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43ff084a0eca6e49ad3f0e7efa997cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawned: 1
+  sprite: {fileID: 3428569993093967106}

@@ -2993,7 +2993,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca49d57b4d9c41340a37d1a42889b2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bush: {fileID: 1636397351}
+  Controller: {fileID: 825843522}
+  Bush: {fileID: 1636397351}
   Land: {fileID: 1285499939}
   Left: -16
   Right: 17
@@ -3302,6 +3303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987b2a0ac948262489d64d1b2bf4ba3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Spawned: 0
   Controller: {fileID: 825843522}
   Manager: {fileID: 147770475}
 --- !u!1 &733517462
@@ -3392,9 +3394,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361d734c9ae36964195306c4e0bd505a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Head: {fileID: 718190800}
+  Head: {fileID: 718190806}
   Bush: {fileID: 1636397354}
   WalkDelay: 0.15
+  SpawnDelay: 0.15
   CharacterManager: {fileID: 1795601117}
 --- !u!1 &1285499936
 GameObject:

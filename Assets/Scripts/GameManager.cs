@@ -6,7 +6,9 @@ using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject bush;
+    public SnakeController Controller;
+
+    public GameObject Bush;
     public Tilemap Land;
 
     public float Left, Right;
@@ -17,7 +19,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Controller.PlayGame();
     }
 
     // Update is called once per frame
@@ -29,11 +31,7 @@ public class GameManager : MonoBehaviour
         float x = Mathf.Round(Random.Range(Left, Right));
         float y = Mathf.Round(Random.Range(Bottom, Top));
         
-        bush.transform.position = new Vector2(x, y);
-    }
-
-    public void Play() {
-        
+        Bush.transform.position = new Vector2(x, y);
     }
 
     public void ShowResult() {
