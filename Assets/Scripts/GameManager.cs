@@ -23,9 +23,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.anyKeyDown) {
-            tmp.enabled = false;
-        }
     }
 
     public void MoveBush() {
@@ -33,5 +30,13 @@ public class GameManager : MonoBehaviour
         float y = Mathf.Round(Random.Range(Bottom, Top));
         
         bush.transform.position = new Vector2(x, y);
+    }
+
+    public void Play() {
+        
+    }
+
+    public void ShowResult() {
+        
     }
 }

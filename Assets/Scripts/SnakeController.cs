@@ -25,8 +25,6 @@ public class SnakeController : MonoBehaviour
     {
         body.Add(Head);
         bodypos.Add(new Vector2(-10, 0));
-
-        StartCoroutine("SnakeMove");
     }
 
     // Update is called once per frame
