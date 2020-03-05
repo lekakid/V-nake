@@ -5,12 +5,13 @@ using DG.Tweening;
 
 public class SnakeController : MonoBehaviour
 {
-    public Head Head;
+    public Character Head;
     public Transform Bush;
     public float WalkDelay;
     public float SpawnDelay;
 
     public CharacterManager CharacterManager;
+    public GameManager GameManager;
 
     enum Dir { UP, DOWN, RIGHT, LEFT };
     Vector2 inputDir = Vector2.zero;
@@ -70,6 +71,25 @@ public class SnakeController : MonoBehaviour
                 body[i].Walk(bodypos[i], WalkDelay);
             }
             yield return new WaitForSeconds(WalkDelay);
+
+            if(bodypos[0].x > GameManager.Right || bodypos[0].x < GameManager.Left || 
+               bodypos[0].y > GameManager.Top || bodypos[0].y < GameManager.Bottom) {
+                StopSnake();
+                GameManager.ShowResult();
+            }
+
+
+            for(int i = 4; i < bodypos.Count; i++) {
+                if(bodypos[0] == bodypos[i]) {
+                    StopSnake();
+                    GameManager.ShowResult();
+                }
+            }
+
+            if(bodypos[0] == (Vector2)Bush.position) {
+                AddTail();
+                GameManager.MoveBush();
+            }
         }
     }
 
@@ -86,11 +106,22 @@ public class SnakeController : MonoBehaviour
         adding = false;
     }
 
-    public void PlayGame() {
+    public void InitSnake() {
+        for(int i = 0; i < body.Count; i++) {
+            Destroy(body[i]);
+        }
+        body.Clear();
+        bodypos.Clear();
+
+        body.Add(Head);
+        bodypos.Add(new Vector2(-10, 0));
+    }
+
+    public void PlaySnake() {
         StartCoroutine("SnakeMove");
     }
 
-    public void StopGame() {
+    public void StopSnake() {
         StopCoroutine("SnakeMove");
     }
 }

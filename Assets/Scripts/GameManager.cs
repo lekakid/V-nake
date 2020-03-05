@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Controller.PlayGame();
+        Controller.PlaySnake();
     }
 
     // Update is called once per frame

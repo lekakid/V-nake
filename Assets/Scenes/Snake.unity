@@ -2998,8 +2998,6 @@ GameObject:
   - component: {fileID: 718190802}
   - component: {fileID: 718190801}
   - component: {fileID: 718190804}
-  - component: {fileID: 718190805}
-  - component: {fileID: 718190806}
   m_Layer: 0
   m_Name: Valkyrie
   m_TagString: Untagged
@@ -3090,44 +3088,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &718190804
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 718190800}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &718190805
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 718190800}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.3
---- !u!114 &718190806
+--- !u!114 &718190804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3136,12 +3097,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 718190800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 987b2a0ac948262489d64d1b2bf4ba3d, type: 3}
+  m_Script: {fileID: 11500000, guid: c43ff084a0eca6e49ad3f0e7efa997cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Spawned: 0
-  Controller: {fileID: 825843522}
-  Manager: {fileID: 147770475}
 --- !u!1 &733517462
 GameObject:
   m_ObjectHideFlags: 0
@@ -3230,11 +3189,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361d734c9ae36964195306c4e0bd505a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Head: {fileID: 718190806}
+  Head: {fileID: 718190804}
   Bush: {fileID: 1636397354}
   WalkDelay: 0.15
   SpawnDelay: 0.15
   CharacterManager: {fileID: 1795601117}
+  GameManager: {fileID: 147770475}
 --- !u!1 &1285499936
 GameObject:
   m_ObjectHideFlags: 0
@@ -6173,7 +6133,6 @@ GameObject:
   - component: {fileID: 1636397354}
   - component: {fileID: 1636397353}
   - component: {fileID: 1636397352}
-  - component: {fileID: 1636397355}
   m_Layer: 0
   m_Name: Bush
   m_TagString: Bush
@@ -6264,22 +6223,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1636397355
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636397351}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.3
 --- !u!1 &1795601116
 GameObject:
   m_ObjectHideFlags: 0
