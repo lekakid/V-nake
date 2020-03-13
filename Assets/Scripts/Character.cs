@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class Character : MonoBehaviour
 {
+    public Rarity.RarityEnum Rarity;
     public bool Spawned = true;
     
     SpriteRenderer sprite;

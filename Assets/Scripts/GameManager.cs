@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
+using UnityEditor.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public SnakeController Controller;
+    public CharacterManager CharacterManager;
 
     public GameObject Bush;
     public Tilemap Land;
@@ -14,7 +16,7 @@ public class GameManager : MonoBehaviour
     public float Left, Right;
     public float Top, Bottom;
 
-    public Text tmp;
+    public GameObject PauseMenu;
     
     // Start is called before the first frame update
     void Start()
@@ -22,9 +24,14 @@ public class GameManager : MonoBehaviour
         Controller.PlaySnake();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
     void Update()
     {
+        if(Input.GetButtonDown("Cancel")) {
+            Pause();
+        }
     }
 
     public void MoveBush() {
@@ -36,5 +43,26 @@ public class GameManager : MonoBehaviour
 
     public void ShowResult() {
         
+    }
+
+    public void Pause() {
+        PauseMenu.SetActive(!PauseMenu.activeSelf);
+
+        if(PauseMenu.activeSelf) {
+            Time.timeScale = 0;
+        }
+        else {
+            Time.timeScale = 1;
+        }
+    }
+
+    public void Restart() {
+        Time.timeScale = 1;
+        EditorSceneManager.LoadScene("Snake");
+    }
+
+    public void ReturnMenu() {
+        Time.timeScale = 1;
+        EditorSceneManager.LoadScene("Mainmenu");
     }
 }
