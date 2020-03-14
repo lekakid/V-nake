@@ -7,26 +7,29 @@ using UnityEditor.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Object")]
     public SnakeController Controller;
     public CharacterManager CharacterManager;
-
     public GameObject Bush;
     public Tilemap Land;
 
-    public float Left, Right;
-    public float Top, Bottom;
+    [Header("Border")]
+    public float Left;
+    public float Right;
+    public float Top;
+    public float Bottom;
 
+    [Header("UI")]
     public GameObject PauseMenu;
+    public GameObject ResultView;
+    public GameObject ResultGrid;
+    public GameObject ResultItemPrefab;
     
-    // Start is called before the first frame update
     void Start()
     {
         Controller.PlaySnake();
     }
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
     void Update()
     {
         if(Input.GetButtonDown("Cancel")) {
@@ -39,10 +42,6 @@ public class GameManager : MonoBehaviour
         float y = Mathf.Round(Random.Range(Bottom, Top));
         
         Bush.transform.position = new Vector2(x, y);
-    }
-
-    public void ShowResult() {
-        
     }
 
     public void Pause() {
@@ -64,5 +63,27 @@ public class GameManager : MonoBehaviour
     public void ReturnMenu() {
         Time.timeScale = 1;
         EditorSceneManager.LoadScene("Mainmenu");
+    }
+
+    public void ShowResult() {
+        Time.timeScale = 0;
+
+        List<Character> list = CharacterManager.CharacterList;
+        Dictionary<Character, int> dic = CharacterManager.CharacterCount;
+        
+        if(dic.Count > 0) {
+            foreach(Character c in list) {
+                int n = dic[c];
+                if(n > 0) {
+                    ResultItem i = Instantiate(ResultItemPrefab.gameObject).GetComponent<ResultItem>();
+
+                    i.img.sprite = c.sprite.sprite;
+                    i.txt.text = string.Format("x{0:00}", n);
+                    i.transform.parent = ResultGrid.transform;
+                }
+            }
+        }
+
+        ResultView.SetActive(true);
     }
 }

@@ -8,13 +8,7 @@ public class Character : MonoBehaviour
     public Rarity.RarityEnum Rarity;
     public bool Spawned = true;
     
-    SpriteRenderer sprite;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        sprite = GetComponent<SpriteRenderer>();
-    }
+    public SpriteRenderer sprite;
 
     public void Spawn() {
         transform.DOMove(transform.position + Vector3.up * 0.3f, 0.3f)
