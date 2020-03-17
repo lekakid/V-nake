@@ -8,7 +8,7 @@ public class Character : MonoBehaviour
     public Rarity.RarityEnum Rarity;
     public bool Spawned = true;
     
-    public SpriteRenderer sprite;
+    public SpriteRenderer SpriteRenderer;
 
     public void Spawn() {
         transform.DOMove(transform.position + Vector3.up * 0.3f, 0.3f)
@@ -22,10 +22,10 @@ public class Character : MonoBehaviour
 
         float x = Dir.x - transform.position.x;
         if(x > 0) {
-            sprite.flipX = true;
+            SpriteRenderer.flipX = true;
         }
         else if(x < 0) {
-            sprite.flipX = false;
+            SpriteRenderer.flipX = false;
         }
 
         transform.DOMove(Dir, Delay).SetEase(Ease.Linear);

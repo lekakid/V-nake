@@ -20,10 +20,8 @@ public class GameManager : MonoBehaviour
     public float Bottom;
 
     [Header("UI")]
-    public GameObject PauseMenu;
-    public GameObject ResultView;
-    public GameObject ResultGrid;
-    public GameObject ResultItemPrefab;
+    public GameObject PauseView;
+    public ResultView ResultView;
     
     void Start()
     {
@@ -45,9 +43,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void Pause() {
-        PauseMenu.SetActive(!PauseMenu.activeSelf);
+        if(ResultView.gameObject.activeSelf)
+            return;
+            
+        PauseView.SetActive(!PauseView.activeSelf);
 
-        if(PauseMenu.activeSelf) {
+        if(PauseView.activeSelf) {
             Time.timeScale = 0;
         }
         else {
@@ -74,15 +75,11 @@ public class GameManager : MonoBehaviour
         if(dic.Count > 0) {
             foreach(Character c in list) {
                 if(dic.ContainsKey(c)) {
-                    ResultItem i = Instantiate(ResultItemPrefab.gameObject).GetComponent<ResultItem>();
-
-                    i.img.sprite = c.sprite.sprite;
-                    i.txt.text = string.Format("x{0:00}", dic[c]);
-                    i.transform.parent = ResultGrid.transform;
+                    ResultView.addItem(c.SpriteRenderer.sprite, dic[c]);
                 }
             }
         }
 
-        ResultView.SetActive(true);
+        ResultView.Show();
     }
 }
