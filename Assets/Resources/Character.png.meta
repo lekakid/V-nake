@@ -17,6 +17,54 @@ TextureImporter:
   - first:
       213: 6480803066212409350
     second: Valkyrie_Win
+  - first:
+      213: 3427114271967980436
+    second: Brownie_0
+  - first:
+      213: 8158605244509288230
+    second: Brownie_1
+  - first:
+      213: 6184959299203262911
+    second: Faucre_0
+  - first:
+      213: 2495864320845663737
+    second: Faucre_1
+  - first:
+      213: 6480803066212409350
+    second: Faucre_Deco
+  - first:
+      213: 801598655983992016
+    second: Valkyrie_0
+  - first:
+      213: -4188724102742562465
+    second: Valkyrie_1
+  - first:
+      213: -7635366936938300408
+    second: Valkyrie_Win
+  - first:
+      213: 3663873800218158768
+    second: Undine_0
+  - first:
+      213: 1879468920936531165
+    second: Undine_1
+  - first:
+      213: 40843185749886244
+    second: Lilith_0
+  - first:
+      213: -5329091641981806550
+    second: Lilith_1
+  - first:
+      213: -8425070257221301162
+    second: Lilith_Deco
+  - first:
+      213: -2450611445237265277
+    second: Golden_Brownie_0
+  - first:
+      213: 6770007078955632491
+    second: Golden_Brownie_1
+  - first:
+      213: -8123166618883925514
+    second: Character_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -105,7 +153,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -115,7 +163,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 237b2475b8f525d47a71976fe015d081
+      spriteID: 79fdea68d4fef734d8908db895aa7172
       internalID: 3427114271967980436
       vertices: []
       indices: 
@@ -126,7 +174,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 16
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -136,8 +184,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0420f5977f3b6fc4fb6faae1096e5d47
+      spriteID: cba2d59b4b00b574bbe1e754382ac0e6
       internalID: 8158605244509288230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Faucre_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15e603a85401ed745ae45b5f4116c610
+      internalID: 6184959299203262911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Faucre_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 847b18b07243a7c4d899a255e1fbcc5a
+      internalID: 2495864320845663737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Faucre_Deco
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22c77219bd1b424479e20cf93b1b34e8
+      internalID: 6480803066212409350
       vertices: []
       indices: 
       edges: []
@@ -147,7 +258,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -157,8 +268,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 773ad334f5d280f4e8e8384937e4d93d
-      internalID: 6184959299203262911
+      spriteID: 5f953b16c19a7ce43a32426d146c8caf
+      internalID: 801598655983992016
       vertices: []
       indices: 
       edges: []
@@ -168,7 +279,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -178,8 +289,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d277ff07dbe52645a223bab04e99921
-      internalID: 2495864320845663737
+      spriteID: 67738853c5fa31746b075b70acc60c4c
+      internalID: -4188724102742562465
       vertices: []
       indices: 
       edges: []
@@ -189,7 +300,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -199,8 +310,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfe219b6c0cd31c4f9b88b665f4d9dcd
-      internalID: 6480803066212409350
+      spriteID: 504f5601839a66549b3b685f442a20a6
+      internalID: -7635366936938300408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Undine_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a205e482c0bcaa4c821373f4a9df295
+      internalID: 3663873800218158768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Undine_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ec44b0f4d79144c99c7bc065248764
+      internalID: 1879468920936531165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lilith_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dd7485cf9e1b1e4f822506f971f96cb
+      internalID: 40843185749886244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lilith_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64ab24128b3827a4db7f984ed6296198
+      internalID: -5329091641981806550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lilith_Deco
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a13cd8904f2d88b4391fa45219f72f13
+      internalID: -8425070257221301162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Brownie_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78efacf23f776174e9279fb5784d914d
+      internalID: -2450611445237265277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Brownie_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f61170b41743cc14c8f310bce41192a5
+      internalID: 6770007078955632491
       vertices: []
       indices: 
       edges: []

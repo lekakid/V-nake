@@ -14,11 +14,11 @@ public class CharacterManager : MonoBehaviour
         int i = 0;
 
         while(r >= Rarity[i].Rate) {
-            i++;
+            r -= Rarity[i++].Rate;
         }
 
         List<Character> list = CharacterList.FindAll(x=>x.Rarity==Rarity[i].Grade);
-        Character c = list[(int)Random.Range(0, list.Count - 1)];
+        Character c = list[(int)Random.Range(0, list.Count)];
         
         if(!CharacterCount.ContainsKey(c)) {
             CharacterCount.Add(c, 0);

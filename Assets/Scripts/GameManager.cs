@@ -73,12 +73,11 @@ public class GameManager : MonoBehaviour
         
         if(dic.Count > 0) {
             foreach(Character c in list) {
-                int n = dic[c];
-                if(n > 0) {
+                if(dic.ContainsKey(c)) {
                     ResultItem i = Instantiate(ResultItemPrefab.gameObject).GetComponent<ResultItem>();
 
                     i.img.sprite = c.sprite.sprite;
-                    i.txt.text = string.Format("x{0:00}", n);
+                    i.txt.text = string.Format("x{0:00}", dic[c]);
                     i.transform.parent = ResultGrid.transform;
                 }
             }
