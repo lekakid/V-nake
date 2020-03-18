@@ -7203,7 +7203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7238,7 +7238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920e495b32910a24da9368404914af1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameoverLogo: {fileID: 1890942395}
+  Background: {fileID: 1665362576}
+  Gameover: {fileID: 1890942397}
   Grid: {fileID: 1714958732}
   Item: {fileID: 180926095097566479, guid: 8d62427b34ab2064ab87b74f2ad8280d, type: 3}
 --- !u!1 &1714958732
@@ -7822,7 +7823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
