@@ -7,8 +7,7 @@ using DG.Tweening;
 public class ResultView : MonoBehaviour
 {
     [Header("Tweening")]
-    public Image Background;
-    public Image Gameover;
+    public Animator Animator;
 
     [Header("Result Item")]
     public GameObject Grid;
@@ -17,13 +16,7 @@ public class ResultView : MonoBehaviour
     public void Show() {
         gameObject.SetActive(true);
         
-        Sequence s = DOTween.Sequence();
-
-        s.Append(Background.DOFade(0.4f, 1f));
-        s.Append(Gameover.DOFade(1f, 1f));
-        s.SetUpdate(true);
-
-        s.Play();
+        Animator.SetTrigger("Show");
     }
 
     public void addItem(Sprite img, int count) {

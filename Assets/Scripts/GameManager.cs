@@ -57,18 +57,14 @@ public class GameManager : MonoBehaviour
     }
 
     public void Restart() {
-        Time.timeScale = 1;
         EditorSceneManager.LoadScene("Snake");
     }
 
     public void ReturnMenu() {
-        Time.timeScale = 1;
         EditorSceneManager.LoadScene("Mainmenu");
     }
 
     public void ShowResult() {
-        Time.timeScale = 0;
-
         List<Character> list = CharacterManager.CharacterList;
         Dictionary<Character, int> dic = CharacterManager.CharacterCount;
         
