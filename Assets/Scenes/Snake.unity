@@ -8050,6 +8050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186d7c56804f1084b8ba3f69fc846828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayView: {fileID: 1873812247}
   Rarity:
   - Grade: 0
     Rate: 70
@@ -8065,6 +8066,7 @@ MonoBehaviour:
   - {fileID: 4145864323739251279, guid: 67cf02c8297f04d4193516536fe9b6b3, type: 3}
   - {fileID: 4145864323739251279, guid: 35f30b87ca664214ba5910e07cfc6ae8, type: 3}
   - {fileID: 4145864323739251279, guid: 219f71f15c970a94f88154f2bf8817c7, type: 3}
+  TotalCount: 0
 --- !u!4 &1795601118
 Transform:
   m_ObjectHideFlags: 0
@@ -8245,6 +8247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1873812246}
+  - component: {fileID: 1873812247}
   m_Layer: 5
   m_Name: PlayView
   m_TagString: Untagged
@@ -8273,6 +8276,19 @@ RectTransform:
   m_AnchoredPosition: {x: -20, y: -20}
   m_SizeDelta: {x: 130, y: 50}
   m_Pivot: {x: 1, y: 1}
+--- !u!114 &1873812247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873812245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ec0d511b3f4c149981635af3ff3265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Count: {fileID: 879141101}
 --- !u!1 &1890942395
 GameObject:
   m_ObjectHideFlags: 0

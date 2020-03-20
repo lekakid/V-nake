@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
+    [Header("View")]
+    public PlayView PlayView;
+
+    [Header("Character")]
     public List<Rarity> Rarity;
     public List<Character> CharacterList;
     public Dictionary<Character, int> CharacterCount = new Dictionary<Character, int>();
+    public int TotalCount = 0;
     
     public GameObject SpawnCharacter() {
         float r = Random.Range(0f, 100f);
@@ -25,6 +30,9 @@ public class CharacterManager : MonoBehaviour
         }
 
         CharacterCount[c]++;
+        TotalCount++;
+
+        PlayView.SetCount(TotalCount);
         
         return Instantiate(c.gameObject);
     }
