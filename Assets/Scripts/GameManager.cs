@@ -36,10 +36,17 @@ public class GameManager : MonoBehaviour
     }
 
     public void MoveBush() {
-        float x = Mathf.Round(Random.Range(Left, Right));
-        float y = Mathf.Round(Random.Range(Bottom, Top));
+        Vector2 pos = new Vector2();
+
+        do {
+            float x = Mathf.Round(Random.Range(Left, Right));
+            float y = Mathf.Round(Random.Range(Bottom, Top));
+
+            pos.x = x;
+            pos.y = y;
+        } while(Controller.ExistTail(pos));
         
-        Bush.transform.position = new Vector2(x, y);
+        Bush.transform.position = pos;
     }
 
     public void Pause() {
@@ -61,7 +68,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void ReturnMenu() {
-        EditorSceneManager.LoadScene("Mainmenu");
+        //EditorSceneManager.LoadScene("Mainmenu");
     }
 
     public void ShowResult() {

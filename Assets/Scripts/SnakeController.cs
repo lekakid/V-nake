@@ -106,6 +106,16 @@ public class SnakeController : MonoBehaviour
         adding = false;
     }
 
+    public bool ExistTail(Vector2 pos) {
+        foreach (Vector2 i in bodypos)
+        {
+            if(i == pos)
+                return true;
+        }
+
+        return false;
+    }
+
     public void InitSnake() {
         for(int i = 0; i < body.Count; i++) {
             Destroy(body[i]);
