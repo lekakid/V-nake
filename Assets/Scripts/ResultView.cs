@@ -19,11 +19,9 @@ public class ResultView : MonoBehaviour
         Animator.SetTrigger("Show");
     }
 
-    public void addItem(Sprite img, int count) {
+    public void addItem(Sprite sprite, int count) {
         ResultItem i = Instantiate(Item.gameObject).GetComponent<ResultItem>();
 
-        i.img.sprite = img;
-        i.txt.text = string.Format("x{0:00}", count);;
-        i.transform.SetParent(Grid.transform);
+        i.MakeItem(Grid.transform, sprite, count);
     }
 }
