@@ -8075,9 +8075,9 @@ MonoBehaviour:
   PlayView: {fileID: 1873812247}
   Rarity:
   - Grade: 0
-    Rate: 90
-  - Grade: 1
-    Rate: 0
+    Rate: 70
+  - Grade: 0
+    Rate: 20
   - Grade: 2
     Rate: 8
   - Grade: 3
@@ -8088,7 +8088,6 @@ MonoBehaviour:
   - {fileID: 4145864323739251279, guid: 67cf02c8297f04d4193516536fe9b6b3, type: 3}
   - {fileID: 4145864323739251279, guid: 35f30b87ca664214ba5910e07cfc6ae8, type: 3}
   - {fileID: 4145864323739251279, guid: 219f71f15c970a94f88154f2bf8817c7, type: 3}
-  TotalCount: 0
 --- !u!4 &1795601118
 Transform:
   m_ObjectHideFlags: 0
