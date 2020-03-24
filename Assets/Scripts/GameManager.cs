@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,11 +13,9 @@ public class GameManager : MonoBehaviour
     public GameObject Bush;
     public Tilemap Land;
 
-    [Header("Border")]
-    public float Left;
-    public float Right;
-    public float Top;
-    public float Bottom;
+    [Header("Field")]
+    public float Width;
+    public float Height;
 
     [Header("UI")]
     public GameObject PauseView;
@@ -39,8 +37,8 @@ public class GameManager : MonoBehaviour
         Vector2 pos = new Vector2();
 
         do {
-            float x = Mathf.Round(Random.Range(Left, Right));
-            float y = Mathf.Round(Random.Range(Bottom, Top));
+            float x = Mathf.Round(Random.Range(0, Width));
+            float y = Mathf.Round(Random.Range(0, Height));
 
             pos.x = x;
             pos.y = y;
@@ -64,7 +62,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void Restart() {
-        EditorSceneManager.LoadScene("Snake");
+        SceneManager.LoadScene("Snake");
     }
 
     public void ReturnMenu() {

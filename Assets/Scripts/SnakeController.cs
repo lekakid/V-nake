@@ -26,7 +26,7 @@ public class SnakeController : MonoBehaviour
     void Start()
     {
         body.Add(Head);
-        bodypos.Add(new Vector2(-10, 0));
+        bodypos.Add((Vector2)Head.transform.position);
     }
 
     // Update is called once per frame
@@ -72,8 +72,8 @@ public class SnakeController : MonoBehaviour
             }
             yield return new WaitForSeconds(WalkDelay);
 
-            if(bodypos[0].x > GameManager.Right || bodypos[0].x < GameManager.Left || 
-               bodypos[0].y > GameManager.Top || bodypos[0].y < GameManager.Bottom) {
+            if(bodypos[0].x > GameManager.Width || bodypos[0].x < 0 || 
+               bodypos[0].y > GameManager.Height || bodypos[0].y < 0) {
                 StopSnake();
                 GameManager.ShowResult();
             }
@@ -124,7 +124,7 @@ public class SnakeController : MonoBehaviour
         bodypos.Clear();
 
         body.Add(Head);
-        bodypos.Add(new Vector2(-10, 0));
+        bodypos.Add((Vector2)Head.transform.position);
     }
 
     public void PlaySnake() {
