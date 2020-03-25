@@ -10,10 +10,10 @@ public class Character : MonoBehaviour
     
     public SpriteRenderer SpriteRenderer;
 
-    public void Spawn() {
+    public void Spawn(int order) {
         transform.DOMove(transform.position + Vector3.up * 0.3f, 0.3f)
                  .SetEase(Ease.OutSine)
-                 .OnComplete(()=>{Spawned = false;});
+                 .OnComplete(()=>{Spawned = false; SpriteRenderer.sortingOrder = order;});
     }
 
     public void Walk(Vector2 Dir, float Delay) {

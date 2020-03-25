@@ -97,8 +97,9 @@ public class SnakeController : MonoBehaviour
         adding = true;
 
         Character tail = CharacterManager.SpawnCharacter().GetComponent<Character>();
+        tail.transform.SetParent(transform);
         tail.transform.position = Bush.position;
-        tail.Spawn();
+        tail.Spawn(Head.SpriteRenderer.sortingOrder - CharacterManager.TotalCount);
         
         body.Add(tail);
         bodypos.Add(tailPos);
