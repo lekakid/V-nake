@@ -2322,7 +2322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 825843522}
-  CharacterManager: {fileID: 1795601117}
+  Spawner: {fileID: 1795601117}
   Bush: {fileID: 1636397351}
   Land: {fileID: 1285499939}
   Width: 21
@@ -3673,9 +3673,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Head: {fileID: 718190804}
   Bush: {fileID: 1636397354}
-  WalkDelay: 0.15
-  SpawnDelay: 0.15
-  CharacterManager: {fileID: 1795601117}
+  WalkDelay: 0.12
+  SpawnDelay: 0.12
+  Spawner: {fileID: 1795601117}
   GameManager: {fileID: 147770475}
 --- !u!1 &879141099
 GameObject:
@@ -8481,7 +8481,7 @@ GameObject:
   - component: {fileID: 1795601118}
   - component: {fileID: 1795601117}
   m_Layer: 0
-  m_Name: CharacterManager
+  m_Name: CharacterSpanwer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("Object")]
     public SnakeController Controller;
-    public CharacterManager CharacterManager;
+    public CharacterSpawner Spawner;
     public GameObject Bush;
     public Tilemap Land;
 
@@ -67,12 +67,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void ReturnMenu() {
+        // Time.timeScale = 1;
         //EditorSceneManager.LoadScene("Mainmenu");
     }
 
     public void ShowResult() {
-        List<Character> list = CharacterManager.CharacterList;
-        Dictionary<Character, int> dic = CharacterManager.CharacterCount;
+        List<Character> list = Spawner.CharacterList;
+        Dictionary<Character, int> dic = Spawner.SpawnCount;
         
         if(dic.Count > 0) {
             foreach(Character c in list) {

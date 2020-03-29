@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class SnakeController : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class SnakeController : MonoBehaviour
     public float WalkDelay;
     public float SpawnDelay;
 
-    public CharacterManager CharacterManager;
+    public CharacterSpawner Spawner;
     public GameManager GameManager;
 
     enum Dir { UP, DOWN, RIGHT, LEFT };
@@ -70,7 +69,7 @@ public class SnakeController : MonoBehaviour
             for(int i = 0; i < bodypos.Count; i++) {
                 body[i].Walk(bodypos[i], WalkDelay);
             }
-            yield return new WaitForSeconds(WalkDelay);
+            yield return new WaitForSeconds(WalkDelay-0.01f);
 
             if(bodypos[0].x > GameManager.Width || bodypos[0].x < 0 || 
                bodypos[0].y > GameManager.Height || bodypos[0].y < 0) {
@@ -96,10 +95,10 @@ public class SnakeController : MonoBehaviour
     public void AddTail() {
         adding = true;
 
-        Character tail = CharacterManager.SpawnCharacter().GetComponent<Character>();
+        Character tail = Spawner.SpawnCharacter().GetComponent<Character>();
         tail.transform.SetParent(transform);
         tail.transform.position = Bush.position;
-        tail.Spawn(Head.SpriteRenderer.sortingOrder - CharacterManager.TotalCount);
+        tail.Spawn(Head.SpriteRenderer.sortingOrder - Spawner.TotalCount);
         
         body.Add(tail);
         bodypos.Add(tailPos);

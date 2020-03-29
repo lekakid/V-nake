@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterManager : MonoBehaviour
+public class CharacterSpawner : MonoBehaviour
 {
     [Header("View")]
     public PlayView PlayView;
@@ -10,7 +10,7 @@ public class CharacterManager : MonoBehaviour
     [Header("Character")]
     public List<Rarity> Rarity;
     public List<Character> CharacterList;
-    public Dictionary<Character, int> CharacterCount = new Dictionary<Character, int>();
+    public Dictionary<Character, int> SpawnCount = new Dictionary<Character, int>();
     public int TotalCount = 0;
     
     public GameObject SpawnCharacter() {
@@ -25,11 +25,11 @@ public class CharacterManager : MonoBehaviour
         List<Character> list = CharacterList.FindAll(x=>x.Rarity==Rarity[i].Grade);
         Character c = list[(int)Random.Range(0, list.Count)];
         
-        if(!CharacterCount.ContainsKey(c)) {
-            CharacterCount.Add(c, 0);
+        if(!SpawnCount.ContainsKey(c)) {
+            SpawnCount.Add(c, 0);
         }
 
-        CharacterCount[c]++;
+        SpawnCount[c]++;
         TotalCount++;
 
         PlayView.SetCount(TotalCount);
