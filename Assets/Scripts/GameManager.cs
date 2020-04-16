@@ -8,22 +8,39 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [Header("Object")]
-    public SnakeController Controller;
-    public CharacterSpawner Spawner;
-    public GameObject Bush;
-    public Tilemap Land;
+    public SnakeController SnakeController;
 
-    [Header("Field")]
-    public float Width;
-    public float Height;
-
-    [Header("UI")]
+    [Header("View")]
     public GameObject PauseView;
     public ResultView ResultView;
+
+    public static GameManager Instance {
+        get { return _instance; }
+    }
+
+    public CharacterSpawner CharacterSpawner {
+        get { return _characterSpawner; }
+    }
+
+    static GameManager _instance;
+    CharacterSpawner _characterSpawner;
+
+    void Awake()
+    {
+        if(!_instance) {
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else {
+            DestroyImmediate(this.gameObject);
+        }
+
+        _characterSpawner = GetComponent<CharacterSpawner>();
+    }
     
     void Start()
     {
-        Controller.PlaySnake();
+        SnakeController.PlaySnake();
     }
 
     void Update()
@@ -31,20 +48,6 @@ public class GameManager : MonoBehaviour
         if(Input.GetButtonDown("Cancel")) {
             Pause();
         }
-    }
-
-    public void MoveBush() {
-        Vector2 pos = new Vector2();
-
-        do {
-            float x = Mathf.Round(Random.Range(0, Width));
-            float y = Mathf.Round(Random.Range(0, Height));
-
-            pos.x = x;
-            pos.y = y;
-        } while(Controller.ExistTail(pos));
-        
-        Bush.transform.position = pos;
     }
 
     public void Pause() {
@@ -67,13 +70,14 @@ public class GameManager : MonoBehaviour
     }
 
     public void ReturnMenu() {
-        // Time.timeScale = 1;
+        //Time.timeScale = 1;
+        //DestoryImmediate(this.gameObject);
         //EditorSceneManager.LoadScene("Mainmenu");
     }
 
     public void ShowResult() {
-        List<Character> list = Spawner.CharacterList;
-        Dictionary<Character, int> dic = Spawner.SpawnCount;
+        List<Character> list = _characterSpawner.CharacterList;
+        Dictionary<Character, int> dic = _characterSpawner.SpawnCount;
         
         if(dic.Count > 0) {
             foreach(Character c in list) {

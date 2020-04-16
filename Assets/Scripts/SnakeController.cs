@@ -4,110 +4,119 @@ using UnityEngine;
 
 public class SnakeController : MonoBehaviour
 {
-    public Character Head;
+    [Header("Obejct")]
     public Transform Bush;
-    public float WalkDelay;
-    public float SpawnDelay;
+    public Character Head;
+    public Transform BorderLimit;
 
-    public CharacterSpawner Spawner;
-    public GameManager GameManager;
+    [Header("Delay")]
+    public float MoveDelay = 0.12f;
+    public float SpawnDelay = 0.12f;
 
-    enum Dir { UP, DOWN, RIGHT, LEFT };
-    Vector2 inputDir = Vector2.zero;
-    Dir walkDir;
-    Vector2 tailPos = Vector2.zero;
-    List<Character> body = new List<Character>();
-    List<Vector2> bodypos = new List<Vector2>();
+    Vector2 _inputDirection = Vector2.zero;
+    Vector2 _walkDirection;
+    Vector2 _lastTailPos = Vector2.zero;
+    List<Character> _tail = new List<Character>();
+    List<Vector2> _tailPositions = new List<Vector2>();
 
-    bool adding = false;
+    bool _adding = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        body.Add(Head);
-        bodypos.Add((Vector2)Head.transform.position);
+        _tail.Add(Head);
+        _tailPositions.Add((Vector2)Head.transform.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxisRaw("Vertical") > 0 & walkDir != Dir.DOWN) {
-            inputDir = Vector2.up;
+        if (Input.GetAxisRaw("Vertical") > 0 & _walkDirection != Vector2.down) {
+            _inputDirection = Vector2.up;
         }
 
-        if (Input.GetAxisRaw("Vertical") < 0 & walkDir != Dir.UP) {
-            inputDir = Vector2.down;
+        if (Input.GetAxisRaw("Vertical") < 0 & _walkDirection != Vector2.up) {
+            _inputDirection = Vector2.down;
         }
 
-        if (Input.GetAxisRaw("Horizontal") > 0 & walkDir != Dir.LEFT) {
-            inputDir = Vector2.right;
+        if (Input.GetAxisRaw("Horizontal") > 0 & _walkDirection != Vector2.left) {
+            _inputDirection = Vector2.right;
         }
 
-        if (Input.GetAxisRaw("Horizontal") < 0 & walkDir != Dir.RIGHT) {
-            inputDir = Vector2.left;
+        if (Input.GetAxisRaw("Horizontal") < 0 & _walkDirection != Vector2.right) {
+            _inputDirection = Vector2.left;
         }
     }
 
     IEnumerator SnakeMove() {
         while(true) {
-            yield return new WaitUntil(() => !adding);
+            yield return new WaitUntil(() => !_adding);
 
-            Vector2 NextPos = bodypos[0] + inputDir;
-            bodypos.Insert(0, NextPos);
-            tailPos = bodypos[bodypos.Count - 1];
-            bodypos.RemoveAt(bodypos.Count - 1);
+            Vector2 NextPos = _tailPositions[0] + _inputDirection;
+            _tailPositions.Insert(0, NextPos);
+            _lastTailPos = _tailPositions[_tailPositions.Count - 1];
+            _tailPositions.RemoveAt(_tailPositions.Count - 1);
 
-            if(inputDir == Vector2.up)
-                walkDir = Dir.UP;
-            if(inputDir == Vector2.down)
-                walkDir = Dir.DOWN;
-            if(inputDir == Vector2.right)
-                walkDir = Dir.RIGHT;
-            if(inputDir == Vector2.left)
-                walkDir = Dir.LEFT;
+            _walkDirection = _inputDirection;
 
-            for(int i = 0; i < bodypos.Count; i++) {
-                body[i].Walk(bodypos[i], WalkDelay);
+            for(int i = 0; i < _tailPositions.Count; i++) {
+                _tail[i].Walk(_tailPositions[i], MoveDelay);
             }
-            yield return new WaitForSeconds(WalkDelay-0.01f);
+            yield return new WaitForSeconds(MoveDelay-0.01f);
 
-            if(bodypos[0].x > GameManager.Width || bodypos[0].x < 0 || 
-               bodypos[0].y > GameManager.Height || bodypos[0].y < 0) {
+            if(_tailPositions[0].x > BorderLimit.position.x || _tailPositions[0].x < 0 || 
+               _tailPositions[0].y > BorderLimit.position.y || _tailPositions[0].y < 0) {
                 StopSnake();
-                GameManager.ShowResult();
+                GameManager.Instance.ShowResult();
             }
 
 
-            for(int i = 4; i < bodypos.Count; i++) {
-                if(bodypos[0] == bodypos[i]) {
+            for(int i = 4; i < _tailPositions.Count; i++) {
+                if(_tailPositions[0] == _tailPositions[i]) {
                     StopSnake();
-                    GameManager.ShowResult();
+                    GameManager.Instance.ShowResult();
                 }
             }
 
-            if(bodypos[0] == (Vector2)Bush.position) {
+            if(_tailPositions[0] == (Vector2)Bush.position) {
                 AddTail();
-                GameManager.MoveBush();
+                MoveBush();
             }
         }
     }
 
     public void AddTail() {
-        adding = true;
+        _adding = true;
 
-        Character tail = Spawner.SpawnCharacter().GetComponent<Character>();
+        CharacterSpawner spawner = GameManager.Instance.CharacterSpawner;
+
+        Character tail = spawner.SpawnCharacter().GetComponent<Character>();
         tail.transform.SetParent(transform);
         tail.transform.position = Bush.position;
-        tail.Spawn(Head.SpriteRenderer.sortingOrder - Spawner.TotalCount);
+        tail.Spawn(Head.SpriteRenderer.sortingOrder - spawner.RescueCount);
         
-        body.Add(tail);
-        bodypos.Add(tailPos);
+        _tail.Add(tail);
+        _tailPositions.Add(_lastTailPos);
 
-        adding = false;
+        _adding = false;
     }
 
-    public bool ExistTail(Vector2 pos) {
-        foreach (Vector2 i in bodypos)
+    public void MoveBush() {
+        Vector2 pos = new Vector2();
+
+        do {
+            float x = Mathf.Round(Random.Range(0, BorderLimit.position.x));
+            float y = Mathf.Round(Random.Range(0, BorderLimit.position.y));
+
+            pos.x = x;
+            pos.y = y;
+        } while(CheckTail(pos));
+        
+        Bush.transform.position = pos;
+    }
+
+    public bool CheckTail(Vector2 pos) {
+        foreach (Vector2 i in _tailPositions)
         {
             if(i == pos)
                 return true;
@@ -117,14 +126,14 @@ public class SnakeController : MonoBehaviour
     }
 
     public void InitSnake() {
-        for(int i = 0; i < body.Count; i++) {
-            Destroy(body[i]);
+        for(int i = 0; i < _tail.Count; i++) {
+            Destroy(_tail[i]);
         }
-        body.Clear();
-        bodypos.Clear();
+        _tail.Clear();
+        _tailPositions.Clear();
 
-        body.Add(Head);
-        bodypos.Add((Vector2)Head.transform.position);
+        _tail.Add(Head);
+        _tailPositions.Add((Vector2)Head.transform.position);
     }
 
     public void PlaySnake() {

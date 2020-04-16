@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class CharacterSpawner : MonoBehaviour
 {
-    [Header("View")]
-    public PlayView PlayView;
-
     [Header("Character")]
     public List<Rarity> Rarity;
     public List<Character> CharacterList;
     public Dictionary<Character, int> SpawnCount = new Dictionary<Character, int>();
-    public int TotalCount = 0;
+    
+    public int RescueCount {
+        get { return _rescueCount; }
+    }
+    
+    int _rescueCount = 0;
     
     public GameObject SpawnCharacter() {
         float r = Random.Range(0f, 100f);
@@ -22,18 +24,16 @@ public class CharacterSpawner : MonoBehaviour
             r -= Rarity[i++].Rate;
         }
 
-        List<Character> list = CharacterList.FindAll(x=>x.Rarity==Rarity[i].Grade);
-        Character c = list[(int)Random.Range(0, list.Count)];
+        List<Character> list = CharacterList.FindAll(c=>c.Rarity==Rarity[i].Grade);
+        Character result = list[(int)Random.Range(0, list.Count)];
         
-        if(!SpawnCount.ContainsKey(c)) {
-            SpawnCount.Add(c, 0);
+        if(!SpawnCount.ContainsKey(result)) {
+            SpawnCount.Add(result, 0);
         }
 
-        SpawnCount[c]++;
-        TotalCount++;
-
-        PlayView.SetCount(TotalCount);
+        SpawnCount[result]++;
+        _rescueCount++;
         
-        return Instantiate(c.gameObject);
+        return Instantiate(result.gameObject);
     }
 }
