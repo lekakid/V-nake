@@ -2491,17 +2491,19 @@ MonoBehaviour:
   - Grade: 0
     Rate: 70
   - Grade: 0
-    Rate: 20
+    Rate: 25
   - Grade: 2
-    Rate: 8
+    Rate: 4
   - Grade: 3
-    Rate: 2
+    Rate: 1
   CharacterList:
-  - {fileID: 4145864323739251279, guid: 406d234480e66774daec3929a65728d1, type: 3}
-  - {fileID: 4145864323739251279, guid: 31e8f680d89fd2b44b8ae56fc5aee017, type: 3}
-  - {fileID: 4145864323739251279, guid: 67cf02c8297f04d4193516536fe9b6b3, type: 3}
-  - {fileID: 4145864323739251279, guid: 35f30b87ca664214ba5910e07cfc6ae8, type: 3}
-  - {fileID: 4145864323739251279, guid: 219f71f15c970a94f88154f2bf8817c7, type: 3}
+  - {fileID: 6052121727119000102, guid: 160ce36a5c88f3a47960fcd13bc3ce6d, type: 3}
+  - {fileID: 5791325482040935619, guid: f00e13bec18745d41be29e460f8285e9, type: 3}
+  - {fileID: 8130612068141264870, guid: 6f76876cd7737e14fba7ddcf034344bb, type: 3}
+  - {fileID: 5814828151205910283, guid: a6dcb73470ba3a74e9336b47d47cde54, type: 3}
+  - {fileID: 8692074799100354629, guid: 8dcfccf148b3b7547a66d830e4f5e9da, type: 3}
+  - {fileID: 7794530911292926564, guid: 4221dabaf4b7994448341f3e4dfb7cb0, type: 3}
+  - {fileID: 3361741190144019216, guid: 9e2ff99ee440ef14b9c08515984d9861, type: 3}
 --- !u!1 &176895690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3725,7 +3727,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 500
-  m_Sprite: {fileID: 801598655983992016, guid: a9eb6a167f0f91a4896cab78ef5b1a1c, type: 3}
+  m_Sprite: {fileID: -6251451809504726511, guid: 1164adb3f070f9d4eb0fdc2ac6abb553,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
