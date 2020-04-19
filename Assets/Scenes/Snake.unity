@@ -215,7 +215,7 @@ RectTransform:
   - {fileID: 1665362575}
   - {fileID: 1008248246}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2440,7 +2440,7 @@ GameObject:
   - component: {fileID: 147770475}
   - component: {fileID: 147770476}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2458,7 +2458,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &147770475
 MonoBehaviour:
@@ -2487,23 +2487,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186d7c56804f1084b8ba3f69fc846828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rarity:
+  SpawnRate:
   - Grade: 0
-    Rate: 70
-  - Grade: 0
-    Rate: 25
+    Rate: 80
+  - Grade: 1
+    Rate: 15
   - Grade: 2
     Rate: 4
   - Grade: 3
     Rate: 1
   CharacterList:
   - {fileID: 6052121727119000102, guid: 160ce36a5c88f3a47960fcd13bc3ce6d, type: 3}
-  - {fileID: 5791325482040935619, guid: f00e13bec18745d41be29e460f8285e9, type: 3}
-  - {fileID: 8130612068141264870, guid: 6f76876cd7737e14fba7ddcf034344bb, type: 3}
-  - {fileID: 5814828151205910283, guid: a6dcb73470ba3a74e9336b47d47cde54, type: 3}
   - {fileID: 8692074799100354629, guid: 8dcfccf148b3b7547a66d830e4f5e9da, type: 3}
-  - {fileID: 7794530911292926564, guid: 4221dabaf4b7994448341f3e4dfb7cb0, type: 3}
   - {fileID: 3361741190144019216, guid: 9e2ff99ee440ef14b9c08515984d9861, type: 3}
+  - {fileID: 5814828151205910283, guid: a6dcb73470ba3a74e9336b47d47cde54, type: 3}
+  - {fileID: 5791325482040935619, guid: f00e13bec18745d41be29e460f8285e9, type: 3}
+  - {fileID: 7794530911292926564, guid: 4221dabaf4b7994448341f3e4dfb7cb0, type: 3}
+  - {fileID: 8130612068141264870, guid: 6f76876cd7737e14fba7ddcf034344bb, type: 3}
 --- !u!1 &176895690
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,7 +2857,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &428845054
 GameObject:
@@ -3766,7 +3766,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rarity: 3
-  Spawned: 0
   SpriteRenderer: {fileID: 718190802}
 --- !u!1 &733517462
 GameObject:
@@ -3991,7 +3990,7 @@ Transform:
   - {fileID: 845186087}
   - {fileID: 718190803}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &825843522
 MonoBehaviour:
@@ -8692,7 +8691,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1665362574
 GameObject:
@@ -8784,9 +8783,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920e495b32910a24da9368404914af1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator: {fileID: 1665362579}
-  Grid: {fileID: 1714958732}
-  Item: {fileID: 180926095097566479, guid: 8d62427b34ab2064ab87b74f2ad8280d, type: 3}
+  Grid: {fileID: 1714958733}
+  CountPrefab: {fileID: 180926095097566479, guid: 8d62427b34ab2064ab87b74f2ad8280d,
+    type: 3}
 --- !u!95 &1665362579
 Animator:
   serializedVersion: 3

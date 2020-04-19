@@ -6,18 +6,19 @@ using DG.Tweening;
 public class Character : MonoBehaviour
 {
     public Rarity.RarityEnum Rarity;
-    public bool Spawned = true;
-    
     public SpriteRenderer SpriteRenderer;
+    
+    bool _spawned;
 
     public void Spawn(int order) {
+        _spawned = true;
         transform.DOMove(transform.position + Vector3.up * 0.3f, 0.3f)
                  .SetEase(Ease.OutSine)
-                 .OnComplete(()=>{Spawned = false; SpriteRenderer.sortingOrder = order;});
+                 .OnComplete(()=>{_spawned = false; SpriteRenderer.sortingOrder = order;});
     }
 
     public void Walk(Vector2 Dir, float Delay) {
-        if(Spawned)
+        if(_spawned)
             return;
 
         float x = Dir.x - transform.position.x;

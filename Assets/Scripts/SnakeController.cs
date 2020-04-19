@@ -67,14 +67,14 @@ public class SnakeController : MonoBehaviour
             if(_tailPositions[0].x > BorderLimit.position.x || _tailPositions[0].x < 0 || 
                _tailPositions[0].y > BorderLimit.position.y || _tailPositions[0].y < 0) {
                 StopSnake();
-                GameManager.Instance.ShowResult();
+                GameManager.Instance.GameOver();
             }
 
 
             for(int i = 4; i < _tailPositions.Count; i++) {
                 if(_tailPositions[0] == _tailPositions[i]) {
                     StopSnake();
-                    GameManager.Instance.ShowResult();
+                    GameManager.Instance.GameOver();
                 }
             }
 
@@ -88,12 +88,10 @@ public class SnakeController : MonoBehaviour
     public void AddTail() {
         _adding = true;
 
-        CharacterSpawner spawner = GameManager.Instance.CharacterSpawner;
-
-        Character tail = spawner.SpawnCharacter().GetComponent<Character>();
+        Character tail = SpawnManager.Instance.SpawnCharacter().GetComponent<Character>();
         tail.transform.SetParent(transform);
         tail.transform.position = Bush.position;
-        tail.Spawn(Head.SpriteRenderer.sortingOrder - spawner.RescueCount);
+        tail.Spawn(500 - SpawnManager.Instance.TotalRescueCount);
         
         _tail.Add(tail);
         _tailPositions.Add(_lastTailPos);
@@ -126,7 +124,7 @@ public class SnakeController : MonoBehaviour
     }
 
     public void InitSnake() {
-        for(int i = 0; i < _tail.Count; i++) {
+        for(int i = 1; i < _tail.Count; i++) {
             Destroy(_tail[i]);
         }
         _tail.Clear();

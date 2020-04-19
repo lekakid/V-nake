@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -18,24 +16,11 @@ public class GameManager : MonoBehaviour
         get { return _instance; }
     }
 
-    public CharacterSpawner CharacterSpawner {
-        get { return _characterSpawner; }
-    }
-
     static GameManager _instance;
-    CharacterSpawner _characterSpawner;
 
     void Awake()
     {
-        if(!_instance) {
-            _instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else {
-            DestroyImmediate(this.gameObject);
-        }
-
-        _characterSpawner = GetComponent<CharacterSpawner>();
+        _instance = this;
     }
     
     void Start()
@@ -75,18 +60,8 @@ public class GameManager : MonoBehaviour
         //EditorSceneManager.LoadScene("Mainmenu");
     }
 
-    public void ShowResult() {
-        List<Character> list = _characterSpawner.CharacterList;
-        Dictionary<Character, int> dic = _characterSpawner.SpawnCount;
-        
-        if(dic.Count > 0) {
-            foreach(Character c in list) {
-                if(dic.ContainsKey(c)) {
-                    ResultView.addItem(c.SpriteRenderer.sprite, dic[c]);
-                }
-            }
-        }
-
+    public void GameOver() {
+        ResultView.gameObject.SetActive(true);
         ResultView.Show();
     }
 }

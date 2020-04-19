@@ -5,8 +5,7 @@ using TMPro;
 
 public class PlayView : MonoBehaviour
 {
-    [SerializeField]
-    TextMeshProUGUI Count = null;
+    public TextMeshProUGUI Count;
 
     public void SetCount(int n) {
         if(Count)

@@ -116,7 +116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rarity: 2
-  Spawned: 1
   SpriteRenderer: {fileID: 4087832850241016925}
 --- !u!1 &6655381063652977167
 GameObject:

@@ -2,26 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
+using TMPro;
 
 public class ResultView : MonoBehaviour
 {
-    [Header("Tweening")]
-    public Animator Animator;
-
     [Header("Result Item")]
-    public GameObject Grid;
-    public GameObject Item;
+    public Transform Grid;
+    public GameObject CountPrefab;
+
+    Animator _animator;
+
+    void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
     
     public void Show() {
-        gameObject.SetActive(true);
-        
-        Animator.SetTrigger("Show");
-    }
+        List<Character> list = SpawnManager.Instance.CharacterList;
+        Dictionary<Character, int> dic = SpawnManager.Instance.RescueCount;
 
-    public void addItem(Sprite sprite, int count) {
-        ResultItem i = Instantiate(Item.gameObject).GetComponent<ResultItem>();
+        foreach(Character c in list) {
+            if(dic[c] > 0) {
+                GameObject i = Instantiate(CountPrefab);
+                i.GetComponentInChildren<Image>().sprite = c.SpriteRenderer.sprite;
+                i.GetComponentInChildren<TextMeshProUGUI>().SetText(string.Format("x{0:00}", dic[c]));
+                i.transform.SetParent(Grid);
+            }
+        }
 
-        i.MakeItem(Grid.transform, sprite, count);
+        _animator.SetTrigger("Show");
     }
 }
