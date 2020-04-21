@@ -7,6 +7,10 @@ public class PlayView : MonoBehaviour
 {
     public TextMeshProUGUI Count;
 
+    public void Init() {
+        SetCount(0);
+    }
+
     public void SetCount(int n) {
         if(Count)
             Count.SetText(string.Format("x{0:000}", n));

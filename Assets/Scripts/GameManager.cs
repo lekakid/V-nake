@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public SnakeController SnakeController;
 
     [Header("View")]
+    public PlayView PlayView;
     public GameObject PauseView;
     public ResultView ResultView;
 
@@ -58,11 +59,11 @@ public class GameManager : MonoBehaviour
     public void Restart() {
         SnakeController.Init();
         SpawnManager.Instance.Init();
+        PlayView.Init();
         PauseView.SetActive(false);
-        ResultView.gameObject.SetActive(false);
-        SnakeController.Play();
+        ResultView.Init();
 
-        State = GameStateType.PLAY;
+        Play();
     }
 
     public void ReturnMenu() {
@@ -71,7 +72,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver() {
-        ResultView.gameObject.SetActive(true);
         ResultView.Show();
 
         State = GameStateType.GAMEOVER;

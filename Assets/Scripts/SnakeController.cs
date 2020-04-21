@@ -14,6 +14,7 @@ public class SnakeController : MonoBehaviour
     public float SpawnDelay = 0.12f;
 
     Vector2 _defaultPos;
+    Vector2 _defaultBushPos;
     Vector2 _inputDirection;
     Vector2 _walkDirection;
     Vector2 _lastTailPos;
@@ -28,6 +29,7 @@ public class SnakeController : MonoBehaviour
         _tail.Add(Head);
         _tailPositions.Add((Vector2)Head.transform.position);
         _defaultPos = Head.transform.position;
+        _defaultBushPos = Bush.transform.position;
     }
 
     // Update is called once per frame
@@ -68,20 +70,22 @@ public class SnakeController : MonoBehaviour
             if(_tailPositions[0].x > BorderLimit.position.x || _tailPositions[0].x < 0 || 
                _tailPositions[0].y > BorderLimit.position.y || _tailPositions[0].y < 0) {
                 Stop();
+                Head.GetComponent<Animator>().SetBool("isDefeat", true);
                 GameManager.Instance.GameOver();
+            }
+
+            for(int i = 4; i < _tailPositions.Count; i++) {
+                if(_tailPositions[0] == _tailPositions[i]) {
+                    Stop();
+                    Head.GetComponent<Animator>().SetBool("isDefeat", true);
+                    GameManager.Instance.GameOver();
+                }
             }
 
             for(int i = 0; i < _tailPositions.Count; i++) {
                 _tail[i].Walk(_tailPositions[i], MoveDelay);
             }
             yield return new WaitForSeconds(MoveDelay-0.01f);
-
-            for(int i = 4; i < _tailPositions.Count; i++) {
-                if(_tailPositions[0] == _tailPositions[i]) {
-                    Stop();
-                    GameManager.Instance.GameOver();
-                }
-            }
 
             if(_tailPositions[0] == (Vector2)Bush.position) {
                 AddTail();
@@ -138,6 +142,9 @@ public class SnakeController : MonoBehaviour
         Head.transform.position = _defaultPos;
         _tail.Add(Head);
         _tailPositions.Add(_defaultPos);
+        Head.GetComponent<Animator>().SetBool("isDefeat", false);
+
+        Bush.transform.position = _defaultBushPos;
 
         _inputDirection = Vector2.zero;
         _walkDirection = Vector2.zero;

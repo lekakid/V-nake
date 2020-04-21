@@ -16,6 +16,14 @@ public class ResultView : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
     }
+
+    public void Init() {
+        gameObject.SetActive(false);
+        
+        for(int i = Grid.childCount - 1; i >= 0; i--) {
+            Destroy(Grid.GetChild(i).gameObject);
+        }
+    }
     
     public void Show() {
         List<Character> list = SpawnManager.Instance.CharacterList;
@@ -30,6 +38,6 @@ public class ResultView : MonoBehaviour
             }
         }
 
-        _animator.SetTrigger("Show");
+        gameObject.SetActive(true);
     }
 }

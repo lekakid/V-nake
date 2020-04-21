@@ -2473,6 +2473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnakeController: {fileID: 825843522}
+  PlayView: {fileID: 1873812247}
   PauseView: {fileID: 739026237}
   ResultView: {fileID: 1665362578}
 --- !u!114 &147770476
@@ -3683,7 +3684,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8bb4f2bb7ca5df347b6db00b3e6ad17c, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
