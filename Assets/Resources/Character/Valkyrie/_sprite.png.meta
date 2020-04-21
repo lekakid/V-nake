@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: -5666552777093224069
     second: walk_1
+  - first:
+      213: 357006442158401228
+    second: down_0
+  - first:
+      213: 8354682349897007965
+    second: down_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -141,6 +147,48 @@ TextureImporter:
       bones: []
       spriteID: c354a0f5905a43b40a29ea38f951be68
       internalID: -5666552777093224069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: down_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5963fdc713390489bae0d64e3eec0a
+      internalID: 357006442158401228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: down_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d61f9eb31d8960c498c3946ee83d9788
+      internalID: 8354682349897007965
       vertices: []
       indices: 
       edges: []

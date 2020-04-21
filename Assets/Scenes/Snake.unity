@@ -2487,6 +2487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186d7c56804f1084b8ba3f69fc846828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayView: {fileID: 1873812247}
   SpawnRate:
   - Grade: 0
     Rate: 80
@@ -4912,7 +4913,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 147770475}
-        m_MethodName: Pause
+        m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8798,7 +8799,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e02e20b53869c0241938d2164d040185, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -9329,7 +9330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7635366936938300408, guid: a9eb6a167f0f91a4896cab78ef5b1a1c,
+  m_Sprite: {fileID: 8354682349897007965, guid: 1164adb3f070f9d4eb0fdc2ac6abb553,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0

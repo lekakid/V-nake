@@ -4,30 +4,32 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    [Header("Object")]
+    public PlayView PlayView;
+
     [Header("Character")]
     public List<Rarity> SpawnRate;
     public List<Character> CharacterList;
     public Dictionary<Character, int> RescueCount;
     
-    public static SpawnManager Instance {
-        get { return _instance; }
-    }
-
-    public int TotalRescueCount {
-        get { return _totalRescueCount; }
-    }
-
-    static SpawnManager _instance;
-    
-    int _totalRescueCount = 0;
+    public static SpawnManager Instance { get; private set; }
+    public int TotalRescueCount { get; private set; }
 
     void Awake()
     {
-        _instance = this;
+        Instance = this;
 
         RescueCount = new Dictionary<Character, int>();
         foreach(Character c in CharacterList) {
             RescueCount.Add(c, 0);
+        }
+    }
+
+    public void Init() {
+        TotalRescueCount = 0;
+
+        foreach(Character c in CharacterList) {
+            RescueCount[c] = 0;
         }
     }
     
@@ -44,7 +46,8 @@ public class SpawnManager : MonoBehaviour
         Character result = list[(int)Random.Range(0, list.Count)];
 
         RescueCount[result]++;
-        _totalRescueCount++;
+        TotalRescueCount++;
+        PlayView.SetCount(TotalRescueCount);
         
         return Instantiate(result.gameObject);
     }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum GameStateType { PLAY, PAUSE, GAMEOVER }
+
 public class GameManager : MonoBehaviour
 {
     [Header("Object")]
@@ -12,50 +14,58 @@ public class GameManager : MonoBehaviour
     public GameObject PauseView;
     public ResultView ResultView;
 
-    public static GameManager Instance {
-        get { return _instance; }
-    }
-
-    static GameManager _instance;
+    public static GameManager Instance { get; private set; }
+    public GameStateType State { get; private set; }
 
     void Awake()
     {
-        _instance = this;
+        Instance = this;
     }
     
     void Start()
     {
-        SnakeController.PlaySnake();
+        Play();
     }
 
     void Update()
     {
-        if(Input.GetButtonDown("Cancel")) {
-            Pause();
+        switch(State) {
+            case GameStateType.PAUSE:
+            case GameStateType.GAMEOVER:
+                Time.timeScale = 0;
+                break;
+            case GameStateType.PLAY:
+                Time.timeScale = 1;
+                break;
         }
+    }
+
+    public void Play() {
+        SnakeController.Play();
+        State = GameStateType.PLAY;
     }
 
     public void Pause() {
-        if(ResultView.gameObject.activeSelf)
-            return;
-            
-        PauseView.SetActive(!PauseView.activeSelf);
+        PauseView.SetActive(true);
+        State = GameStateType.PAUSE;
+    }
 
-        if(PauseView.activeSelf) {
-            Time.timeScale = 0;
-        }
-        else {
-            Time.timeScale = 1;
-        }
+    public void Resume() {
+        PauseView.SetActive(false);
+        State = GameStateType.PLAY;
     }
 
     public void Restart() {
-        Time.timeScale = 1;
-        SceneManager.LoadScene("Snake");
+        SnakeController.Init();
+        SpawnManager.Instance.Init();
+        PauseView.SetActive(false);
+        ResultView.gameObject.SetActive(false);
+        SnakeController.Play();
+
+        State = GameStateType.PLAY;
     }
 
     public void ReturnMenu() {
-        //Time.timeScale = 1;
         //DestoryImmediate(this.gameObject);
         //EditorSceneManager.LoadScene("Mainmenu");
     }
@@ -63,5 +73,7 @@ public class GameManager : MonoBehaviour
     public void GameOver() {
         ResultView.gameObject.SetActive(true);
         ResultView.Show();
+
+        State = GameStateType.GAMEOVER;
     }
 }

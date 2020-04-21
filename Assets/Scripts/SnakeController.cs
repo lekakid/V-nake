@@ -13,9 +13,10 @@ public class SnakeController : MonoBehaviour
     public float MoveDelay = 0.12f;
     public float SpawnDelay = 0.12f;
 
-    Vector2 _inputDirection = Vector2.zero;
+    Vector2 _defaultPos;
+    Vector2 _inputDirection;
     Vector2 _walkDirection;
-    Vector2 _lastTailPos = Vector2.zero;
+    Vector2 _lastTailPos;
     List<Character> _tail = new List<Character>();
     List<Vector2> _tailPositions = new List<Vector2>();
 
@@ -26,11 +27,16 @@ public class SnakeController : MonoBehaviour
     {
         _tail.Add(Head);
         _tailPositions.Add((Vector2)Head.transform.position);
+        _defaultPos = Head.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetButtonDown("Cancel")) {
+            GameManager.Instance.Pause();
+        }
+
         if (Input.GetAxisRaw("Vertical") > 0 & _walkDirection != Vector2.down) {
             _inputDirection = Vector2.up;
         }
@@ -59,21 +65,20 @@ public class SnakeController : MonoBehaviour
 
             _walkDirection = _inputDirection;
 
+            if(_tailPositions[0].x > BorderLimit.position.x || _tailPositions[0].x < 0 || 
+               _tailPositions[0].y > BorderLimit.position.y || _tailPositions[0].y < 0) {
+                Stop();
+                GameManager.Instance.GameOver();
+            }
+
             for(int i = 0; i < _tailPositions.Count; i++) {
                 _tail[i].Walk(_tailPositions[i], MoveDelay);
             }
             yield return new WaitForSeconds(MoveDelay-0.01f);
 
-            if(_tailPositions[0].x > BorderLimit.position.x || _tailPositions[0].x < 0 || 
-               _tailPositions[0].y > BorderLimit.position.y || _tailPositions[0].y < 0) {
-                StopSnake();
-                GameManager.Instance.GameOver();
-            }
-
-
             for(int i = 4; i < _tailPositions.Count; i++) {
                 if(_tailPositions[0] == _tailPositions[i]) {
-                    StopSnake();
+                    Stop();
                     GameManager.Instance.GameOver();
                 }
             }
@@ -123,22 +128,26 @@ public class SnakeController : MonoBehaviour
         return false;
     }
 
-    public void InitSnake() {
+    public void Init() {
         for(int i = 1; i < _tail.Count; i++) {
-            Destroy(_tail[i]);
+            Destroy(_tail[i].gameObject);
         }
         _tail.Clear();
         _tailPositions.Clear();
 
+        Head.transform.position = _defaultPos;
         _tail.Add(Head);
-        _tailPositions.Add((Vector2)Head.transform.position);
+        _tailPositions.Add(_defaultPos);
+
+        _inputDirection = Vector2.zero;
+        _walkDirection = Vector2.zero;
     }
 
-    public void PlaySnake() {
+    public void Play() {
         StartCoroutine("SnakeMove");
     }
 
-    public void StopSnake() {
+    public void Stop() {
         StopCoroutine("SnakeMove");
     }
 }
