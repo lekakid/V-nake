@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+public enum ClassType { B, A, S, SS }
+
 public class Character : MonoBehaviour
 {
-    public Rarity.RarityEnum Rarity;
+    public ClassType Class;
     public SpriteRenderer SpriteRenderer;
     
     bool _spawned;

@@ -2489,14 +2489,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayView: {fileID: 1873812247}
-  SpawnRate:
-  - Grade: 0
+  SpawnRateList:
+  - Class: 0
     Rate: 80
-  - Grade: 1
+  - Class: 1
     Rate: 15
-  - Grade: 2
+  - Class: 2
     Rate: 4
-  - Grade: 3
+  - Class: 3
     Rate: 1
   CharacterList:
   - {fileID: 6052121727119000102, guid: 160ce36a5c88f3a47960fcd13bc3ce6d, type: 3}
@@ -3767,7 +3767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43ff084a0eca6e49ad3f0e7efa997cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rarity: 3
+  Class: 0
   SpriteRenderer: {fileID: 718190802}
 --- !u!1 &733517462
 GameObject:

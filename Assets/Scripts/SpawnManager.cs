@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    [System.Serializable]
+    public struct SpawnRate {
+        public ClassType Class;
+        public float Rate;
+    }
+
     [Header("Object")]
     public PlayView PlayView;
 
     [Header("Character")]
-    public List<Rarity> SpawnRate;
+    public List<SpawnRate> SpawnRateList;
     public List<Character> CharacterList;
-    public Dictionary<Character, int> RescueCount;
     
+    public Dictionary<Character, int> RescueCount;
     public static SpawnManager Instance { get; private set; }
     public int TotalRescueCount { get; private set; }
 
@@ -38,11 +44,11 @@ public class SpawnManager : MonoBehaviour
 
         int i = 0;
 
-        while(r >= SpawnRate[i].Rate) {
-            r -= SpawnRate[i++].Rate;
+        while(r >= SpawnRateList[i].Rate) {
+            r -= SpawnRateList[i++].Rate;
         }
 
-        List<Character> list = CharacterList.FindAll(c=>c.Rarity==SpawnRate[i].Grade);
+        List<Character> list = CharacterList.FindAll(c=>c.Class==SpawnRateList[i].Class);
         Character result = list[(int)Random.Range(0, list.Count)];
 
         RescueCount[result]++;
