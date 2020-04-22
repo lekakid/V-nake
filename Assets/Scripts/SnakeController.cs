@@ -134,7 +134,7 @@ public class SnakeController : MonoBehaviour
 
     public void Init() {
         for(int i = 1; i < _tail.Count; i++) {
-            Destroy(_tail[i].gameObject);
+            _tail[i].Remove();
         }
         _tail.Clear();
         _tailPositions.Clear();

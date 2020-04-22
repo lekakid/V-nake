@@ -33,4 +33,9 @@ public class Character : MonoBehaviour
 
         transform.DOMove(Dir, Delay).SetEase(Ease.Linear);
     }
+
+    public void Remove() {
+        transform.DOKill();
+        Destroy(gameObject);
+    }
 }
