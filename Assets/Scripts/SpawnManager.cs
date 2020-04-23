@@ -39,7 +39,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
     
-    public GameObject SpawnCharacter() {
+    public Character SpawnCharacter() {
         float r = Random.Range(0f, 100f);
 
         int i = 0;
@@ -55,6 +55,6 @@ public class SpawnManager : MonoBehaviour
         TotalRescueCount++;
         PlayView.SetCount(TotalRescueCount);
         
-        return Instantiate(result.gameObject);
+        return Instantiate(result.gameObject).GetComponent<Character>();
     }
 }

@@ -4009,7 +4009,7 @@ MonoBehaviour:
   Bush: {fileID: 1636397354}
   Head: {fileID: 718190804}
   BorderLimit: {fileID: 845186087}
-  MoveDelay: 0.12
+  InputDelay: 0.12
   SpawnDelay: 0.12
 --- !u!1 &845186086
 GameObject:
