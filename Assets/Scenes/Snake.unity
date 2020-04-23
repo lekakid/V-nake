@@ -2491,13 +2491,13 @@ MonoBehaviour:
   PlayView: {fileID: 1873812247}
   SpawnRateList:
   - Class: 0
-    Rate: 80
-  - Class: 1
-    Rate: 15
+    Rate: 95
   - Class: 2
-    Rate: 4
-  - Class: 3
-    Rate: 1
+    Rate: 5
+  - Class: 1
+    Rate: 0
+  - Class: 1
+    Rate: 0
   CharacterList:
   - {fileID: 6052121727119000102, guid: 160ce36a5c88f3a47960fcd13bc3ce6d, type: 3}
   - {fileID: 8692074799100354629, guid: 8dcfccf148b3b7547a66d830e4f5e9da, type: 3}
@@ -9379,8 +9379,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc674f9798170934998aa9c41b242df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGM: []
-  SFX: []
+  BGMList: []
+  SFXList: []
 --- !u!4 &1977156090
 Transform:
   m_ObjectHideFlags: 0
@@ -9389,7 +9389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977156088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.2499485, y: 5.4246984, z: -5.7584496}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
