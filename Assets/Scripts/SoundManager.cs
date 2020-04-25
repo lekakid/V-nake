@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public AudioClip[] BGMList;
-    public AudioClip[] SFXList;
+    public string BGMPath = "Sound/BGM";
+    public string SFXPath = "Sound/SFX";
 
     public static SoundManager Instance {
         get; private set;
@@ -44,11 +44,14 @@ public class SoundManager : MonoBehaviour
         _bgm = new Dictionary<string, AudioClip>();
         _sfx = new Dictionary<string, AudioClip>();
 
-        foreach(AudioClip a in BGMList) {
+        AudioClip[] bgmList = Resources.LoadAll<AudioClip>(BGMPath);
+        AudioClip[] sfxList = Resources.LoadAll<AudioClip>(SFXPath);
+
+        foreach(AudioClip a in bgmList) {
             _bgm.Add(a.name, a);
         }
 
-        foreach(AudioClip a in SFXList) {
+        foreach(AudioClip a in sfxList) {
             _sfx.Add(a.name, a);
         }
     }
