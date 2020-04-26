@@ -12,14 +12,16 @@ public class SoundManager : MonoBehaviour
         get; private set;
     }
 
+    public float MasterVolume {
+        get; set;
+    }
+
     public float BGMVolume {
-        get { return _bgmSource.volume; }
-        set { _bgmSource.volume = value; }
+        get; set;
     }
 
     public float SFXVolume {
-        get { return _sfxSource.volume; }
-        set { _sfxSource.volume = value; }
+        get; set;
     }
 
     AudioSource _bgmSource;
@@ -42,11 +44,11 @@ public class SoundManager : MonoBehaviour
         _sfxSource = gameObject.AddComponent<AudioSource>();
 
         _bgmSource.loop = true;
-        _bgmSource.volume = 0.5f;
+
+        // Load saved volume options
 
         _bgm = new Dictionary<string, AudioClip>();
         _sfx = new Dictionary<string, AudioClip>();
-
         AudioClip[] bgmList = Resources.LoadAll<AudioClip>(BGMPath);
         AudioClip[] sfxList = Resources.LoadAll<AudioClip>(SFXPath);
 
@@ -61,12 +63,12 @@ public class SoundManager : MonoBehaviour
 
     public void PlayBGM(string name) {
         if(_bgmSource.clip != null) {
-            _bgmSource.DOFade(0, 1f);
+            _bgmSource.DOFade(0, 0.6f);
         }
         _bgmSource.clip = _bgm[name];
-        // Fade
+        _bgmSource.volume = MasterVolume * BGMVolume * 0.5f;
         _bgmSource.Play();
-        _bgmSource.DOFade(1, 1f);
+        _bgmSource.DOFade(MasterVolume * BGMVolume, 0.6f);
     }
 
     public void PlaySFX(string name) {
