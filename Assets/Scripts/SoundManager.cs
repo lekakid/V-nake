@@ -34,6 +34,7 @@ public class SoundManager : MonoBehaviour
         }
         else {
             DestroyImmediate(this.gameObject);
+            return;
         }
 
         _bgmSource = gameObject.AddComponent<AudioSource>();
