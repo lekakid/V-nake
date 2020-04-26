@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class SoundManager : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class SoundManager : MonoBehaviour
         _sfxSource = gameObject.AddComponent<AudioSource>();
 
         _bgmSource.loop = true;
+        _bgmSource.volume = 0.5f;
 
         _bgm = new Dictionary<string, AudioClip>();
         _sfx = new Dictionary<string, AudioClip>();
@@ -58,8 +60,13 @@ public class SoundManager : MonoBehaviour
     }
 
     public void PlayBGM(string name) {
+        if(_bgmSource.clip != null) {
+            _bgmSource.DOFade(0, 1f);
+        }
         _bgmSource.clip = _bgm[name];
+        // Fade
         _bgmSource.Play();
+        _bgmSource.DOFade(1, 1f);
     }
 
     public void PlaySFX(string name) {

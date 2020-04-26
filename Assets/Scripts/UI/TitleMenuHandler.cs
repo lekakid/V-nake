@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TitleMenuHandler : MonoBehaviour
 {
@@ -46,7 +46,7 @@ public class TitleMenuHandler : MonoBehaviour
     }
 
     public void Play() {
-
+        SceneManager.LoadScene("Snake");
     }
 
     public void Howto() {
