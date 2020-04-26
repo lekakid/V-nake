@@ -26,8 +26,9 @@ public class ResultView : MonoBehaviour
     }
     
     public void Show() {
-        List<Character> list = SpawnManager.Instance.CharacterList;
-        Dictionary<Character, int> dic = SpawnManager.Instance.RescueCount;
+        SpawnManager spawner = GameManager.Instance.SpawnManager;
+        List<Character> list = spawner.CharacterList;
+        Dictionary<Character, int> dic = spawner.RescueCount;
 
         foreach(Character c in list) {
             if(dic[c] > 0) {

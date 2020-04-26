@@ -24,8 +24,7 @@ public class SnakeController : MonoBehaviour
 
     bool _adding = false;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _tail.Add(Head);
         _tailPositions.Add((Vector2)Head.transform.position);
@@ -33,7 +32,10 @@ public class SnakeController : MonoBehaviour
         _defaultBushPos = Bush.transform.position;
     }
 
-    // Update is called once per frame
+    void Start() {
+        Play();
+    }
+
     void Update()
     {
         if(Input.GetButtonDown("Cancel")) {
@@ -66,12 +68,14 @@ public class SnakeController : MonoBehaviour
             if(_tailPositions[0].x > BorderLimit.position.x || _tailPositions[0].x < 0 || 
                _tailPositions[0].y > BorderLimit.position.y || _tailPositions[0].y < 0) {
                 Head.GetComponent<Animator>().SetBool("isDefeat", true);
+                Stop();
                 GameManager.Instance.GameOver();
             }
 
             for(int i = 4; i < _tailPositions.Count; i++) {
                 if(_tailPositions[0] == _tailPositions[i]) {
                     Head.GetComponent<Animator>().SetBool("isDefeat", true);
+                    Stop();
                     GameManager.Instance.GameOver();
                 }
             }
@@ -91,15 +95,19 @@ public class SnakeController : MonoBehaviour
     public void AddTail() {
         _adding = true;
 
-        Character tail = SpawnManager.Instance.SpawnCharacter();
+        SpawnManager spawner = GameManager.Instance.SpawnManager;
+
+        Character tail = spawner.SpawnCharacter();
         tail.transform.SetParent(transform);
         tail.transform.position = Bush.position;
-        tail.Spawn(500 - SpawnManager.Instance.TotalRescueCount);
+        tail.Spawn(500 - spawner.TotalRescueCount);
         
         _tail.Add(tail);
         _tailPositions.Add(_lastTailPos);
 
         _adding = false;
+
+        SoundManager.Instance.PlaySFX("Bush");
     }
 
     public void MoveBush() {
@@ -143,8 +151,10 @@ public class SnakeController : MonoBehaviour
         _tail.Add(Head);
         _tailPositions.Add(_defaultPos);
         Head.GetComponent<Animator>().SetBool("isDefeat", false);
+        Head.CancelWalk();
 
         Bush.transform.position = _defaultBushPos;
+        Play();
     }
 
     public void Play() {

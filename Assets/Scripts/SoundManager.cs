@@ -8,21 +8,11 @@ public class SoundManager : MonoBehaviour
     public string BGMPath = "Sound/BGM";
     public string SFXPath = "Sound/SFX";
 
-    public static SoundManager Instance {
-        get; private set;
-    }
+    public static SoundManager Instance { get; private set;}
 
-    public float MasterVolume {
-        get; set;
-    }
-
-    public float BGMVolume {
-        get; set;
-    }
-
-    public float SFXVolume {
-        get; set;
-    }
+    public float MasterVolume { get; set; }
+    public float BGMVolume { get; set; }
+    public float SFXVolume { get; set; }
 
     AudioSource _bgmSource;
     AudioSource _sfxSource;
@@ -35,7 +25,7 @@ public class SoundManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
-        else {
+        else if(Instance != null & Instance != this) {
             DestroyImmediate(this.gameObject);
             return;
         }

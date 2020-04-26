@@ -3,78 +3,93 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameStateType { PLAY, PAUSE, GAMEOVER }
+public enum GameStateType { TITLE, PLAY, PAUSE, GAMEOVER }
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Object")]
-    public SnakeController SnakeController;
-
-    [Header("View")]
-    public PlayView PlayView;
-    public GameObject PauseView;
-    public ResultView ResultView;
-
     public static GameManager Instance { get; private set; }
     public GameStateType State { get; private set; }
 
+    public PlayView PlayView { get; private set; }
+    public PauseView PauseView { get; private set; }
+    public ResultView ResultView { get; private set; }
+    public SnakeController SnakeController { get; private set; }
+    public SpawnManager SpawnManager { get; private set; }
+
     void Awake()
     {
-        Instance = this;
-    }
-    
-    void Start()
-    {
-        Play();
+        if(Instance == null) {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else if(Instance != null && Instance != this) {
+            DestroyImmediate(this.gameObject);
+            return;
+        }
+
+        SceneManager.sceneLoaded += LoadComponents;
+        SceneManager.sceneUnloaded += UnloadComponents;
     }
 
-    void Update()
-    {
-        switch(State) {
-            case GameStateType.PAUSE:
-            case GameStateType.GAMEOVER:
-                Time.timeScale = 0;
-                break;
-            case GameStateType.PLAY:
-                Time.timeScale = 1;
-                break;
+    void LoadComponents(Scene scene, LoadSceneMode mode) {
+        if(scene.name == "Snake") {
+            Canvas canvas = FindObjectOfType<Canvas>();
+            PlayView = canvas.GetComponentInChildren<PlayView>(true);
+            PauseView = canvas.GetComponentInChildren<PauseView>(true);
+            ResultView = canvas.GetComponentInChildren<ResultView>(true);
+            SnakeController = FindObjectOfType<SnakeController>();
+            SpawnManager = FindObjectOfType<SpawnManager>();
+        }
+    }
+
+    void UnloadComponents(Scene scene) {
+        if(scene.name == "Snake") {
+            PlayView = null;
+            PauseView = null;
+            ResultView = null;
+            SnakeController = null;
+            SpawnManager = null;
         }
     }
 
     public void Play() {
-        SnakeController.Play();
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Snake");
         State = GameStateType.PLAY;
     }
 
     public void Pause() {
-        PauseView.SetActive(true);
+        PauseView.Show();
+        Time.timeScale = 0;
         State = GameStateType.PAUSE;
     }
 
     public void Resume() {
-        PauseView.SetActive(false);
+        PauseView.Hide();
+        Time.timeScale = 1;
         State = GameStateType.PLAY;
     }
 
     public void Restart() {
-        SpawnManager.Instance.Init();
+        SpawnManager.Init();
         SnakeController.Init();
         PlayView.Init();
-        PauseView.SetActive(false);
+        PauseView.Hide();
         ResultView.Init();
-
-        Play();
+        Time.timeScale = 1;
+        State = GameStateType.PLAY;
     }
 
     public void ReturnMenu() {
-        //DestoryImmediate(this.gameObject);
-        //EditorSceneManager.LoadScene("Mainmenu");
+        SnakeController.Init();
+        SceneManager.LoadScene("Title");
+        Time.timeScale = 1;
+        State = GameStateType.TITLE;
     }
 
     public void GameOver() {
-        SnakeController.Stop();
         ResultView.Show();
-
+        Time.timeScale = 0;
         State = GameStateType.GAMEOVER;
     }
 }

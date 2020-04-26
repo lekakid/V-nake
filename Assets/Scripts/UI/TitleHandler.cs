@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class TitleMenuHandler : MonoBehaviour
+public class TitleHandler : MonoBehaviour
 {
     [Header("Control")]
     public RectTransform Indexer;
@@ -48,7 +48,7 @@ public class TitleMenuHandler : MonoBehaviour
 
     public void Play() {
         SoundManager.Instance.PlaySFX("Select");
-        SceneManager.LoadScene("Snake");
+        GameManager.Instance.Play();
     }
 
     public void Howto() {

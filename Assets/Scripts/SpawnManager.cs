@@ -10,21 +10,15 @@ public class SpawnManager : MonoBehaviour
         public float Rate;
     }
 
-    [Header("Object")]
-    public PlayView PlayView;
-
     [Header("Character")]
     public List<SpawnRate> SpawnRateList;
     public List<Character> CharacterList;
     
     public Dictionary<Character, int> RescueCount;
-    public static SpawnManager Instance { get; private set; }
     public int TotalRescueCount { get; private set; }
 
     void Awake()
     {
-        Instance = this;
-
         RescueCount = new Dictionary<Character, int>();
         foreach(Character c in CharacterList) {
             RescueCount.Add(c, 0);
@@ -53,7 +47,9 @@ public class SpawnManager : MonoBehaviour
 
         RescueCount[result]++;
         TotalRescueCount++;
-        PlayView.SetCount(TotalRescueCount);
+
+        PlayView view = GameManager.Instance.PlayView;
+        view.SetCount(TotalRescueCount);
         
         return Instantiate(result.gameObject).GetComponent<Character>();
     }
