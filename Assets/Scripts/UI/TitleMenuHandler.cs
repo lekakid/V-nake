@@ -43,9 +43,11 @@ public class TitleMenuHandler : MonoBehaviour
         Indexer.position = Menus[index].GetComponent<RectTransform>().position;
         EventSystem.current.SetSelectedGameObject(Menus[index]);
         _selected = index;
+        SoundManager.Instance.PlaySFX("Select");
     }
 
     public void Play() {
+        SoundManager.Instance.PlaySFX("Select");
         SceneManager.LoadScene("Snake");
     }
 
@@ -53,6 +55,7 @@ public class TitleMenuHandler : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(ModalPanel);
         ModalPanel.SetActive(true);
         HowToPopup.SetActive(true);
+        SoundManager.Instance.PlaySFX("Select");
     }
 
     public void Gallery() {
@@ -64,6 +67,7 @@ public class TitleMenuHandler : MonoBehaviour
     }
 
     public void Quit() {
+        SoundManager.Instance.PlaySFX("Select");
         Application.Quit();
     }
 
@@ -71,5 +75,6 @@ public class TitleMenuHandler : MonoBehaviour
         ModalPanel.SetActive(false);
         HowToPopup.SetActive(false);
         EventSystem.current.SetSelectedGameObject(Menus[_selected]);
+        SoundManager.Instance.PlaySFX("Select");
     }
 }
