@@ -10,9 +10,31 @@ public class SoundManager : MonoBehaviour
 
     public static SoundManager Instance { get; private set;}
 
-    public float MasterVolume { get; set; }
-    public float BGMVolume { get; set; }
-    public float SFXVolume { get; set; }
+    private float _masterVolume;
+    public float MasterVolume { 
+        get { return _masterVolume; }
+        set {
+            _masterVolume = value;
+            _bgmSource.volume = _bgmVolume * _masterVolume;
+            _sfxSource.volume = _sfxVolume * _masterVolume;
+        }
+    }
+    private float _bgmVolume;
+    public float BGMVolume { 
+        get { return _bgmVolume; }
+        set {
+            _bgmVolume = value;
+            _bgmSource.volume = _bgmVolume * _masterVolume;
+        }
+    }
+    private float _sfxVolume;
+    public float SFXVolume { 
+        get { return _sfxVolume; }
+        set {
+            _sfxVolume = value;
+            _sfxSource.volume = _sfxVolume * _masterVolume;
+        }
+    }
 
     AudioSource _bgmSource;
     AudioSource _sfxSource;
@@ -35,6 +57,10 @@ public class SoundManager : MonoBehaviour
 
         _bgmSource.loop = true;
 
+        BGMVolume = 1f;
+        SFXVolume = 1f;
+        MasterVolume = 1f;
+
         _bgm = new Dictionary<string, AudioClip>();
         _sfx = new Dictionary<string, AudioClip>();
         AudioClip[] bgmList = Resources.LoadAll<AudioClip>(BGMPath);
@@ -54,9 +80,8 @@ public class SoundManager : MonoBehaviour
             _bgmSource.DOFade(0, 0.6f);
         }
         _bgmSource.clip = _bgm[name];
-        _bgmSource.volume = MasterVolume * BGMVolume * 0.5f;
+        _bgmSource.volume = _bgmVolume * _masterVolume;
         _bgmSource.Play();
-        _bgmSource.DOFade(MasterVolume * BGMVolume, 0.6f);
     }
 
     public void PlaySFX(string name) {
