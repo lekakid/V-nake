@@ -35,8 +35,6 @@ public class SoundManager : MonoBehaviour
 
         _bgmSource.loop = true;
 
-        // Load saved volume options
-
         _bgm = new Dictionary<string, AudioClip>();
         _sfx = new Dictionary<string, AudioClip>();
         AudioClip[] bgmList = Resources.LoadAll<AudioClip>(BGMPath);

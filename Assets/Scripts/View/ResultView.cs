@@ -26,7 +26,7 @@ public class ResultView : MonoBehaviour
     }
     
     public void Show() {
-        SpawnManager spawner = GameManager.Instance.SpawnManager;
+        SpawnController spawner = GameManager.Instance.SnakeManager.SpawnController;
         List<Character> list = spawner.CharacterList;
         Dictionary<Character, int> dic = spawner.RescueCount;
 

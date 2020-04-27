@@ -32,10 +32,6 @@ public class SnakeController : MonoBehaviour
         _defaultBushPos = Bush.transform.position;
     }
 
-    void Start() {
-        Play();
-    }
-
     void Update()
     {
         if(Input.GetButtonDown("Cancel")) {
@@ -95,7 +91,7 @@ public class SnakeController : MonoBehaviour
     public void AddTail() {
         _adding = true;
 
-        SpawnManager spawner = GameManager.Instance.SpawnManager;
+        SpawnController spawner = GameManager.Instance.SnakeManager.SpawnController;
 
         Character tail = spawner.SpawnCharacter();
         tail.transform.SetParent(transform);
@@ -154,7 +150,6 @@ public class SnakeController : MonoBehaviour
         Head.CancelWalk();
 
         Bush.transform.position = _defaultBushPos;
-        Play();
     }
 
     public void Play() {

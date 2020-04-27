@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnController : MonoBehaviour
 {
     [System.Serializable]
     public struct SpawnRate {
@@ -48,7 +48,7 @@ public class SpawnManager : MonoBehaviour
         RescueCount[result]++;
         TotalRescueCount++;
 
-        PlayView view = GameManager.Instance.PlayView;
+        PlayView view = GameManager.Instance.SnakeManager.PlayView;
         view.SetCount(TotalRescueCount);
         
         return Instantiate(result.gameObject).GetComponent<Character>();

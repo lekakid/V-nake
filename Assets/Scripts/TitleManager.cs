@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class TitleHandler : MonoBehaviour
+public class TitleManager : MonoBehaviour
 {
-    [Header("Control")]
+    [Header("Object")]
     public RectTransform Indexer;
     public GameObject[] Menus;
 
@@ -19,6 +19,7 @@ public class TitleHandler : MonoBehaviour
 
     void Start()
     {
+        GameManager.Instance.TitleManager = this;
         SoundManager.Instance.PlayBGM("Title");
     }
 
@@ -48,7 +49,7 @@ public class TitleHandler : MonoBehaviour
 
     public void Play() {
         SoundManager.Instance.PlaySFX("Select");
-        GameManager.Instance.Play();
+        GameManager.Instance.LoadSnake();
     }
 
     public void Howto() {
