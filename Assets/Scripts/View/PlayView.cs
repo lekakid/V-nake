@@ -7,6 +7,16 @@ public class PlayView : MonoBehaviour
 {
     public TextMeshProUGUI Count;
 
+    void Update() {
+        if(GameManager.Instance.State != GameStateType.PLAY)
+            return;
+
+        if(Input.GetButtonDown("Cancel")) {
+            GameManager.Instance.State = GameStateType.PAUSEMENU;
+            return;
+        }
+    }
+
     public void Init() {
         SetCount(0);
     }

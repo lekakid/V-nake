@@ -75,13 +75,22 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    void OnApplicationQuit() {
+        Instance = null;
+    }
+
     public void PlayBGM(string name) {
+        float time = 0;
+
         if(_bgmSource.clip != null) {
-            _bgmSource.DOFade(0, 0.6f);
+            time = 0.6f;
         }
-        _bgmSource.clip = _bgm[name];
-        _bgmSource.volume = _bgmVolume * _masterVolume;
-        _bgmSource.Play();
+
+        _bgmSource.DOFade(0, time).SetUpdate(true).OnComplete(() => {
+            _bgmSource.clip = _bgm[name];
+            _bgmSource.volume = _bgmVolume * _masterVolume;
+            _bgmSource.Play();
+        });
     }
 
     public void PlaySFX(string name) {

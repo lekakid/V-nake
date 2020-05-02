@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class SnakeManager : MonoBehaviour
@@ -17,41 +16,68 @@ public class SnakeManager : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.SnakeManager = this;
-        //SoundManager.Instance.PlayBGM("Snake");
-        Play();
+        GameManager.Instance.CurrentManager = this.gameObject;
+        GameManager.Instance.OnStateChangedBefore += OnStateChangedBefore;
+        GameManager.Instance.OnStateChangedAfter += OnStateChangedAfter;
+
+        SoundManager.Instance.PlayBGM("Snake");
+        GameManager.Instance.State = GameStateType.PLAY;
     }
 
-    public void Init() {
+    void OnDestroy() {
+        GameManager.Instance.CurrentManager = null;
+        GameManager.Instance.OnStateChangedBefore -= OnStateChangedBefore;
+        GameManager.Instance.OnStateChangedAfter -= OnStateChangedAfter;
+    }
+
+    public void OnStateChangedBefore() {
+        switch(GameManager.Instance.State) {
+            case GameStateType.PLAY:
+                Time.timeScale = 0;
+                break;
+            case GameStateType.GAMEOVER:
+                Init();
+                break;
+            case GameStateType.PAUSEMENU:
+                PauseView.gameObject.SetActive(false);
+                break;
+        }
+    }
+
+    public void OnStateChangedAfter() {
+        switch(GameManager.Instance.State) {
+            case GameStateType.PLAY:
+                Time.timeScale = 1;
+                break;
+            case GameStateType.PAUSEMENU:
+                PauseView.gameObject.SetActive(true);
+                break;
+        }
+    }
+
+    void Init() {
         PlayView.Init();
-        PauseView.Hide();
+        PauseView.gameObject.SetActive(false);
         ResultView.Init();
         SnakeController.Init();
         SpawnController.Init();
     }
 
-    public void Play() {
-        SnakeController.Play();
-    }
-
-    public void Pause() {
-        SoundManager.Instance.PlaySFX("Select");
-        GameManager.Instance.Pause();
-    }
-
     public void Resume() {
-        SoundManager.Instance.PlaySFX("Select");
-        GameManager.Instance.Resume();
+        GameManager.Instance.State = GameStateType.PLAY;
     }
 
     public void Restart() {
-        SoundManager.Instance.PlaySFX("Select");
         Init();
-        Play();
+        GameManager.Instance.State = GameStateType.PLAY;
     }
 
     public void ReturnTitle() {
-        SoundManager.Instance.PlaySFX("Select");
-        GameManager.Instance.LoadTitle();
+        SnakeController.Init();
+        SceneManager.LoadScene("Title");
+    }
+
+    public void Quit() {
+        Application.Quit();
     }
 }

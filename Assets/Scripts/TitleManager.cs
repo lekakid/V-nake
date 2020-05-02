@@ -19,20 +19,24 @@ public class TitleManager : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.TitleManager = this;
+        GameManager.Instance.CurrentManager = this.gameObject;
         SoundManager.Instance.PlayBGM("Title");
+        GameManager.Instance.State = GameStateType.TITLE;
     }
 
     void Update()
     {
+        if(GameManager.Instance.State != GameStateType.TITLE)
+            return;
+
         float y = Input.GetAxisRaw("Vertical");
         bool down = Input.GetButtonDown("Vertical");
 
-        if(down && !ModalPanel.activeSelf) {
+        if(down) {
             if(y < 0) {
-                SetSelect(++_selected % 5);
+                SetSelect(++_selected % Menus.Length);
             } else if (y > 0) {
-                SetSelect((--_selected < 0) ? 4 : _selected % 5);
+                SetSelect((--_selected < 0) ? Menus.Length - 1 : _selected % Menus.Length);
             }
         }
     }
@@ -49,7 +53,7 @@ public class TitleManager : MonoBehaviour
 
     public void Play() {
         SoundManager.Instance.PlaySFX("Select");
-        GameManager.Instance.LoadSnake();
+        SceneManager.LoadScene("Snake");
     }
 
     public void Howto() {
@@ -57,14 +61,15 @@ public class TitleManager : MonoBehaviour
         ModalPanel.SetActive(true);
         HowToPopup.SetActive(true);
         SoundManager.Instance.PlaySFX("Select");
+        GameManager.Instance.State = GameStateType.HOWTO;
     }
 
     public void Gallery() {
-
+        SoundManager.Instance.PlaySFX("Select");
     }
 
     public void Setting() {
-
+        SoundManager.Instance.PlaySFX("Select");
     }
 
     public void Quit() {
@@ -77,5 +82,6 @@ public class TitleManager : MonoBehaviour
         HowToPopup.SetActive(false);
         EventSystem.current.SetSelectedGameObject(Menus[_selected]);
         SoundManager.Instance.PlaySFX("Select");
+        GameManager.Instance.State = GameStateType.TITLE;
     }
 }
