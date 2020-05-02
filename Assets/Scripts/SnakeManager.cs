@@ -24,12 +24,6 @@ public class SnakeManager : MonoBehaviour
         GameManager.Instance.State = GameStateType.PLAY;
     }
 
-    void OnDestroy() {
-        GameManager.Instance.CurrentManager = null;
-        GameManager.Instance.OnStateChangedBefore -= OnStateChangedBefore;
-        GameManager.Instance.OnStateChangedAfter -= OnStateChangedAfter;
-    }
-
     public void OnStateChangedBefore() {
         switch(GameManager.Instance.State) {
             case GameStateType.PLAY:
@@ -74,6 +68,8 @@ public class SnakeManager : MonoBehaviour
 
     public void ReturnTitle() {
         SnakeController.Init();
+        GameManager.Instance.OnStateChangedBefore -= OnStateChangedBefore;
+        GameManager.Instance.OnStateChangedAfter -= OnStateChangedAfter;
         SceneManager.LoadScene("Title");
     }
 
