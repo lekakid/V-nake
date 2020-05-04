@@ -1,54 +1,96 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
-    [Header("Object")]
-    public RectTransform Indexer;
-    public GameObject[] Menus;
+    public MenuSelectorView TitleView;
+    public GameObject HowtoView;
+    public SettingView SettingView;
 
-    [Header("View")]
-    public GameObject ModalPanel;
-    public GameObject HowToPopup;
-    public GameObject SettingPopup;
+    public TitleManager Instance { get; private set; }
+    public enum ViewStateType { TITLE, HOWTO, SETTING }
+    public ViewStateType ViewState { get; private set; }
 
     int _selected;
 
-    void Start()
-    {
-        GameManager.Instance.CurrentManager = this.gameObject;
+    void Start() {
         SoundManager.Instance.PlayBGM("Title");
-        GameManager.Instance.State = GameStateType.TITLE;
     }
 
-    void Update()
-    {
-        if(GameManager.Instance.State != GameStateType.TITLE)
-            return;
+    void Update() {
+        switch(ViewState) {
+            case ViewStateType.TITLE:
+                OnTitleMenu();
+                break;
+            case ViewStateType.HOWTO:
+                if(Input.GetButtonDown("Submit") || Input.GetMouseButtonDown(0)) {
+                    HowtoView.SetActive(false);
+                    ViewState = ViewStateType.TITLE;
+                }
+                break;
+            case ViewStateType.SETTING:
+                OnSettingMenu();
+                break;
+        }
+    }
 
+    void OnTitleMenu() {
         float y = Input.GetAxisRaw("Vertical");
-        bool down = Input.GetButtonDown("Vertical");
+        if(Input.GetButtonDown("Vertical")) {
+            if(y > 0)
+                TitleView.SelectPrev();
+            else
+                TitleView.SelectNext();
+        }
 
-        if(down) {
-            if(y < 0) {
-                SetSelect(++_selected % Menus.Length);
-            } else if (y > 0) {
-                SetSelect((--_selected < 0) ? Menus.Length - 1 : _selected % Menus.Length);
+        if(Input.GetButtonDown("Submit")) {
+            switch(TitleView.selected) {
+                case 0:
+                    Play();
+                    break;
+                case 1:
+                    Howto();
+                    break;
+                case 2:
+                    Gallery();
+                    break;
+                case 3:
+                    ShowSetting();
+                    break;
+                case 4:
+                    Quit();
+                    break;
             }
         }
     }
 
-    public void SetSelect(int index) {
-        if(ModalPanel.activeSelf)
+    void OnSettingMenu() {
+        if(Input.GetButtonDown("Cancel")) {
+            SettingView.SetActive(false);
+            ViewState = ViewStateType.TITLE;
             return;
+        }
 
-        Indexer.position = Menus[index].GetComponent<RectTransform>().position;
-        EventSystem.current.SetSelectedGameObject(Menus[index]);
-        _selected = index;
-        SoundManager.Instance.PlaySFX("Select");
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+        bool xdown = Input.GetButtonDown("Horizontal");
+        bool ydown = Input.GetButtonDown("Vertical");
+
+        if(xdown) {
+            if(x > 0)
+                SettingView.SelectVolumeNext();
+            else
+                SettingView.SelectVolumePrev();
+        }
+
+        if(ydown) {
+            if(y > 0)
+                SettingView.UpVolume();
+            else
+                SettingView.DownVolume();
+        }
     }
 
     public void Play() {
@@ -57,31 +99,23 @@ public class TitleManager : MonoBehaviour
     }
 
     public void Howto() {
-        EventSystem.current.SetSelectedGameObject(ModalPanel);
-        ModalPanel.SetActive(true);
-        HowToPopup.SetActive(true);
         SoundManager.Instance.PlaySFX("Select");
-        GameManager.Instance.State = GameStateType.HOWTO;
+        ViewState = ViewStateType.HOWTO;
+        HowtoView.SetActive(true);
     }
 
     public void Gallery() {
         SoundManager.Instance.PlaySFX("Select");
     }
 
-    public void Setting() {
+    public void ShowSetting() {
         SoundManager.Instance.PlaySFX("Select");
+        ViewState = ViewStateType.SETTING;
+        SettingView.SetActive(true);
     }
 
     public void Quit() {
         SoundManager.Instance.PlaySFX("Select");
         Application.Quit();
-    }
-
-    public void ModalOff() {
-        ModalPanel.SetActive(false);
-        HowToPopup.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(Menus[_selected]);
-        SoundManager.Instance.PlaySFX("Select");
-        GameManager.Instance.State = GameStateType.TITLE;
     }
 }

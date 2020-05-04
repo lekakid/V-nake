@@ -17,18 +17,12 @@ public class SpawnController : MonoBehaviour
     public Dictionary<Character, int> RescueCount;
     public int TotalRescueCount { get; private set; }
 
-    SnakeManager _snakeManager;
-
     void Awake()
     {
         RescueCount = new Dictionary<Character, int>();
         foreach(Character c in CharacterList) {
             RescueCount.Add(c, 0);
         }
-    }
-
-    void Start() {
-        _snakeManager = GameManager.Instance.CurrentManager.GetComponent<SnakeManager>();
     }
 
     public void Init() {
@@ -55,7 +49,7 @@ public class SpawnController : MonoBehaviour
         TotalRescueCount++;
 
 
-        PlayView view = _snakeManager.PlayView;
+        PlayView view = GameManager.Instance.PlayView;
         view.SetCount(TotalRescueCount);
         
         return Instantiate(result.gameObject).GetComponent<Character>();

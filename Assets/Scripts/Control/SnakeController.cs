@@ -13,8 +13,6 @@ public class SnakeController : MonoBehaviour
     public float InputDelay = 0.12f;
     public float SpawnDelay = 0.12f;
 
-    SnakeManager _snakeManager;
-
     Vector2 _defaultPos;
     Vector2 _defaultBushPos;
     Queue<Vector2> _inputBuffer = new Queue<Vector2>();
@@ -35,12 +33,14 @@ public class SnakeController : MonoBehaviour
     }
 
     void Start() {
-        _snakeManager = GameManager.Instance.CurrentManager.GetComponent<SnakeManager>();
         Play();
     }
 
     void Update()
     {
+        if(GameManager.Instance.ViewState != GameManager.ViewStateType.PLAY)
+            return;
+            
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
@@ -68,14 +68,14 @@ public class SnakeController : MonoBehaviour
                _tailPositions[0].y > BorderLimit.position.y || _tailPositions[0].y < 0) {
                 Head.GetComponent<Animator>().SetBool("isDefeat", true);
                 Stop();
-                
+                GameManager.Instance.GameOver();
             }
 
             for(int i = 4; i < _tailPositions.Count; i++) {
                 if(_tailPositions[0] == _tailPositions[i]) {
                     Head.GetComponent<Animator>().SetBool("isDefeat", true);
                     Stop();
-                    GameManager.Instance.State = GameStateType.GAMEOVER;
+                    GameManager.Instance.GameOver();
                 }
             }
 
@@ -94,7 +94,7 @@ public class SnakeController : MonoBehaviour
     public void AddTail() {
         _adding = true;
 
-        SpawnController spawner = _snakeManager.SpawnController;
+        SpawnController spawner = GameManager.Instance.SpawnController;
 
         Character tail = spawner.SpawnCharacter();
         tail.transform.SetParent(transform);

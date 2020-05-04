@@ -4,21 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ResultView : MonoBehaviour
+public class ResultView : MonoView
 {
     [Header("Result Item")]
     public Transform Grid;
     public GameObject CountPrefab;
 
-    Animator _animator;
-
-    void Awake()
-    {
-        _animator = GetComponent<Animator>();
-    }
-
     public void Init() {
-        gameObject.SetActive(false);
+        SetActive(false);
         
         for(int i = Grid.childCount - 1; i >= 0; i--) {
             Destroy(Grid.GetChild(i).gameObject);
@@ -26,8 +19,7 @@ public class ResultView : MonoBehaviour
     }
     
     public void Show() {
-        SnakeManager manager = GameManager.Instance.CurrentManager.GetComponent<SnakeManager>();
-        SpawnController spawner = manager.SpawnController;
+        SpawnController spawner = GameManager.Instance.SpawnController;
         List<Character> list = spawner.CharacterList;
         Dictionary<Character, int> dic = spawner.RescueCount;
 

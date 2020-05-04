@@ -2380,7 +2380,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayView: {fileID: 1873812247}
-  PauseView: {fileID: 739026241}
+  PauseView: {fileID: 0}
+  SettingView: {fileID: 0}
   ResultView: {fileID: 1665362578}
   SnakeController: {fileID: 825843522}
   SpawnController: {fileID: 825843523}
@@ -2729,49 +2730,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529654244}
   m_CullTransparentMesh: 0
---- !u!1 &679631015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 679631017}
-  - component: {fileID: 679631016}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &679631016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679631015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca49d57b4d9c41340a37d1a42889b2e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &679631017
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679631015}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 646.1829, y: 358.3232, z: -92.75}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &718190800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,7 +2902,7 @@ GameObject:
   - component: {fileID: 739026238}
   - component: {fileID: 739026240}
   - component: {fileID: 739026239}
-  - component: {fileID: 739026241}
+  - component: {fileID: 739026242}
   m_Layer: 5
   m_Name: PauseView
   m_TagString: Untagged
@@ -3009,7 +2967,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739026237}
   m_CullTransparentMesh: 0
---- !u!114 &739026241
+--- !u!114 &739026242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3018,10 +2976,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 739026237}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13fbdf6d38c46e84189ee7e60b7bfd68, type: 3}
+  m_Script: {fileID: 11500000, guid: 44663e1914458c34384d993cf1a42cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Indexer: {fileID: 1193898058}
+  Selector: {fileID: 1193898058}
   Menus:
   - {fileID: 1133708357}
   - {fileID: 870562742}
@@ -3083,7 +3041,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 739026241}
+        - m_Target: {fileID: 739026242}
           m_MethodName: SetSelect
           m_Mode: 3
           m_Arguments:
@@ -3402,7 +3360,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 739026241}
+        - m_Target: {fileID: 739026242}
           m_MethodName: SetSelect
           m_Mode: 3
           m_Arguments:
@@ -3852,7 +3810,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 739026241}
+        - m_Target: {fileID: 739026242}
           m_MethodName: SetSelect
           m_Mode: 3
           m_Arguments:
@@ -7349,7 +7307,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 739026241}
+        - m_Target: {fileID: 739026242}
           m_MethodName: SetSelect
           m_Mode: 3
           m_Arguments:
@@ -8223,7 +8181,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2065846869
 GameObject:
@@ -8280,7 +8238,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 739026241}
+        - m_Target: {fileID: 739026242}
           m_MethodName: SetSelect
           m_Mode: 3
           m_Arguments:
