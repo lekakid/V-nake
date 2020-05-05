@@ -26,7 +26,7 @@ public class ResultView : MonoView
                 if(dic[c] > 0) {
                     GameObject i = Instantiate(CountPrefab);
                     i.GetComponentInChildren<Image>().sprite = c.SpriteRenderer.sprite;
-                    i.GetComponentInChildren<TextMeshProUGUI>().SetText(string.Format("x{0:00}", dic[c]));
+                    i.GetComponentInChildren<TextMeshProUGUI>().SetText(string.Format("x{0:000}", dic[c]));
                     i.transform.SetParent(Grid);
                 }
             }
