@@ -40,6 +40,12 @@ public class SettingView : MonoView
         TextVolume[_select].color = selected;
     }
 
+    public void SelectVolume(int index) {
+        _select = index;
+        InitColor();
+        TextVolume[index].color = selected;
+    }
+
     public void UpVolume() {
         VolumeValue[_select] = (VolumeValue[_select] == 100) ? 100 : VolumeValue[_select] + 5;
         TextVolume[_select].text = string.Format("{0}", VolumeValue[_select]);
@@ -49,6 +55,20 @@ public class SettingView : MonoView
     public void DownVolume() {
         VolumeValue[_select] = (VolumeValue[_select] == 0) ? 0 : VolumeValue[_select] - 5;
         TextVolume[_select].text = string.Format("{0}", VolumeValue[_select]);
+        ApplyVolume();
+    }
+
+    public void UpVolume(int index) {
+        SelectVolume(index);
+        VolumeValue[index] = (VolumeValue[index] == 100) ? 100 : VolumeValue[index] + 5;
+        TextVolume[index].text = string.Format("{0}", VolumeValue[index]);
+        ApplyVolume();
+    }
+
+    public void DownVolume(int index) {
+        SelectVolume(index);
+        VolumeValue[index] = (VolumeValue[index] == 0) ? 0 : VolumeValue[index] - 5;
+        TextVolume[index].text = string.Format("{0}", VolumeValue[index]);
         ApplyVolume();
     }
 

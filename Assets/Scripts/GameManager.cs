@@ -68,6 +68,26 @@ public class GameManager : MonoBehaviour
             else if(y < 0)
                 PauseView.SelectNext();
         }
+
+        if(Input.GetButtonDown("Submit")) {
+            switch(PauseView.selected) {
+                case 0:
+                    Resume();
+                    break;
+                case 1:
+                    Restart();
+                    break;
+                case 2:
+                    ShowSetting();
+                    break;
+                case 3:
+                    ReturnTitle();
+                    break;
+                case 4:
+                    Quit();
+                    break;
+            }
+        }
     }
 
     void OnSettingMenu() {
