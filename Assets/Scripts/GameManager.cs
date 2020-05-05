@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public SpawnController SpawnController;
 
     public static GameManager Instance { get; private set; }
-    public enum ViewStateType { PLAY, PAUSEMENU, SETTING, GAMEOVER }
+    public enum ViewStateType { PLAY, PAUSEMENU, SETTING, GAMEOVER, ENDING, TRUEEND }
     public ViewStateType ViewState { get; private set; }
 
     void Awake() {
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Start() {
         SoundManager.Instance.PlayBGM("Snake");
+        Play();
         ViewState = ViewStateType.PLAY;
     }
 
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     void OnPauseMenu() {
         if(Input.GetButtonDown("Cancel")) {
-            Resume();
+            Play();
             return;
         }
 
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
         if(Input.GetButtonDown("Submit")) {
             switch(PauseView.selected) {
                 case 0:
-                    Resume();
+                    Play();
                     break;
                 case 1:
                     Restart();
@@ -118,7 +119,6 @@ public class GameManager : MonoBehaviour
 
     void Init() {
         PlayView.Init();
-        PauseView.SetActive(false);
         ResultView.Init();
         SnakeController.Init();
         SpawnController.Init();
@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
         GameManager.Instance.ViewState = ViewStateType.PAUSEMENU;
     }
 
-    public void Resume() {
+    public void Play() {
         Time.timeScale = 1;
         PauseView.SetActive(false);
         GameManager.Instance.ViewState = ViewStateType.PLAY;
@@ -138,7 +138,9 @@ public class GameManager : MonoBehaviour
 
     public void Restart() {
         Init();
+        SnakeController.Play();
         Time.timeScale = 1;
+        PauseView.SetActive(false);
         ResultView.SetActive(false);
         GameManager.Instance.ViewState = ViewStateType.PLAY;
     }

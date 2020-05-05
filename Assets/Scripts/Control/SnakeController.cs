@@ -82,7 +82,7 @@ public class SnakeController : MonoBehaviour
             for(int i = 0; i < _tailPositions.Count; i++) {
                 _tail[i].Walk(_tailPositions[i], InputDelay);
             }
-            yield return new WaitForSeconds(InputDelay-0.01f);
+            yield return new WaitForSeconds(InputDelay-0.005f);
 
             if(_tailPositions[0] == (Vector2)Bush.position) {
                 AddTail();
@@ -153,8 +153,6 @@ public class SnakeController : MonoBehaviour
         Head.CancelWalk();
 
         Bush.transform.position = _defaultBushPos;
-        
-        Play();
     }
 
     public void Play() {
