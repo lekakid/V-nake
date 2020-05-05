@@ -15,9 +15,13 @@ public class SettingView : MonoView
     void Start() {
         VolumeValue = new int[3];
         
-        VolumeValue[0] = (int)(SoundManager.Instance.MasterVolume * 100f);
-        VolumeValue[1] = (int)(SoundManager.Instance.BGMVolume * 100f);
-        VolumeValue[2] = (int)(SoundManager.Instance.SFXVolume * 100f);
+        VolumeValue[0] = (int)(SoundManager.Instance.MasterVolume * 20f) * 5;
+        VolumeValue[1] = (int)(SoundManager.Instance.BGMVolume * 20f) * 5;
+        VolumeValue[2] = (int)(SoundManager.Instance.SFXVolume * 20f) * 5;
+
+        TextVolume[0].text = string.Format("{0}", VolumeValue[0]);
+        TextVolume[1].text = string.Format("{0}", VolumeValue[1]);
+        TextVolume[2].text = string.Format("{0}", VolumeValue[2]);
 
         TextVolume[0].color = selected;
     }
