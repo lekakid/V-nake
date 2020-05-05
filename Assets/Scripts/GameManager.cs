@@ -138,7 +138,9 @@ public class GameManager : MonoBehaviour
 
     public void Restart() {
         Init();
-        Resume();
+        Time.timeScale = 1;
+        ResultView.SetActive(false);
+        GameManager.Instance.ViewState = ViewStateType.PLAY;
     }
 
     public void GameOver() {
