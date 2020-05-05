@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public MenuSelectorView PauseView;
     public SettingView SettingView;
     public ResultView ResultView;
+    public MenuSelectorView ResultSelectorView;
 
     [Header("Control")]
     public SnakeController SnakeController;
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     void Start() {
         SoundManager.Instance.PlayBGM("Snake");
-        Play();
+        Time.timeScale = 1f;
         ViewState = ViewStateType.PLAY;
     }
 
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
                 OnSettingMenu();
                 break;
             case ViewStateType.GAMEOVER:
+                OnGameOverMenu();
                 break;
         }
     }
@@ -64,9 +66,9 @@ public class GameManager : MonoBehaviour
 
         float y = Input.GetAxisRaw("Vertical");
         if(Input.GetButtonDown("Vertical")) {
-            if(y > 0)
+            if(y > 0f)
                 PauseView.SelectPrev();
-            else if(y < 0)
+            else if(y < 0f)
                 PauseView.SelectNext();
         }
 
@@ -103,17 +105,38 @@ public class GameManager : MonoBehaviour
         bool ydown = Input.GetButtonDown("Vertical");
 
         if(xdown) {
-            if(x > 0)
+            if(x > 0f)
                 SettingView.SelectVolumeNext();
             else
                 SettingView.SelectVolumePrev();
         }
 
         if(ydown) {
-            if(y > 0)
+            if(y > 0f)
                 SettingView.UpVolume();
             else
                 SettingView.DownVolume();
+        }
+    }
+
+    void OnGameOverMenu() {
+        float y = Input.GetAxisRaw("Vertical");
+        if(Input.GetButtonDown("Vertical")) {
+            if(y > 0f)
+                ResultSelectorView.SelectPrev();
+            else if(y < 0f)
+                ResultSelectorView.SelectNext();
+        }
+
+        if(Input.GetButtonDown("Submit")) {
+            switch(ResultSelectorView.selected) {
+                case 0:
+                    Restart();
+                    break;
+                case 1:
+                    ReturnTitle();
+                    break;
+            }
         }
     }
 
@@ -125,48 +148,56 @@ public class GameManager : MonoBehaviour
     }
 
     public void Pause() {
-        Time.timeScale = 0;
+        SoundManager.Instance.PlaySFX("Select");
+        Time.timeScale = 0f;
         PauseView.SetActive(true);
         GameManager.Instance.ViewState = ViewStateType.PAUSEMENU;
     }
 
     public void Play() {
-        Time.timeScale = 1;
+        SoundManager.Instance.PlaySFX("Select");
+        Time.timeScale = 1f;
         PauseView.SetActive(false);
         GameManager.Instance.ViewState = ViewStateType.PLAY;
     }
 
     public void Restart() {
+        SoundManager.Instance.PlaySFX("Select");
+        SoundManager.Instance.PlayBGM("Snake");
         Init();
         SnakeController.Play();
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         PauseView.SetActive(false);
         ResultView.SetActive(false);
         GameManager.Instance.ViewState = ViewStateType.PLAY;
     }
 
     public void GameOver() {
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
         ResultView.SetActive(true);
         GameManager.Instance.ViewState = ViewStateType.GAMEOVER;
     }
 
     public void ShowSetting() {
+        SoundManager.Instance.PlaySFX("Select");
         SettingView.SetActive(true);
         GameManager.Instance.ViewState = ViewStateType.SETTING;
     }
 
     public void HideSetting() {
+        SoundManager.Instance.PlaySFX("Select");
         SettingView.SetActive(false);
         GameManager.Instance.ViewState = ViewStateType.PAUSEMENU;
     }
 
     public void ReturnTitle() {
+        SoundManager.Instance.PlaySFX("Select");
         SnakeController.Init();
         SceneManager.LoadScene("Title");
     }
 
     public void Quit() {
+        SoundManager.Instance.PlaySFX("Select");
         Application.Quit();
     }
 }

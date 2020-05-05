@@ -66,16 +66,14 @@ public class SnakeController : MonoBehaviour
 
             if(_tailPositions[0].x > BorderLimit.position.x || _tailPositions[0].x < 0 || 
                _tailPositions[0].y > BorderLimit.position.y || _tailPositions[0].y < 0) {
-                Head.GetComponent<Animator>().SetBool("isDefeat", true);
-                Stop();
-                GameManager.Instance.GameOver();
+                Dead();
+                yield return null;
             }
 
             for(int i = 4; i < _tailPositions.Count; i++) {
                 if(_tailPositions[0] == _tailPositions[i]) {
-                    Head.GetComponent<Animator>().SetBool("isDefeat", true);
-                    Stop();
-                    GameManager.Instance.GameOver();
+                    Dead();
+                    yield return null;
                 }
             }
 
@@ -131,6 +129,13 @@ public class SnakeController : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void Dead() {
+        Head.GetComponent<Animator>().SetBool("isDefeat", true);
+        SoundManager.Instance.PlaySFX("Dead");
+        SoundManager.Instance.StopBGM();
+        GameManager.Instance.GameOver();
     }
 
     public void Init() {

@@ -86,10 +86,17 @@ public class SoundManager : MonoBehaviour
             time = 0.6f;
         }
 
-        _bgmSource.DOFade(0, time).SetUpdate(true).OnComplete(() => {
+        _bgmSource.DOFade(0f, time).SetUpdate(true).OnComplete(() => {
             _bgmSource.clip = _bgm[name];
             _bgmSource.volume = _bgmVolume * _masterVolume;
             _bgmSource.Play();
+        });
+    }
+
+    public void StopBGM() {
+        _bgmSource.DOFade(0f, 0.6f).SetUpdate(true).OnComplete(() => {
+            _bgmSource.Stop();
+            _bgmSource.clip = null;
         });
     }
 

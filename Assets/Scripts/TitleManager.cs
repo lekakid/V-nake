@@ -39,7 +39,7 @@ public class TitleManager : MonoBehaviour
     void OnTitleMenu() {
         float y = Input.GetAxisRaw("Vertical");
         if(Input.GetButtonDown("Vertical")) {
-            if(y > 0)
+            if(y > 0f)
                 TitleView.SelectPrev();
             else
                 TitleView.SelectNext();
@@ -68,8 +68,7 @@ public class TitleManager : MonoBehaviour
 
     void OnSettingMenu() {
         if(Input.GetButtonDown("Cancel")) {
-            SettingView.SetActive(false);
-            ViewState = ViewStateType.TITLE;
+            HideSetting();
             return;
         }
 
@@ -79,14 +78,14 @@ public class TitleManager : MonoBehaviour
         bool ydown = Input.GetButtonDown("Vertical");
 
         if(xdown) {
-            if(x > 0)
+            if(x > 0f)
                 SettingView.SelectVolumeNext();
             else
                 SettingView.SelectVolumePrev();
         }
 
         if(ydown) {
-            if(y > 0)
+            if(y > 0f)
                 SettingView.UpVolume();
             else
                 SettingView.DownVolume();
@@ -112,6 +111,12 @@ public class TitleManager : MonoBehaviour
         SoundManager.Instance.PlaySFX("Select");
         ViewState = ViewStateType.SETTING;
         SettingView.SetActive(true);
+    }
+
+    public void HideSetting() {
+        SoundManager.Instance.PlaySFX("Select");
+        ViewState = ViewStateType.TITLE;
+        SettingView.SetActive(false);
     }
 
     public void Quit() {
