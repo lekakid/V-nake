@@ -57,10 +57,6 @@ public class SoundManager : MonoBehaviour
 
         _bgmSource.loop = true;
 
-        BGMVolume = 1f;
-        SFXVolume = 1f;
-        MasterVolume = 1f;
-
         _bgm = new Dictionary<string, AudioClip>();
         _sfx = new Dictionary<string, AudioClip>();
         AudioClip[] bgmList = Resources.LoadAll<AudioClip>(BGMPath);
@@ -75,7 +71,18 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    void Start() {
+        MasterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
+        BGMVolume = PlayerPrefs.GetFloat("BGMVolume", 1f);
+        SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+    }
+
     void OnApplicationQuit() {
+        PlayerPrefs.SetFloat("MasterVolume", MasterVolume);
+        PlayerPrefs.SetFloat("BGMVolume", BGMVolume);
+        PlayerPrefs.SetFloat("SFXVolume", SFXVolume);
+        PlayerPrefs.Save();
+
         Instance = null;
     }
 
