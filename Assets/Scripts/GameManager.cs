@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     void Start() {
         SoundManager.Instance.PlayBGM("Snake");
         Time.timeScale = 1f;
+        Application.targetFrameRate = 60;
         ViewState = ViewStateType.PLAY;
     }
 

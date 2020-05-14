@@ -16,6 +16,8 @@ public class TitleManager : MonoBehaviour
     int _selected;
 
     void Start() {
+        Application.targetFrameRate = 24;
+        Time.timeScale = 1f;
         SoundManager.Instance.PlayBGM("Title");
     }
 

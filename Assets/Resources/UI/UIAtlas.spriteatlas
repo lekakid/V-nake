@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UIAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: be870d1c2d315834e82c45804cd6a8cb, type: 3}
+    - {fileID: 2800000, guid: 5bc241794ff22704a9d811a222c9d494, type: 3}
+    - {fileID: 2800000, guid: 8d4dbf9cf3195254481bbacfe119dc26, type: 3}
+    - {fileID: 2800000, guid: bbe99e5083fc17742ba93eeba385a836, type: 3}
+    - {fileID: 2800000, guid: d6fced35233fec94c8fdcb177b59c7ca, type: 3}
+    - {fileID: 2800000, guid: fda5cf95b94be2a4180f19d351d8f11f, type: 3}
+    - {fileID: 2800000, guid: 7ed5e7c4be64c84429b7ecb7ab967bbb, type: 3}
+    totalSpriteSurfaceArea: 1892084
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: bbe99e5083fc17742ba93eeba385a836, type: 3}
+  - {fileID: 21300000, guid: 7ed5e7c4be64c84429b7ecb7ab967bbb, type: 3}
+  - {fileID: 21300000, guid: d6fced35233fec94c8fdcb177b59c7ca, type: 3}
+  - {fileID: 21300000, guid: fda5cf95b94be2a4180f19d351d8f11f, type: 3}
+  - {fileID: 21300000, guid: 5bc241794ff22704a9d811a222c9d494, type: 3}
+  - {fileID: 21300000, guid: be870d1c2d315834e82c45804cd6a8cb, type: 3}
+  - {fileID: 21300000, guid: 8d4dbf9cf3195254481bbacfe119dc26, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - light
+  - Valkyrie_Shadow
+  - howto
+  - Count
+  - Valkyrie
+  - title
+  - setting
+  m_Tag: UIAtlas
+  m_IsVariant: 0
