@@ -6,21 +6,30 @@ public class SpawnController : MonoBehaviour
 {
     [System.Serializable]
     public struct SpawnRate {
-        public ClassType Class;
+        public CharacterRarityType Rarity;
         public float Rate;
     }
 
     [Header("Character")]
+    public Character Prefab;
     public List<SpawnRate> SpawnRateList;
-    public List<Character> CharacterList;
+    public List<CharacterData> CharacterList;
     
-    public Dictionary<Character, int> RescueCount;
-    public int TotalRescueCount { get; private set; }
+    private int _totalRescueCount;
+    public int TotalRescueCount { 
+        get { return _totalRescueCount; }
+        private set {
+            _totalRescueCount = value;
+            GameManager.Instance.PlayView.SetCount(_totalRescueCount);
+        }
+    }
+
+    public Dictionary<CharacterData, int> RescueCount;
 
     void Awake()
     {
-        RescueCount = new Dictionary<Character, int>();
-        foreach(Character c in CharacterList) {
+        RescueCount = new Dictionary<CharacterData, int>();
+        foreach(CharacterData c in CharacterList) {
             RescueCount.Add(c, 0);
         }
     }
@@ -28,7 +37,7 @@ public class SpawnController : MonoBehaviour
     public void Init() {
         TotalRescueCount = 0;
 
-        foreach(Character c in CharacterList) {
+        foreach(CharacterData c in CharacterList) {
             RescueCount[c] = 0;
         }
     }
@@ -42,16 +51,15 @@ public class SpawnController : MonoBehaviour
             r -= SpawnRateList[i++].Rate;
         }
 
-        List<Character> list = CharacterList.FindAll(c=>c.Class==SpawnRateList[i].Class);
-        Character result = list[(int)Random.Range(0, list.Count)];
+        List<CharacterData> spawntable = CharacterList.FindAll(c=>c.Rarity==SpawnRateList[i].Rarity);
+        CharacterData data = spawntable[(int)Random.Range(0, spawntable.Count)];
 
-        RescueCount[result]++;
+        RescueCount[data]++;
         TotalRescueCount++;
 
-
-        PlayView view = GameManager.Instance.PlayView;
-        view.SetCount(TotalRescueCount);
+        Character instance = Instantiate(Prefab.gameObject).GetComponent<Character>();
+        instance.Data = data;
         
-        return Instantiate(result.gameObject).GetComponent<Character>();
+        return instance;
     }
 }

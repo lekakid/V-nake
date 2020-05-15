@@ -2477,7 +2477,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 739026242}
+        - m_Target: {fileID: 1665362580}
           m_MethodName: SetSelect
           m_Mode: 3
           m_Arguments:
@@ -3061,8 +3061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43ff084a0eca6e49ad3f0e7efa997cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Class: 0
-  SpriteRenderer: {fileID: 718190802}
 --- !u!1 &733068556
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,23 +3535,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186d7c56804f1084b8ba3f69fc846828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Prefab: {fileID: 6052121727119000102, guid: 160ce36a5c88f3a47960fcd13bc3ce6d, type: 3}
   SpawnRateList:
-  - Class: 0
+  - Rarity: 0
     Rate: 95
-  - Class: 2
-    Rate: 5
-  - Class: 1
-    Rate: 0
-  - Class: 1
+  - Rarity: 1
+    Rate: 4
+  - Rarity: 2
+    Rate: 1
+  - Rarity: 3
     Rate: 0
   CharacterList:
-  - {fileID: 6052121727119000102, guid: 160ce36a5c88f3a47960fcd13bc3ce6d, type: 3}
-  - {fileID: 8692074799100354629, guid: 8dcfccf148b3b7547a66d830e4f5e9da, type: 3}
-  - {fileID: 3361741190144019216, guid: 9e2ff99ee440ef14b9c08515984d9861, type: 3}
-  - {fileID: 5814828151205910283, guid: a6dcb73470ba3a74e9336b47d47cde54, type: 3}
-  - {fileID: 5791325482040935619, guid: f00e13bec18745d41be29e460f8285e9, type: 3}
-  - {fileID: 7794530911292926564, guid: 4221dabaf4b7994448341f3e4dfb7cb0, type: 3}
-  - {fileID: 8130612068141264870, guid: 6f76876cd7737e14fba7ddcf034344bb, type: 3}
+  - {fileID: 11400000, guid: aedde3ab937743947b7c7f935edef8ba, type: 2}
+  - {fileID: 11400000, guid: a7d374423c2e8cd4ab5c425f0c3f2f8e, type: 2}
+  - {fileID: 11400000, guid: b4e2b11bea5d9454d80e69e3f0721f8d, type: 2}
+  - {fileID: 11400000, guid: 74c4b9c2d4f3355409117c247b15d07c, type: 2}
+  - {fileID: 11400000, guid: 2f3ba39e1e4340b45a61a4c46458240e, type: 2}
+  - {fileID: 11400000, guid: af07f895d6898a24b89017762f5ea7c1, type: 2}
+  - {fileID: 11400000, guid: e9b4d1860b03a94409c9a17012056339, type: 2}
 --- !u!1 &845186086
 GameObject:
   m_ObjectHideFlags: 0
@@ -4445,7 +4444,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 739026242}
+        - m_Target: {fileID: 1665362580}
           m_MethodName: SetSelect
           m_Mode: 3
           m_Arguments:

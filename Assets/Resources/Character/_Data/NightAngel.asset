@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6d861e28ffeeb49b21a41cee25e1d1, type: 3}
+  m_Name: NightAngel
+  m_EditorClassIdentifier: 
+  Image: {fileID: -8296385383580801948, guid: f697e7c67d4338844a4eeb39a4d6100d, type: 3}
+  Rarity: 1
+  AnimationController: {fileID: 9100000, guid: 0ab137ac1f499ce4aafa839a38eb606a, type: 2}

@@ -13,7 +13,6 @@ public class MenuSelectorView : MonoView
     public void SetSelect(int index) {
         GameObject menu = Menus[index];
         Selector.position = menu.GetComponent<RectTransform>().position;
-        EventSystem.current.SetSelectedGameObject(menu);
         selected = index;
         SoundManager.Instance.PlaySFX("Select");
     }

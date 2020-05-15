@@ -3,20 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public enum ClassType { B, A, S, SS }
+
 
 public class Character : MonoBehaviour
 {
-    public ClassType Class;
-    public SpriteRenderer SpriteRenderer;
-    
+    private CharacterData _data;
+    public CharacterData Data {
+        get { return _data; }
+        set {
+            _data = value;
+            _spriteRenderer.sprite = _data.Image;
+            _animator.runtimeAnimatorController = _data.AnimationController;
+        }
+    }
+
+    SpriteRenderer _spriteRenderer;
+    Animator _animator;
     bool _spawned;
+
+    public void Awake() {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
+    }
 
     public void Spawn(int order) {
         _spawned = true;
         transform.DOMove(transform.position + Vector3.up * 0.3f, 0.3f)
                  .SetEase(Ease.OutSine)
-                 .OnComplete(()=>{_spawned = false; SpriteRenderer.sortingOrder = order;});
+                 .OnComplete(()=>{_spawned = false; _spriteRenderer.sortingOrder = order;});
     }
 
     public void Walk(Vector2 Dir, float Delay) {
@@ -25,10 +39,10 @@ public class Character : MonoBehaviour
 
         float x = Dir.x - transform.position.x;
         if(x > 0) {
-            SpriteRenderer.flipX = true;
+            _spriteRenderer.flipX = true;
         }
         else if(x < 0) {
-            SpriteRenderer.flipX = false;
+            _spriteRenderer.flipX = false;
         }
 
         transform.DOMove(Dir, Delay).SetEase(Ease.Linear);

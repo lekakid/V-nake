@@ -142,8 +142,6 @@ public class GameManager : MonoBehaviour
     }
 
     void Init() {
-        PlayView.Init();
-        ResultView.Init();
         SnakeController.Init();
         SpawnController.Init();
     }
