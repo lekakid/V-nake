@@ -5,15 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
+    public Animator IntroAnimator;
     public MenuSelectorView TitleView;
     public GameObject HowtoView;
     public SettingView SettingView;
 
-    public TitleManager Instance { get; private set; }
-    public enum ViewStateType { TITLE, HOWTO, SETTING }
+    public static TitleManager Instance { get; private set; }
+    public enum ViewStateType { INTRO, TITLE, HOWTO, SETTING }
     public ViewStateType ViewState { get; private set; }
 
     int _selected;
+
+    void Awake() {
+        Instance = this;
+    }
 
     void Start() {
         Application.targetFrameRate = 24;
@@ -23,19 +28,30 @@ public class TitleManager : MonoBehaviour
 
     void Update() {
         switch(ViewState) {
+            case ViewStateType.INTRO:
+                OnIntro();
+                break;
             case ViewStateType.TITLE:
                 OnTitleMenu();
                 break;
             case ViewStateType.HOWTO:
-                if(Input.GetButtonDown("Submit") || Input.GetMouseButtonDown(0)) {
-                    HowtoView.SetActive(false);
-                    ViewState = ViewStateType.TITLE;
-                }
+                OnHowToMenu();
                 break;
             case ViewStateType.SETTING:
                 OnSettingMenu();
                 break;
         }
+    }
+
+    void OnIntro() {
+        if(Input.anyKeyDown) {
+            IntroAnimator.speed = 5f;
+        }
+    }
+
+    public void OnIntroFinished() {
+        IntroAnimator.speed = 1f;
+        ViewState = ViewStateType.TITLE;
     }
 
     void OnTitleMenu() {
@@ -65,6 +81,13 @@ public class TitleManager : MonoBehaviour
                     Quit();
                     break;
             }
+        }
+    }
+
+    void OnHowToMenu() {
+        if(Input.GetButtonDown("Submit") || Input.GetMouseButtonDown(0)) {
+            HowtoView.SetActive(false);
+            ViewState = ViewStateType.TITLE;
         }
     }
 
