@@ -72,16 +72,15 @@ public class SoundManager : MonoBehaviour
     }
 
     void Start() {
-        MasterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
-        BGMVolume = PlayerPrefs.GetFloat("BGMVolume", 1f);
-        SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        MasterVolume = PlayerPrefs.GetFloat("Volume.Master", 1f);
+        BGMVolume = PlayerPrefs.GetFloat("Volume.BGM", 1f);
+        SFXVolume = PlayerPrefs.GetFloat("Volume.SFX", 1f);
     }
 
     void OnApplicationQuit() {
-        PlayerPrefs.SetFloat("MasterVolume", MasterVolume);
-        PlayerPrefs.SetFloat("BGMVolume", BGMVolume);
-        PlayerPrefs.SetFloat("SFXVolume", SFXVolume);
-        PlayerPrefs.Save();
+        PlayerPrefs.SetFloat("Volume.Master", MasterVolume);
+        PlayerPrefs.SetFloat("Volume.BGM", BGMVolume);
+        PlayerPrefs.SetFloat("Volume.SFX", SFXVolume);
 
         Instance = null;
     }

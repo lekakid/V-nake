@@ -24,13 +24,14 @@ public class CharacterDatabase : MonoBehaviour
         _characterNames = new List<string>();
 
         foreach(CharacterScriptableObject o in Characters) {
-            
             _characterNames.Add(o.name);
             CurrentRescueScore.Add(o.name, 0);
             TotalRescueScore.Add(o.name, 0);
         }
 
-        // TODO : Saved data Loading
+        foreach(string n in _characterNames) {
+            TotalRescueScore[n] = PlayerPrefs.GetInt("Score." + n, 0);
+        }
     }
 
     public CharacterScriptableObject GetRandomCharacterData() {
@@ -72,6 +73,8 @@ public class CharacterDatabase : MonoBehaviour
             CurrentRescueScore[n] = 0;
         }
 
-        // TODO : Save data
+        foreach(string n in _characterNames) {
+            PlayerPrefs.SetInt("Score." + n, TotalRescueScore[n]);
+        }
     }
 }
