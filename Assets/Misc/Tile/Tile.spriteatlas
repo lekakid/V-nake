@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Tile
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 1cd378f8fd87abe4daddd4228c84e24c, type: 3}
+    - {fileID: 2800000, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+    totalSpriteSurfaceArea: 5632
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -4089055602841888082, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: 4360348043976854615, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: -2153530808768493442, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: 11524042293654580, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: 2908801250550157769, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: -8999289954616671534, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: -1127948401916081785, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: 1783235700561875181, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: -467764784649377622, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: 3296937535034516960, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: -8834256700724833404, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: -1879569726387443727, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: -8122749733422192677, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: 7443488731601174181, guid: a76594102078d414aa6c207b8aa14c2f, type: 3}
+  - {fileID: 9214522175769462251, guid: 1cd378f8fd87abe4daddd4228c84e24c, type: 3}
+  - {fileID: -3938865984922550181, guid: 1cd378f8fd87abe4daddd4228c84e24c, type: 3}
+  - {fileID: 7652805371216193885, guid: 1cd378f8fd87abe4daddd4228c84e24c, type: 3}
+  - {fileID: -9163426285224168042, guid: 1cd378f8fd87abe4daddd4228c84e24c, type: 3}
+  - {fileID: 9046047427341356226, guid: 1cd378f8fd87abe4daddd4228c84e24c, type: 3}
+  - {fileID: 4280891998608119737, guid: 1cd378f8fd87abe4daddd4228c84e24c, type: 3}
+  - {fileID: 8459950837826646842, guid: 1cd378f8fd87abe4daddd4228c84e24c, type: 3}
+  - {fileID: -7237844759737453513, guid: 1cd378f8fd87abe4daddd4228c84e24c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Door_2
+  - Door_1
+  - Border_8
+  - Border_9
+  - Border_1
+  - Border_2
+  - Border_3
+  - Border_4
+  - Border_6
+  - Border_7
+  - Wall_2
+  - Wall_3
+  - Wall_1
+  - Floor
+  - TileA'
+  - TileA
+  - TileB
+  - Dark2Dark
+  - Dark2Light
+  - TileB'
+  - Light2Light
+  - LightTree
+  m_Tag: Tile
+  m_IsVariant: 0
