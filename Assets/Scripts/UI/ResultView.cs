@@ -12,15 +12,15 @@ public class ResultView : MonoView
     
     public new void SetActive(bool active) {
         if(active) {
-            SpawnController spawner = GameManager.Instance.SpawnController;
-            List<CharacterData> list = spawner.CharacterList;
-            Dictionary<CharacterData, int> dic = spawner.RescueCount;
+            CharacterDatabase db = GameManager.Instance.SnakeController.CharacterDatabase;
+            List<CharacterScriptableObject> list = db.Characters;
+            Dictionary<string, int> dic = db.CurrentRescueScore;
 
-            foreach(CharacterData d in list) {
-                if(dic[d] > 0) {
+            foreach(CharacterScriptableObject d in list) {
+                if(dic[d.name] > 0) {
                     GameObject i = Instantiate(CountPrefab);
                     i.GetComponentInChildren<Image>().sprite = d.Image;
-                    i.GetComponentInChildren<TextMeshProUGUI>().SetText(string.Format("x{0:000}", dic[d]));
+                    i.GetComponentInChildren<TextMeshProUGUI>().SetText(string.Format("x{0:000}", dic[d.name]));
                     i.transform.SetParent(Grid);
                 }
             }

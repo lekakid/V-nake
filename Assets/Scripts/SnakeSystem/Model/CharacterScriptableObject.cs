@@ -5,7 +5,7 @@ using UnityEngine;
 public enum CharacterRarityType { B, A, S, SS }
 
 [CreateAssetMenu(fileName = "New Character Data", menuName = "Character/Data")]
-public class CharacterData : ScriptableObject
+public class CharacterScriptableObject : ScriptableObject
 {
     public Sprite Image;
     public CharacterRarityType Rarity;

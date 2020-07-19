@@ -12,9 +12,8 @@ public class GameManager : MonoBehaviour
     public ResultView ResultView;
     public MenuSelectorView ResultSelectorView;
 
-    [Header("Control")]
+    [Header("Controller")]
     public SnakeController SnakeController;
-    public SpawnController SpawnController;
 
     public static GameManager Instance { get; private set; }
     public enum ViewStateType { PLAY, PAUSEMENU, SETTING, GAMEOVER, ENDING, TRUEEND }
@@ -143,7 +142,6 @@ public class GameManager : MonoBehaviour
 
     void Init() {
         SnakeController.Init();
-        SpawnController.Init();
     }
 
     public void Pause() {
@@ -174,6 +172,7 @@ public class GameManager : MonoBehaviour
     public void GameOver() {
         Time.timeScale = 0f;
         ResultView.SetActive(true);
+        SnakeController.CharacterDatabase.UpdateScore();
         GameManager.Instance.ViewState = ViewStateType.GAMEOVER;
     }
 

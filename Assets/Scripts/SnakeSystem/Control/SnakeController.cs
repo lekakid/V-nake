@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SnakeController : MonoBehaviour
 {
+    [Header("Character")]
+    public Character CharacterPrefab;
+    public CharacterDatabase CharacterDatabase;
+
     [Header("Obejct")]
     public Transform Bush;
     public Character Head;
@@ -13,12 +17,17 @@ public class SnakeController : MonoBehaviour
     public float InputDelay = 0.12f;
     public float SpawnDelay = 0.12f;
 
+    // Default Position
     Vector2 _defaultPos;
     Vector2 _defaultBushPos;
+
+    // Input Data
     Queue<Vector2> _inputBuffer = new Queue<Vector2>();
     Vector2 _lastInput;
     Vector2 _walkDirection;
     Vector2 _lastTailPos;
+
+    // Snake Data
     List<Character> _tail = new List<Character>();
     List<Vector2> _tailPositions = new List<Vector2>();
 
@@ -89,15 +98,25 @@ public class SnakeController : MonoBehaviour
         }
     }
 
+    public Character SpawnCharacter() {
+        float r = Random.Range(0f, 100f);
+
+        CharacterScriptableObject data = CharacterDatabase.GetRandomCharacterData();
+        CharacterDatabase.AddPoint(data.name);
+
+        Character instance = Instantiate(CharacterPrefab.gameObject).GetComponent<Character>();
+        instance.Init(data);
+        
+        return instance;
+    }
+
     public void AddTail() {
         _adding = true;
 
-        SpawnController spawner = GameManager.Instance.SpawnController;
-
-        Character tail = spawner.SpawnCharacter();
+        Character tail = SpawnCharacter();
         tail.transform.SetParent(transform);
         tail.transform.position = Bush.position;
-        tail.Spawn(500 - spawner.TotalRescueCount);
+        tail.Spawn(500 - CharacterDatabase.GetScoreSum());
         
         _tail.Add(tail);
         _tailPositions.Add(_lastTailPos);

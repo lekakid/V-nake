@@ -7,16 +7,6 @@ using DG.Tweening;
 
 public class Character : MonoBehaviour
 {
-    private CharacterData _data;
-    public CharacterData Data {
-        get { return _data; }
-        set {
-            _data = value;
-            _spriteRenderer.sprite = _data.Image;
-            _animator.runtimeAnimatorController = _data.AnimationController;
-        }
-    }
-
     SpriteRenderer _spriteRenderer;
     Animator _animator;
     bool _spawned;
@@ -26,6 +16,11 @@ public class Character : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    public void Init(CharacterScriptableObject data) {
+        _spriteRenderer.sprite = data.Image;
+        _animator.runtimeAnimatorController = data.AnimationController;
+    }
+    
     public void Spawn(int order) {
         _spawned = true;
         transform.DOMove(transform.position + Vector3.up * 0.3f, 0.3f)
