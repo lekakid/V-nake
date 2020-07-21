@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class SnakeController : MonoBehaviour
 {
+    [Header("View")]
+    public PlayView PlayView;
+    public MenuView PauseView;
+    public ResultView ResultView;
+
     [Header("Character")]
     public Character CharacterPrefab;
     public CharacterDatabase CharacterDatabase;
@@ -11,6 +16,8 @@ public class SnakeController : MonoBehaviour
     [Header("Obejct")]
     public Transform Bush;
     public Character Head;
+
+    [Header("Misc")]
     public Transform BorderLimit;
 
     [Header("Delay")]
@@ -35,6 +42,8 @@ public class SnakeController : MonoBehaviour
 
     void Awake()
     {
+        GameManager.SnakeController = this;
+        
         _tail.Add(Head);
         _tailPositions.Add((Vector2)Head.transform.position);
         _defaultPos = Head.transform.position;
@@ -42,14 +51,20 @@ public class SnakeController : MonoBehaviour
     }
 
     void Start() {
-        Play();
+        StartCoroutine("SnakeMove");
     }
 
     void Update()
     {
-        if(GameManager.Instance.ViewState != GameManager.ViewStateType.PLAY)
+        if(UIManager.Instance.Current != PlayView)
             return;
-            
+
+        if(Input.GetButtonDown("Cancel")) {
+            UIManager.Instance.Push(PauseView);
+            GameManager.Pause();
+            return;
+        }
+
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
@@ -75,13 +90,13 @@ public class SnakeController : MonoBehaviour
 
             if(_tailPositions[0].x > BorderLimit.position.x || _tailPositions[0].x < 0 || 
                _tailPositions[0].y > BorderLimit.position.y || _tailPositions[0].y < 0) {
-                Dead();
+                GameOver();
                 yield return null;
             }
 
             for(int i = 4; i < _tailPositions.Count; i++) {
                 if(_tailPositions[0] == _tailPositions[i]) {
-                    Dead();
+                    GameOver();
                     yield return null;
                 }
             }
@@ -121,6 +136,8 @@ public class SnakeController : MonoBehaviour
         _tail.Add(tail);
         _tailPositions.Add(_lastTailPos);
 
+        PlayView.SetScore(CharacterDatabase.GetScoreSum());
+
         _adding = false;
 
         SoundManager.Instance.PlaySFX("Bush");
@@ -150,15 +167,18 @@ public class SnakeController : MonoBehaviour
         return false;
     }
 
-    public void Dead() {
+    public void GameOver() {
+        GameManager.Pause();
         Head.GetComponent<Animator>().SetBool("isDefeat", true);
         SoundManager.Instance.PlaySFX("Dead");
         SoundManager.Instance.StopBGM();
-        GameManager.Instance.GameOver();
+
+        ResultView.DrawResult(CharacterDatabase.Characters, CharacterDatabase.CurrentRescueScore);
+        UIManager.Instance.Push(ResultView);
     }
 
-    public void Init() {
-        Stop();
+    public void Reset() {
+        StopCoroutine("SnakeMove");
         
         _lastInput = Vector2.zero;
         _walkDirection = Vector2.zero;
@@ -177,13 +197,7 @@ public class SnakeController : MonoBehaviour
         Head.CancelWalk();
 
         Bush.transform.position = _defaultBushPos;
-    }
 
-    public void Play() {
         StartCoroutine("SnakeMove");
-    }
-
-    public void Stop() {
-        StopCoroutine("SnakeMove");
     }
 }

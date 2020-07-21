@@ -47,7 +47,7 @@ public class SoundManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
-        else if(Instance != null & Instance != this) {
+        else {
             DestroyImmediate(this.gameObject);
             return;
         }
@@ -78,10 +78,6 @@ public class SoundManager : MonoBehaviour
     }
 
     void OnApplicationQuit() {
-        PlayerPrefs.SetFloat("Volume.Master", MasterVolume);
-        PlayerPrefs.SetFloat("Volume.BGM", BGMVolume);
-        PlayerPrefs.SetFloat("Volume.SFX", SFXVolume);
-
         Instance = null;
     }
 
