@@ -41,7 +41,8 @@ public class UIManager : MonoBehaviour
             return;
         UIView v = UIStack.Pop();
         v.Hide();
-        Current.Show();
+        if(Current != null)
+            Current.Show();
     }
 
     public void Clear() {
