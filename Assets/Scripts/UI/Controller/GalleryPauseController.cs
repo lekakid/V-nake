@@ -1,0 +1,67 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GalleryPauseController : MonoBehaviour
+{
+    public SettingView SettingView;
+    MenuView PauseView;
+
+    void Awake() {
+        PauseView = GetComponent<MenuView>();
+    }
+
+    void Update() {
+        if(UIManager.Instance.Current != PauseView)
+            return;
+
+        if(Input.GetButtonDown("Cancel")) {
+            Resume();
+            return;
+        }
+
+        float y = Input.GetAxisRaw("Vertical");
+        bool ydown = Input.GetButtonDown("Vertical");
+
+        if(ydown) {
+            if(y > 0f)
+                PauseView.SelectPrev();
+            else
+                PauseView.SelectNext();
+        }
+
+        if(Input.GetButtonDown("Submit")) {
+            switch(PauseView.SelectorValue) {
+                case 0:
+                    Resume();
+                    break;
+                case 1:
+                    ShowSetting();
+                    break;
+                case 2:
+                    ReturnTitle();
+                    break;
+                case 3:
+                    Quit();
+                    break;
+            }
+        }
+    }
+
+    void Resume() {
+        UIManager.Instance.Pop();
+        GameManager.Resume();
+    }
+
+    void ShowSetting() {
+        UIManager.Instance.Push(SettingView);
+    }
+
+    void ReturnTitle() {
+        GameManager.LoadScene("Title");
+    }
+
+    void Quit() {
+        Application.Quit();
+    }
+}
