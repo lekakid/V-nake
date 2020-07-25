@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 4096
+      m_MaxTextureSize: 2048
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 0
@@ -49,7 +49,9 @@ SpriteAtlas:
     - {fileID: 2800000, guid: d6fced35233fec94c8fdcb177b59c7ca, type: 3}
     - {fileID: 2800000, guid: fda5cf95b94be2a4180f19d351d8f11f, type: 3}
     - {fileID: 2800000, guid: 7ed5e7c4be64c84429b7ecb7ab967bbb, type: 3}
-    totalSpriteSurfaceArea: 1892084
+    - {fileID: 2800000, guid: e1db0ca5616bacd4cb05cd7b12877503, type: 3}
+    - {fileID: 2800000, guid: fcb312af8478d2c45ab4b6df3a92c8d2, type: 3}
+    totalSpriteSurfaceArea: 2219740
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -57,16 +59,20 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 7ed5e7c4be64c84429b7ecb7ab967bbb, type: 3}
   - {fileID: 21300000, guid: d6fced35233fec94c8fdcb177b59c7ca, type: 3}
   - {fileID: 21300000, guid: fda5cf95b94be2a4180f19d351d8f11f, type: 3}
+  - {fileID: 21300000, guid: e1db0ca5616bacd4cb05cd7b12877503, type: 3}
   - {fileID: 21300000, guid: 5bc241794ff22704a9d811a222c9d494, type: 3}
   - {fileID: 21300000, guid: be870d1c2d315834e82c45804cd6a8cb, type: 3}
   - {fileID: 21300000, guid: 8d4dbf9cf3195254481bbacfe119dc26, type: 3}
+  - {fileID: 21300000, guid: fcb312af8478d2c45ab4b6df3a92c8d2, type: 3}
   m_PackedSpriteNamesToIndex:
   - light
   - Valkyrie_Shadow
-  - howto
+  - HowTo
   - Count
+  - Credit
   - Valkyrie
   - title
   - setting
+  - Mask(Circle)
   m_Tag: UIAtlas
   m_IsVariant: 0

@@ -50,8 +50,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: f697e7c67d4338844a4eeb39a4d6100d, type: 3}
     - {fileID: 2800000, guid: b3e036b33d67df24990dc4f29a01e3ed, type: 3}
     - {fileID: 2800000, guid: 1164adb3f070f9d4eb0fdc2ac6abb553, type: 3}
-    - {fileID: 2800000, guid: 8adec47f0da96f04b99f237846ea1a3a, type: 3}
-    totalSpriteSurfaceArea: 6144
+    totalSpriteSurfaceArea: 5632
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -77,8 +76,6 @@ SpriteAtlas:
   - {fileID: 6552953382835774628, guid: cf0247feffe554d4c968c7214b5d717c, type: 3}
   - {fileID: 3218353051568008401, guid: cf0247feffe554d4c968c7214b5d717c, type: 3}
   - {fileID: -8296385383580801948, guid: cf0247feffe554d4c968c7214b5d717c, type: 3}
-  - {fileID: 4296193443984631328, guid: 8adec47f0da96f04b99f237846ea1a3a, type: 3}
-  - {fileID: -2770932246066905560, guid: 8adec47f0da96f04b99f237846ea1a3a, type: 3}
   m_PackedSpriteNamesToIndex:
   - walk_1
   - walk_0
@@ -102,7 +99,5 @@ SpriteAtlas:
   - deco
   - walk_1
   - walk_0
-  - Bush_0
-  - Bush_1
   m_Tag: CharacterAtlas
   m_IsVariant: 0
