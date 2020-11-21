@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static PauseController PauseController { get; set; }
     public static SettingController SettingController { get; set; }
     public static ResultController ResultController { get; set; }
+    public static DialogueController DialogueController { get; set; }
 
     public static GameManager Instance { get; private set; }
 
