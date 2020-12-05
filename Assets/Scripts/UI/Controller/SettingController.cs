@@ -13,7 +13,6 @@ public class SettingController : MonoBehaviour
     int _sfx;
 
     void Awake() {
-        GameManager.SettingController = this;
         SettingView = GetComponent<SettingView>();
         _selected = VolumeMixer.MixerType.MASTER;
         SettingView.SetSelectColor(_selected);

@@ -8,7 +8,6 @@ public class PauseController : MonoBehaviour
     MenuView PauseView;
 
     void Awake() {
-        GameManager.PauseController = this;
         PauseView = GetComponent<MenuView>();
     }
 

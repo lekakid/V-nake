@@ -7,8 +7,6 @@ using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
     public static SnakeController SnakeController { get; set; }
-    public static PauseController PauseController { get; set; }
-    public static SettingController SettingController { get; set; }
     public static ResultController ResultController { get; set; }
     public static DialogueController DialogueController { get; set; }
 
