@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class TitleController : MonoBehaviour
 {
-    public CanvasView HowtoView;
-    public SettingView SettingView;
-    MenuView TitleView;
+    public SettingController SettingController;
+    public PopupController PopupController;
 
-    Animator _animator;
+    public MenuView TitleView;
+    public Animator Animator;
 
-    void Awake() {
-        _animator = GetComponent<Animator>();
-        TitleView = GetComponent<MenuView>();
+    void Start() {
+        TitleView.Show();
     }
 
     void Update() {
         if(TitleView.isAnimating) {
             if(Input.anyKeyDown) {
-                _animator.speed = 50f;
+                Animator.speed = 50f;
                 return;
             }
         }
@@ -59,7 +58,8 @@ public class TitleController : MonoBehaviour
     }
 
     public void ShowHowTo() {
-        // UIManager.Instance.Push(HowtoView);
+        GameManager.PushController(this);
+        PopupController.enabled = true;
     }
 
     public void VisitGallery() {
@@ -67,7 +67,8 @@ public class TitleController : MonoBehaviour
     }
 
     public void ShowSetting() {
-        // UIManager.Instance.Push(SettingView);
+        GameManager.PushController(this);
+        SettingController.enabled = true;
     }
 
     public void Quit() {
