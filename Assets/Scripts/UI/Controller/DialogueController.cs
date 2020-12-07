@@ -10,10 +10,6 @@ public class DialogueController : MonoBehaviour
     Dialogue[] _currentDialogue;
     int _dialogueIndex = -1;
 
-    void Awake() {
-        GameManager.DialogueController = this;
-    }
-
     void Update()
     {
         // 대화 진행 키보드 입력 처리
@@ -34,8 +30,6 @@ public class DialogueController : MonoBehaviour
         _currentDialogue = obj.Dialogues;
         _dialogueIndex = 0;
 
-        UIManager.Instance.Push(DialogueView);
-
         PrintDialogue();
     }
 
@@ -44,7 +38,6 @@ public class DialogueController : MonoBehaviour
 
         if(_dialogueIndex >= _currentDialogue.Length) {
             _dialogueIndex = -1;
-            UIManager.Instance.Pop();
             return;
         }
 

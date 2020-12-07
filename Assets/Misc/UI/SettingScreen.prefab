@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7935525393277412732}
+      - m_Target: {fileID: 0}
         m_MethodName: UpVolume
         m_Mode: 3
         m_Arguments:
@@ -145,7 +145,6 @@ GameObject:
   - component: {fileID: 7935525393277412731}
   - component: {fileID: 7935525393277412728}
   - component: {fileID: 7935525393277412733}
-  - component: {fileID: 7935525393277412732}
   m_Layer: 5
   m_Name: SettingScreen
   m_TagString: Untagged
@@ -252,7 +251,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7935525393277412732}
+      - m_Target: {fileID: 0}
         m_MethodName: Back
         m_Mode: 1
         m_Arguments:
@@ -279,18 +278,6 @@ MonoBehaviour:
   MasterMixer: {fileID: 7935525394913366173}
   BGMMixer: {fileID: 7935525394884043439}
   SFXMixer: {fileID: 7935525394377226310}
---- !u!114 &7935525393277412732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935525393277412710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0df867195ac24343ae7d68cb1811dee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7935525393439557792
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +399,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7935525393277412732}
+      - m_Target: {fileID: 0}
         m_MethodName: UpVolume
         m_Mode: 3
         m_Arguments:
@@ -621,7 +608,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7935525393277412732}
+      - m_Target: {fileID: 0}
         m_MethodName: DownVolume
         m_Mode: 3
         m_Arguments:
@@ -948,7 +935,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7935525393277412732}
+      - m_Target: {fileID: 0}
         m_MethodName: UpVolume
         m_Mode: 3
         m_Arguments:
@@ -1533,7 +1520,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7935525393277412732}
+      - m_Target: {fileID: 0}
         m_MethodName: DownVolume
         m_Mode: 3
         m_Arguments:
@@ -1827,7 +1814,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7935525393277412732}
+      - m_Target: {fileID: 0}
         m_MethodName: DownVolume
         m_Mode: 3
         m_Arguments:

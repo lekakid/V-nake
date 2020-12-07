@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class ResultController : MonoBehaviour
 {
-    ResultView ResultView;
+    public ResultView ResultView;
+    public SnakeController SnakeController;
+    public CharacterDatabase CharacterDatabase;
 
     Animator _animator;
 
     void Awake() {
-        GameManager.ResultController = this;
-
         _animator = GetComponent<Animator>();
-        ResultView = GetComponent<ResultView>();
+    }
+
+    void OnEnable() {
+        ResultView.DrawResult(CharacterDatabase.Characters, CharacterDatabase.CurrentRescueScore);
+        ResultView.Show();
+    }
+
+    void OnDisable() {
+        if(ResultView != null)
+            ResultView.Hide();
     }
 
     void Update() {
-        if(UIManager.Instance.Current != ResultView)
-            return;
-
         if(ResultView.isAnimating) {
             if(Input.GetButtonDown("Submit")) {
                 _animator.speed = 50f;
@@ -49,9 +55,10 @@ public class ResultController : MonoBehaviour
     }
 
     public void Restart() {
-        GameManager.SnakeController.Reset();
         SoundManager.Instance.PlayBGM("Snake");
-        UIManager.Instance.Pop();
+        SnakeController.Reset();
+        this.enabled = false;
+        GameManager.PopController();
         GameManager.Resume();
     }
 

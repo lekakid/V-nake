@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class PauseController : MonoBehaviour
 {
-    public SettingView SettingView;
-    MenuView PauseView;
-
-    void Awake() {
-        PauseView = GetComponent<MenuView>();
-    }
+    public MenuView PauseView;
+    public SnakeController SnakeController;
+    public SettingController SettingController;
 
     void Update() {
-        if(UIManager.Instance.Current != PauseView)
-            return;
-
         if(Input.GetButtonDown("Cancel")) {
-            UIManager.Instance.Pop();
-            GameManager.Resume();
+            Resume();
             return;
         }
 
@@ -52,20 +45,30 @@ public class PauseController : MonoBehaviour
         }
     }
 
+    void OnEnable() {
+        PauseView.Show();
+    }
+
+    void OnDisable() {
+        if(PauseView != null)
+            PauseView.Hide();
+    }
+
     public void Resume() {
-        UIManager.Instance.Pop();
+        this.enabled = false;
+        GameManager.PopController();
         GameManager.Resume();
     }
 
     public void Restart() {
-        GameManager.SnakeController.Reset();
+        SnakeController.Reset();
         SoundManager.Instance.PlayBGM("Snake");
-        UIManager.Instance.Pop();
-        GameManager.Resume();
+        Resume();
     }
 
     public void ShowSetting() {
-        UIManager.Instance.Push(SettingView);
+        GameManager.PushController(this);
+        SettingController.enabled = true;
     }
 
     public void ReturnTitle() {

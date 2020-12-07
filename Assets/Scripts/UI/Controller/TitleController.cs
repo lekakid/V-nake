@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TitleController : MonoBehaviour
 {
-    public UIView HowtoView;
+    public CanvasView HowtoView;
     public SettingView SettingView;
     MenuView TitleView;
 
@@ -16,9 +16,6 @@ public class TitleController : MonoBehaviour
     }
 
     void Update() {
-        if(UIManager.Instance.Current != TitleView)
-            return;
-
         if(TitleView.isAnimating) {
             if(Input.anyKeyDown) {
                 _animator.speed = 50f;
@@ -62,7 +59,7 @@ public class TitleController : MonoBehaviour
     }
 
     public void ShowHowTo() {
-        UIManager.Instance.Push(HowtoView);
+        // UIManager.Instance.Push(HowtoView);
     }
 
     public void VisitGallery() {
@@ -70,7 +67,7 @@ public class TitleController : MonoBehaviour
     }
 
     public void ShowSetting() {
-        UIManager.Instance.Push(SettingView);
+        // UIManager.Instance.Push(SettingView);
     }
 
     public void Quit() {

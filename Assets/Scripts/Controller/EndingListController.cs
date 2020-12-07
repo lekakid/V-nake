@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EndingListController : MonoBehaviour
 {
-    public UIView CreditView;
+    public CanvasView CreditView;
     MenuView EndingListView;
 
     void Awake() {
@@ -12,9 +12,6 @@ public class EndingListController : MonoBehaviour
     }
 
     void Update() {
-        if(UIManager.Instance.Current != EndingListView)
-            return;
-
         if(Input.GetButtonDown("Cancel")) {
             Close();
             return;
@@ -49,7 +46,7 @@ public class EndingListController : MonoBehaviour
     }
 
     public void ShowCredit() {
-        UIManager.Instance.Push(CreditView);
+        // UIManager.Instance.Push(CreditView);
     }
 
     public void ShowEnding() {
@@ -61,7 +58,7 @@ public class EndingListController : MonoBehaviour
     }
 
     public void Close() {
-        UIManager.Instance.Pop();
+        // UIManager.Instance.Pop();
         GameManager.Resume();
     }
 

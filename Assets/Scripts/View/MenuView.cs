@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuView : UIView
+public class MenuView : CanvasView
 {
     [SerializeField] MenuSelector Selector = null;
 

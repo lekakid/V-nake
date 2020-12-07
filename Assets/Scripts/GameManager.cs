@@ -6,9 +6,7 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
-    public static SnakeController SnakeController { get; set; }
-    public static ResultController ResultController { get; set; }
-    public static DialogueController DialogueController { get; set; }
+    public Stack<MonoBehaviour> ControllerStack;
 
     public static GameManager Instance { get; private set; }
 
@@ -16,6 +14,8 @@ public class GameManager : MonoBehaviour
         if(Instance == null) {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
+
+            ControllerStack = new Stack<MonoBehaviour>();
         }
         else {
             DestroyImmediate(gameObject);
@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     }
 
     public static void LoadScene(string name) {
-        UIManager.Instance.Clear();
         DOTween.KillAll();
         SceneManager.LoadScene(name);
         InitScene(name);
@@ -61,5 +60,17 @@ public class GameManager : MonoBehaviour
 
     public static void Resume() {
         Time.timeScale = 1;
+    }
+
+    public static void PushController(MonoBehaviour controller) {
+        Instance.ControllerStack.Push(controller);
+        controller.enabled = false;
+    }
+
+    public static void PopController() {
+        if(Instance.ControllerStack.Count == 0)
+            return;
+
+        Instance.ControllerStack.Pop().enabled = true;
     }
 }

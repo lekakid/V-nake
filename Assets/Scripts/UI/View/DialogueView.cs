@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueView : UIView
+public class DialogueView : CanvasView
 {
     public Text SpeakerName;
     public Text ContentScript;

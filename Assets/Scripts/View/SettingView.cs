@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingView : UIView
+public class SettingView : CanvasView
 {
     public VolumeMixer MasterMixer;
     public VolumeMixer BGMMixer;

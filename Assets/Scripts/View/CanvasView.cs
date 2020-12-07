@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIView : MonoBehaviour
+public class CanvasView : MonoBehaviour
 {
     Animator _animator;
-
-    [SerializeField] bool RootView = false;
-    
     public bool isAnimating { get; private set; }
 
     void Awake() {
@@ -17,14 +14,7 @@ public class UIView : MonoBehaviour
         rect.offsetMin = Vector2.zero;
         rect.offsetMax = Vector2.zero;
 
-        if(!RootView) {
-            gameObject.SetActive(false);
-        }
-    }
-
-    void Start() {
-        if(RootView)
-            UIManager.Instance.Push(this);
+        gameObject.SetActive(false);
     }
 
     public void Show() {
@@ -32,8 +22,7 @@ public class UIView : MonoBehaviour
     }
 
     public void Hide() {
-        if(!RootView)
-            gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void OnAnimationEnter() {

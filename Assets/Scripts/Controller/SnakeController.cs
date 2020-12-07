@@ -5,9 +5,11 @@ using UnityEngine;
 public class SnakeController : MonoBehaviour
 {
     [Header("View")]
-    public PlayView PlayView;
-    public MenuView PauseView;
-    public ResultView ResultView;
+    public SnakeView SnakeView;
+
+    [Header("Controller")]
+    public PauseController PauseController;
+    public ResultController ResultController;
 
     [Header("Character")]
     public Character CharacterPrefab;
@@ -42,8 +44,6 @@ public class SnakeController : MonoBehaviour
 
     void Awake()
     {
-        GameManager.SnakeController = this;
-        
         _tail.Add(Head);
         _tailPositions.Add((Vector2)Head.transform.position);
         _defaultPos = Head.transform.position;
@@ -51,16 +51,15 @@ public class SnakeController : MonoBehaviour
     }
 
     void Start() {
+        SnakeView.Show();
         StartCoroutine("SnakeMove");
     }
 
     void Update()
     {
-        if(UIManager.Instance.Current != PlayView)
-            return;
-
         if(Input.GetButtonDown("Cancel")) {
-            UIManager.Instance.Push(PauseView);
+            GameManager.PushController(this);
+            PauseController.enabled = true;
             GameManager.Pause();
             return;
         }
@@ -136,7 +135,7 @@ public class SnakeController : MonoBehaviour
         _tail.Add(tail);
         _tailPositions.Add(_lastTailPos);
 
-        PlayView.SetScore(CharacterDatabase.GetScoreSum());
+        SnakeView.SetScore(CharacterDatabase.GetScoreSum());
 
         _adding = false;
 
@@ -172,9 +171,8 @@ public class SnakeController : MonoBehaviour
         Head.GetComponent<Animator>().SetBool("isDefeat", true);
         SoundManager.Instance.PlaySFX("Dead");
         SoundManager.Instance.StopBGM();
-
-        ResultView.DrawResult(CharacterDatabase.Characters, CharacterDatabase.CurrentRescueScore);
-        UIManager.Instance.Push(ResultView);
+        GameManager.PushController(this);
+        ResultController.enabled = true;
     }
 
     public void Reset() {

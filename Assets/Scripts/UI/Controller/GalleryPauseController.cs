@@ -12,9 +12,6 @@ public class GalleryPauseController : MonoBehaviour
     }
 
     void Update() {
-        if(UIManager.Instance.Current != PauseView)
-            return;
-
         if(Input.GetButtonDown("Cancel")) {
             Resume();
             return;
@@ -49,12 +46,12 @@ public class GalleryPauseController : MonoBehaviour
     }
 
     void Resume() {
-        UIManager.Instance.Pop();
+        // UIManager.Instance.Pop();
         GameManager.Resume();
     }
 
     void ShowSetting() {
-        UIManager.Instance.Push(SettingView);
+        // UIManager.Instance.Push(SettingView);
     }
 
     void ReturnTitle() {

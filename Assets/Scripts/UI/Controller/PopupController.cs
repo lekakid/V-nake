@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class PopupController : MonoBehaviour
 {
-    UIView PopupView;
+    CanvasView PopupView;
 
     void Awake() {
-        PopupView = GetComponent<UIView>();
+        PopupView = GetComponent<CanvasView>();
     }
 
     void Update() {
-        if(UIManager.Instance.Current != PopupView) 
-            return;
-
         if(Input.anyKeyDown) {
             SoundManager.Instance.PlaySFX("Select");
-            UIManager.Instance.Pop();
+            // UIManager.Instance.Pop();
         }
     }
 }

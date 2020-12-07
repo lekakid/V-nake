@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class SettingController : MonoBehaviour
 {
-    SettingView SettingView;
+    public SettingView SettingView;
 
     VolumeMixer.MixerType _selected;
 
     int _master;
     int _bgm;
     int _sfx;
-
-    void Awake() {
-        SettingView = GetComponent<SettingView>();
-        _selected = VolumeMixer.MixerType.MASTER;
-        SettingView.SetSelectColor(_selected);
-    }
 
     void Start() {
         _master = (int)(SoundManager.Instance.MasterVolume * 20f) * 5;
@@ -27,11 +21,8 @@ public class SettingController : MonoBehaviour
     }
 
     void Update() {
-        if(UIManager.Instance.Current != SettingView)
-            return;
-
         if(Input.GetButtonDown("Cancel")) {
-            UIManager.Instance.Pop();
+            Back();
             return;
         }
 
@@ -55,6 +46,17 @@ public class SettingController : MonoBehaviour
 
             SettingView.SetValue(_master, _bgm, _sfx);
         }
+    }
+
+    void OnEnable() {
+        _selected = VolumeMixer.MixerType.MASTER;
+        SettingView.SetSelectColor(_selected);
+        SettingView.Show();
+    }
+
+    void OnDisable() {
+        if(SettingView)
+            SettingView.Hide();
     }
 
     public void SelectNextMixer() {
@@ -140,6 +142,7 @@ public class SettingController : MonoBehaviour
     }
 
     public void Back() {
-        UIManager.Instance.Pop();
+        this.enabled = false;
+        GameManager.PopController();
     }
 }

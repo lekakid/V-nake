@@ -15,16 +15,13 @@ public class GalleryPlayer : MonoBehaviour
     }
 
     void Update() {
-        if(UIManager.Instance.Current != null)
-            return;
-
         if(Input.GetButtonDown("Cancel")) {
             ShowPause();
             return;
         }
 
         if(Input.GetButtonDown("Submit")) {
-            if(Talk())
+            if(Interact())
                 return;
         }
 
@@ -37,7 +34,7 @@ public class GalleryPlayer : MonoBehaviour
             lastDirection = input;
     }
 
-    bool Talk() {
+    bool Interact() {
         Vector2 target = (Vector2)transform.position + lastDirection;
         Collider2D collider = Physics2D.OverlapBox(target, new Vector2(0.5f, 0.5f), 0f);
 
@@ -47,7 +44,7 @@ public class GalleryPlayer : MonoBehaviour
                     ShowEndingList();
                     break;
                 case "DIALOGUE_OBJECT":
-                    ShowDialogue(collider.gameObject);
+                    Talk(collider.gameObject);
                     break;
             }
             return true;
@@ -57,18 +54,15 @@ public class GalleryPlayer : MonoBehaviour
     }
 
     void ShowPause() {
-        UIManager.Instance.Push(PauseView);
         GameManager.Pause();
     }
 
     void ShowEndingList() {
-        UIManager.Instance.Push(EndingList);
         GameManager.Pause();
     }
 
-    void ShowDialogue(GameObject obj) {
-        // TODO : 다이얼로그 시스템 완성하면 추가
-
-        Debug.Log(obj.name);
+    void Talk(GameObject obj) {
+        // DialogueController dController = GameManager.DialogueController;
+        // dController.RunDialogueScript("test");
     }
 }

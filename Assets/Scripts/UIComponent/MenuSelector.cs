@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class MenuSelector : MonoBehaviour
 {
     public RectTransform Selector;
+    public Transform BtnGroup;
 
     public int Value { get; private set; }
 
@@ -14,7 +15,7 @@ public class MenuSelector : MonoBehaviour
     void Awake() {
         _menuPos = new List<RectTransform>();
         
-        foreach(Transform child in transform) {
+        foreach(Transform child in BtnGroup) {
             _menuPos.Add(child.GetComponent<RectTransform>());
         }
     }
