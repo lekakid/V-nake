@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class EndingListController : MonoBehaviour
 {
-    public CanvasView CreditView;
-    MenuView EndingListView;
-
-    void Awake() {
-        EndingListView = GetComponent<MenuView>();
-    }
+    public MenuView EndingListView;
+    public PopupController CreditController;
 
     void Update() {
         if(Input.GetButtonDown("Cancel")) {
@@ -36,29 +32,33 @@ public class EndingListController : MonoBehaviour
                     ShowEnding();
                     break;
                 case 2:
-                    ShowHiddenEnding();
-                    break;
-                case 3:
                     Close();
                     break;
             }
         }
     }
 
+    void OnEnable() {
+        EndingListView.Show();
+    }
+
+    void OnDisable() {
+        if(EndingListView)
+            EndingListView.Hide();
+    }
+
     public void ShowCredit() {
-        // UIManager.Instance.Push(CreditView);
+        GameManager.PushController(this);
+        CreditController.enabled = true;
     }
 
     public void ShowEnding() {
         // TODO : 엔딩 애니메이션 작업 끝나고 추가
     }
 
-    public void ShowHiddenEnding() {
-        // TODO : 엔딩 애니메이션 작업 끝나고 추가
-    }
-
     public void Close() {
-        // UIManager.Instance.Pop();
+        this.enabled = false;
+        GameManager.PopController();
         GameManager.Resume();
     }
 

@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GalleryPlayer : MonoBehaviour
+public class GalleryController : MonoBehaviour
 {
-    public MenuView PauseView;
-    public MenuView EndingList;
+    public GameObject Player;
+    public GalleryPauseController GalleryPauseController;
+    public EndingListController EndingListController;
 
     Rigidbody2D rb;
     Vector2 lastDirection;
 
     void Awake() {
-        rb = GetComponent<Rigidbody2D>();
+        rb = Player.GetComponent<Rigidbody2D>();
     }
 
     void Update() {
@@ -35,8 +36,8 @@ public class GalleryPlayer : MonoBehaviour
     }
 
     bool Interact() {
-        Vector2 target = (Vector2)transform.position + lastDirection;
-        Collider2D collider = Physics2D.OverlapBox(target, new Vector2(0.5f, 0.5f), 0f);
+        Vector2 target = (Vector2)Player.transform.position + lastDirection;
+        Collider2D collider = Physics2D.OverlapBox(target, new Vector2(0.5f, 0.5f), 0f, (1 << 8));
 
         if(collider) {
             switch(collider.tag) {
@@ -54,10 +55,14 @@ public class GalleryPlayer : MonoBehaviour
     }
 
     void ShowPause() {
+        GameManager.PushController(this);
+        GalleryPauseController.enabled = true;
         GameManager.Pause();
     }
 
     void ShowEndingList() {
+        GameManager.PushController(this);
+        EndingListController.enabled = true;
         GameManager.Pause();
     }
 

@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class GalleryPauseController : MonoBehaviour
 {
-    public SettingView SettingView;
-    MenuView PauseView;
-
-    void Awake() {
-        PauseView = GetComponent<MenuView>();
-    }
+    public MenuView PauseView;
+    public SettingController SettingController;
 
     void Update() {
         if(Input.GetButtonDown("Cancel")) {
@@ -45,20 +41,31 @@ public class GalleryPauseController : MonoBehaviour
         }
     }
 
-    void Resume() {
-        // UIManager.Instance.Pop();
+    void OnEnable() {
+        PauseView.Show();
+    }
+
+    void OnDisable() {
+        if(PauseView != null)
+            PauseView.Hide();
+    }
+
+    public void Resume() {
+        this.enabled = false;
+        GameManager.PopController();
         GameManager.Resume();
     }
 
-    void ShowSetting() {
-        // UIManager.Instance.Push(SettingView);
+    public void ShowSetting() {
+        GameManager.PushController(this);
+        SettingController.enabled = true;
     }
 
-    void ReturnTitle() {
+    public void ReturnTitle() {
         GameManager.LoadScene("Title");
     }
 
-    void Quit() {
+    public void Quit() {
         Application.Quit();
     }
 }
