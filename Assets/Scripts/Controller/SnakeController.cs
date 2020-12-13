@@ -173,6 +173,7 @@ public class SnakeController : MonoBehaviour
         SoundManager.Instance.StopBGM();
         GameManager.PushController(this);
         ResultController.enabled = true;
+        CharacterDatabase.UpdateScore();
     }
 
     public void Reset() {
