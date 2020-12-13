@@ -7,6 +7,7 @@ public class GalleryController : MonoBehaviour
     public GameObject Player;
     public GalleryPauseController GalleryPauseController;
     public EndingListController EndingListController;
+    public DialogueController DialogueController;
 
     Rigidbody2D rb;
     Vector2 lastDirection;
@@ -67,7 +68,8 @@ public class GalleryController : MonoBehaviour
     }
 
     void Talk(GameObject obj) {
-        // DialogueController dController = GameManager.DialogueController;
-        // dController.RunDialogueScript("test");
+        GameManager.PushController(this);
+        DialogueController.enabled = true;
+        DialogueController.RunDialogueScript(obj.GetComponent<InteractionData>().DialogueKey);
     }
 }

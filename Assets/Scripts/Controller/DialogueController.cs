@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class DialogueController : MonoBehaviour
 {
     public DialogueView DialogueView;
     public DialogueDatabase DialogueDatabase;
+    public CharacterDatabase CharacterDatabase;
 
     Dialogue[] _currentDialogue;
     int _dialogueIndex = -1;
@@ -13,7 +15,7 @@ public class DialogueController : MonoBehaviour
     void Update()
     {
         // 대화 진행 키보드 입력 처리
-        if(Input.GetButtonUp("Submit") && _dialogueIndex > -1) {
+        if(Input.GetButtonDown("Submit") && _dialogueIndex > -1) {
             PrintNext();
             return;
         }
@@ -27,8 +29,13 @@ public class DialogueController : MonoBehaviour
 
     public void RunDialogueScript(string key) {
         DialogueScriptableObject obj = DialogueDatabase.GetDialogue(key);
+        if(obj == null)
+            return;
+        
         _currentDialogue = obj.Dialogues;
         _dialogueIndex = 0;
+
+        DialogueView.Show();
 
         PrintDialogue();
     }
@@ -38,6 +45,9 @@ public class DialogueController : MonoBehaviour
 
         if(_dialogueIndex >= _currentDialogue.Length) {
             _dialogueIndex = -1;
+            DialogueView.Hide();
+            this.enabled = false;
+            GameManager.PopController();
             return;
         }
 
@@ -45,7 +55,24 @@ public class DialogueController : MonoBehaviour
     }
 
     public void PrintDialogue() {
-        DialogueView.SetName(_currentDialogue[_dialogueIndex].Name);
-        DialogueView.SetContent(_currentDialogue[_dialogueIndex].Content);
+        string name = _currentDialogue[_dialogueIndex].Name;
+        string content = _currentDialogue[_dialogueIndex].Content;
+        Match match;
+
+        while(true) {
+            match = Regex.Match(content, @"%Score\..*%");
+            if(match.Success) {
+                string info = match.Value.Replace("Score.", "");
+                info = info.Replace("%", "");
+                int score = CharacterDatabase.GetScore(info);
+                content = content.Replace(match.Value, score.ToString());
+            }
+            else {
+                break;
+            }
+        }
+
+        DialogueView.SetName(name);
+        DialogueView.SetContent(content);
     }
 }

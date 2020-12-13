@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 11115737}
   - component: {fileID: 11115739}
   - component: {fileID: 11115740}
+  - component: {fileID: 11115741}
   m_Layer: 8
   m_Name: StatisticBoard
   m_TagString: DIALOGUE_OBJECT
@@ -197,7 +198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11115736}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: 2.5, z: 0}
+  m_LocalPosition: {x: -3, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -235,7 +236,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -248,6 +249,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &11115741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11115736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5443aeead9e0249bd057159e5c35e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueKey: GalleryStatus
 --- !u!1 &24114720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,6 +1374,7 @@ GameObject:
   - component: {fileID: 583352566}
   - component: {fileID: 583352565}
   - component: {fileID: 583352567}
+  - component: {fileID: 583352568}
   m_Layer: 8
   m_Name: NightAngel
   m_TagString: DIALOGUE_OBJECT
@@ -1423,6 +1438,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterRenderer: {fileID: 357040787}
   CharacterDatabase: {fileID: 1064638578}
+--- !u!114 &583352568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583352564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5443aeead9e0249bd057159e5c35e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueKey: GalleryNightAngel
 --- !u!1 &607351289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,9 +1619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7aff7c9f3a4e244eb6429b9cfe67779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueList:
-  - key: test
-    value: {fileID: 11400000, guid: 0d85879888064784396de57b7dab6b25, type: 2}
 --- !u!1 &637367685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2890,6 +2915,7 @@ GameObject:
   - component: {fileID: 740390084}
   - component: {fileID: 740390083}
   - component: {fileID: 740390085}
+  - component: {fileID: 740390086}
   m_Layer: 8
   m_Name: Miho
   m_TagString: DIALOGUE_OBJECT
@@ -2953,6 +2979,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterRenderer: {fileID: 1979364852}
   CharacterDatabase: {fileID: 1064638578}
+--- !u!114 &740390086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740390082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5443aeead9e0249bd057159e5c35e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueKey: GalleryMiho
 --- !u!1 &768348783
 GameObject:
   m_ObjectHideFlags: 0
@@ -3107,6 +3146,7 @@ MonoBehaviour:
   Player: {fileID: 637367685}
   GalleryPauseController: {fileID: 819343386}
   EndingListController: {fileID: 819343385}
+  DialogueController: {fileID: 819343387}
 --- !u!114 &819343385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3241,6 +3281,7 @@ GameObject:
   - component: {fileID: 820679314}
   - component: {fileID: 820679313}
   - component: {fileID: 820679315}
+  - component: {fileID: 820679316}
   m_Layer: 8
   m_Name: Undine
   m_TagString: DIALOGUE_OBJECT
@@ -3304,6 +3345,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterRenderer: {fileID: 623524640}
   CharacterDatabase: {fileID: 1064638578}
+--- !u!114 &820679316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820679312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5443aeead9e0249bd057159e5c35e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueKey: GalleryUndine
 --- !u!1 &865830565
 GameObject:
   m_ObjectHideFlags: 0
@@ -3922,6 +3976,7 @@ GameObject:
   - component: {fileID: 1288967903}
   - component: {fileID: 1288967902}
   - component: {fileID: 1288967904}
+  - component: {fileID: 1288967905}
   m_Layer: 8
   m_Name: Faucre
   m_TagString: DIALOGUE_OBJECT
@@ -3985,6 +4040,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterRenderer: {fileID: 819853424}
   CharacterDatabase: {fileID: 1064638578}
+--- !u!114 &1288967905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288967901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5443aeead9e0249bd057159e5c35e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueKey: GalleryFaucre
 --- !u!1 &1318425624
 GameObject:
   m_ObjectHideFlags: 0
@@ -4351,6 +4419,7 @@ GameObject:
   - component: {fileID: 1421516953}
   - component: {fileID: 1421516952}
   - component: {fileID: 1421516954}
+  - component: {fileID: 1421516955}
   m_Layer: 8
   m_Name: Lilith
   m_TagString: DIALOGUE_OBJECT
@@ -4414,6 +4483,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterRenderer: {fileID: 1961756228}
   CharacterDatabase: {fileID: 1064638578}
+--- !u!114 &1421516955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421516951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5443aeead9e0249bd057159e5c35e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueKey: GalleryLilith
 --- !u!1 &1451181238
 GameObject:
   m_ObjectHideFlags: 0
@@ -4587,7 +4669,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596249983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 2.5, z: 0}
+  m_LocalPosition: {x: 4, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4606,7 +4688,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -6100,6 +6182,7 @@ GameObject:
   - component: {fileID: 1770073572}
   - component: {fileID: 1770073573}
   - component: {fileID: 1770073574}
+  - component: {fileID: 1770073575}
   m_Layer: 8
   m_Name: Brownie
   m_TagString: DIALOGUE_OBJECT
@@ -6163,6 +6246,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterRenderer: {fileID: 1649016512}
   CharacterDatabase: {fileID: 1064638578}
+--- !u!114 &1770073575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770073571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5443aeead9e0249bd057159e5c35e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueKey: GalleryBrownie
 --- !u!1 &1795354715
 GameObject:
   m_ObjectHideFlags: 0
@@ -7124,7 +7220,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ??
+  m_Text: ???
 --- !u!222 &1999404049
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7144,6 +7240,7 @@ GameObject:
   - component: {fileID: 2059746779}
   - component: {fileID: 2059746778}
   - component: {fileID: 2059746780}
+  - component: {fileID: 2059746781}
   m_Layer: 8
   m_Name: GoldenBrownie
   m_TagString: DIALOGUE_OBJECT
@@ -7207,6 +7304,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterRenderer: {fileID: 1833043471}
   CharacterDatabase: {fileID: 1064638578}
+--- !u!114 &2059746781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059746777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5443aeead9e0249bd057159e5c35e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueKey: GalleryGoldenBrownie
 --- !u!1 &2062047098
 GameObject:
   m_ObjectHideFlags: 0
@@ -7473,8 +7583,8 @@ RectTransform:
   m_Father: {fileID: 1856397230}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
