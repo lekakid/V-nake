@@ -1359,6 +1359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 583352566}
   - component: {fileID: 583352565}
+  - component: {fileID: 583352567}
   m_Layer: 8
   m_Name: NightAngel
   m_TagString: DIALOGUE_OBJECT
@@ -1408,6 +1409,20 @@ Transform:
   m_Father: {fileID: 24114721}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &583352567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583352564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b1b8689b01f1145aff38334fcf24b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterRenderer: {fileID: 357040787}
+  CharacterDatabase: {fileID: 1064638578}
 --- !u!1 &607351289
 GameObject:
   m_ObjectHideFlags: 0
@@ -2821,7 +2836,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1856397230}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2874,6 +2889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 740390084}
   - component: {fileID: 740390083}
+  - component: {fileID: 740390085}
   m_Layer: 8
   m_Name: Miho
   m_TagString: DIALOGUE_OBJECT
@@ -2923,6 +2939,20 @@ Transform:
   m_Father: {fileID: 24114721}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &740390085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740390082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b1b8689b01f1145aff38334fcf24b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterRenderer: {fileID: 1979364852}
+  CharacterDatabase: {fileID: 1064638578}
 --- !u!1 &768348783
 GameObject:
   m_ObjectHideFlags: 0
@@ -3014,6 +3044,7 @@ GameObject:
   - component: {fileID: 819343382}
   - component: {fileID: 819343385}
   - component: {fileID: 819343383}
+  - component: {fileID: 819343387}
   m_Layer: 0
   m_Name: ControllerGroup
   m_TagString: Untagged
@@ -3104,6 +3135,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseView: {fileID: 1318425626}
   SettingController: {fileID: 819343382}
+--- !u!114 &819343387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819343380}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f6f3f82886e546871673510cef917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueView: {fileID: 1856397231}
+  DialogueDatabase: {fileID: 632518408}
+  CharacterDatabase: {fileID: 1064638578}
 --- !u!1 &819853422
 GameObject:
   m_ObjectHideFlags: 0
@@ -3194,6 +3240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 820679314}
   - component: {fileID: 820679313}
+  - component: {fileID: 820679315}
   m_Layer: 8
   m_Name: Undine
   m_TagString: DIALOGUE_OBJECT
@@ -3243,6 +3290,20 @@ Transform:
   m_Father: {fileID: 24114721}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &820679315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820679312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b1b8689b01f1145aff38334fcf24b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterRenderer: {fileID: 623524640}
+  CharacterDatabase: {fileID: 1064638578}
 --- !u!1 &865830565
 GameObject:
   m_ObjectHideFlags: 0
@@ -3395,7 +3456,7 @@ RectTransform:
   m_Children:
   - {fileID: 1451181239}
   m_Father: {fileID: 1856397230}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3584,6 +3645,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a0847750c3bfca40b14fde301db2cd2, type: 3}
+--- !u!114 &1064638578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3295694454883285585, guid: 0a0847750c3bfca40b14fde301db2cd2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1064638577}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce30de890570b4441a82a554336c2ff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1128975565
 GameObject:
   m_ObjectHideFlags: 0
@@ -3848,6 +3921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1288967903}
   - component: {fileID: 1288967902}
+  - component: {fileID: 1288967904}
   m_Layer: 8
   m_Name: Faucre
   m_TagString: DIALOGUE_OBJECT
@@ -3897,6 +3971,20 @@ Transform:
   m_Father: {fileID: 24114721}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1288967904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288967901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b1b8689b01f1145aff38334fcf24b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterRenderer: {fileID: 819853424}
+  CharacterDatabase: {fileID: 1064638578}
 --- !u!1 &1318425624
 GameObject:
   m_ObjectHideFlags: 0
@@ -4262,6 +4350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1421516953}
   - component: {fileID: 1421516952}
+  - component: {fileID: 1421516954}
   m_Layer: 8
   m_Name: Lilith
   m_TagString: DIALOGUE_OBJECT
@@ -4311,6 +4400,20 @@ Transform:
   m_Father: {fileID: 24114721}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1421516954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421516951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b1b8689b01f1145aff38334fcf24b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterRenderer: {fileID: 1961756228}
+  CharacterDatabase: {fileID: 1064638578}
 --- !u!1 &1451181238
 GameObject:
   m_ObjectHideFlags: 0
@@ -5943,7 +6046,7 @@ RectTransform:
   m_Children:
   - {fileID: 768348784}
   m_Father: {fileID: 1856397230}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5996,6 +6099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1770073572}
   - component: {fileID: 1770073573}
+  - component: {fileID: 1770073574}
   m_Layer: 8
   m_Name: Brownie
   m_TagString: DIALOGUE_OBJECT
@@ -6045,6 +6149,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &1770073574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770073571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b1b8689b01f1145aff38334fcf24b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterRenderer: {fileID: 1649016512}
+  CharacterDatabase: {fileID: 1064638578}
 --- !u!1 &1795354715
 GameObject:
   m_ObjectHideFlags: 0
@@ -6506,6 +6624,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2137725380}
   - {fileID: 884225838}
   - {fileID: 1762063961}
   - {fileID: 715872935}
@@ -7024,6 +7143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2059746779}
   - component: {fileID: 2059746778}
+  - component: {fileID: 2059746780}
   m_Layer: 8
   m_Name: GoldenBrownie
   m_TagString: DIALOGUE_OBJECT
@@ -7073,6 +7193,20 @@ Transform:
   m_Father: {fileID: 24114721}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2059746780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059746777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b1b8689b01f1145aff38334fcf24b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterRenderer: {fileID: 1833043471}
+  CharacterDatabase: {fileID: 1064638578}
 --- !u!1 &2062047098
 GameObject:
   m_ObjectHideFlags: 0
@@ -7309,3 +7443,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2137725379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2137725380}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2137725380
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137725379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1856397230}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}

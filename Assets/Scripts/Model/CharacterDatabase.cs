@@ -34,6 +34,10 @@ public class CharacterDatabase : MonoBehaviour
         }
     }
 
+    public CharacterScriptableObject GetCharacterData(string name) {
+        return Characters.Find(x => x.name == name);
+    }
+
     public CharacterScriptableObject GetRandomCharacterData() {
         float totalRate = 0f;
         foreach(SpawnRate rate in SpawnRates) {
@@ -55,6 +59,10 @@ public class CharacterDatabase : MonoBehaviour
 
     public void AddPoint(string name) {
         CurrentRescueScore[name]++;
+    }
+
+    public int GetScore(string name) {
+        return PlayerPrefs.GetInt($"Score.{name}");
     }
 
     public int GetScoreSum() {
