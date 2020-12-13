@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class DialogueDatabase : MonoBehaviour
 {
-    [System.Serializable]
-    public class Item {
-        public string key;
-        public DialogueScriptableObject value;
-    }
-
-    public Item[] DialogueList;
     Dictionary<string, DialogueScriptableObject> _db;
 
+    string DialoguePath = "Dialogue";
+
     void Start() {
+        DialogueScriptableObject[] list = Resources.LoadAll<DialogueScriptableObject>(DialoguePath);
+
         _db = new Dictionary<string, DialogueScriptableObject>();
-        foreach(Item i in DialogueList) {
-            _db.Add(i.key, i.value);
+        foreach(DialogueScriptableObject i in list) {
+            _db.Add(i.name, i);
         }
     }
 
     public DialogueScriptableObject GetDialogue(string key) {
-        return _db[key];
+        DialogueScriptableObject result = null;
+        _db.TryGetValue(key, out result);
+        return result;
     }
 }
