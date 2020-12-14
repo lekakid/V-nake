@@ -6,7 +6,8 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
-    public Stack<MonoBehaviour> ControllerStack;
+    Stack<MonoBehaviour> ControllerStack = new Stack<MonoBehaviour>();
+    MonoBehaviour CurrentController = null;
 
     public static GameManager Instance { get; private set; }
 
@@ -14,8 +15,6 @@ public class GameManager : MonoBehaviour
         if(Instance == null) {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
-
-            ControllerStack = new Stack<MonoBehaviour>();
         }
         else {
             DestroyImmediate(gameObject);
@@ -62,15 +61,19 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public static void PushController(MonoBehaviour controller) {
-        Instance.ControllerStack.Push(controller);
-        controller.enabled = false;
+    public static void SetController(MonoBehaviour controller) {
+        if(Instance.CurrentController != null) {
+            Instance.CurrentController.enabled = false;
+            Instance.ControllerStack.Push(Instance.CurrentController);
+
+        }
+        Instance.CurrentController = controller;
+        controller.enabled = true;
     }
 
-    public static void PopController() {
-        if(Instance.ControllerStack.Count == 0)
-            return;
-
-        Instance.ControllerStack.Pop().enabled = true;
+    public static void UndoController() {
+        Instance.CurrentController.enabled = false;
+        Instance.CurrentController = Instance.ControllerStack.Pop();
+        Instance.CurrentController.enabled = true;
     }
 }

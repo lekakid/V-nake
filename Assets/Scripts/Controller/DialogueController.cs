@@ -46,8 +46,7 @@ public class DialogueController : MonoBehaviour
         if(_dialogueIndex >= _currentDialogue.Length) {
             _dialogueIndex = -1;
             DialogueView.Hide();
-            this.enabled = false;
-            GameManager.PopController();
+            GameManager.UndoController();
             return;
         }
 

@@ -57,8 +57,7 @@ public class ResultController : MonoBehaviour
     public void Restart() {
         SoundManager.Instance.PlayBGM("Snake");
         SnakeController.Reset();
-        this.enabled = false;
-        GameManager.PopController();
+        GameManager.UndoController();
         GameManager.Resume();
     }
 

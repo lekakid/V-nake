@@ -51,14 +51,12 @@ public class GalleryPauseController : MonoBehaviour
     }
 
     public void Resume() {
-        this.enabled = false;
-        GameManager.PopController();
+        GameManager.UndoController();
         GameManager.Resume();
     }
 
     public void ShowSetting() {
-        GameManager.PushController(this);
-        SettingController.enabled = true;
+        GameManager.SetController(SettingController);
     }
 
     public void ReturnTitle() {

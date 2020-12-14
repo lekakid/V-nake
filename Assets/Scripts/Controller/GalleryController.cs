@@ -14,6 +14,8 @@ public class GalleryController : MonoBehaviour
 
     void Awake() {
         rb = Player.GetComponent<Rigidbody2D>();
+
+        GameManager.SetController(this);
     }
 
     void Update() {
@@ -56,20 +58,17 @@ public class GalleryController : MonoBehaviour
     }
 
     void ShowPause() {
-        GameManager.PushController(this);
-        GalleryPauseController.enabled = true;
+        GameManager.SetController(GalleryPauseController);
         GameManager.Pause();
     }
 
     void ShowEndingList() {
-        GameManager.PushController(this);
-        EndingListController.enabled = true;
+        GameManager.SetController(EndingListController);
         GameManager.Pause();
     }
 
     void Talk(GameObject obj) {
-        GameManager.PushController(this);
-        DialogueController.enabled = true;
+        GameManager.SetController(DialogueController);
         DialogueController.RunDialogueScript(obj.GetComponent<InteractionData>().DialogueKey);
     }
 }

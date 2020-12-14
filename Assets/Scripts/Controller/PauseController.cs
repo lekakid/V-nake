@@ -56,7 +56,7 @@ public class PauseController : MonoBehaviour
 
     public void Resume() {
         this.enabled = false;
-        GameManager.PopController();
+        GameManager.UndoController();
         GameManager.Resume();
     }
 
@@ -67,8 +67,7 @@ public class PauseController : MonoBehaviour
     }
 
     public void ShowSetting() {
-        GameManager.PushController(this);
-        SettingController.enabled = true;
+        GameManager.SetController(SettingController);
     }
 
     public void ReturnTitle() {

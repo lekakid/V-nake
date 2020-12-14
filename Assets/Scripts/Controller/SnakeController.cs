@@ -48,6 +48,8 @@ public class SnakeController : MonoBehaviour
         _tailPositions.Add((Vector2)Head.transform.position);
         _defaultPos = Head.transform.position;
         _defaultBushPos = Bush.transform.position;
+
+        GameManager.SetController(this);
     }
 
     void Start() {
@@ -58,8 +60,7 @@ public class SnakeController : MonoBehaviour
     void Update()
     {
         if(Input.GetButtonDown("Cancel")) {
-            GameManager.PushController(this);
-            PauseController.enabled = true;
+            GameManager.SetController(PauseController);
             GameManager.Pause();
             return;
         }
@@ -171,8 +172,7 @@ public class SnakeController : MonoBehaviour
         Head.GetComponent<Animator>().SetBool("isDefeat", true);
         SoundManager.Instance.PlaySFX("Dead");
         SoundManager.Instance.StopBGM();
-        GameManager.PushController(this);
-        ResultController.enabled = true;
+        GameManager.SetController(ResultController);
         CharacterDatabase.UpdateScore();
     }
 

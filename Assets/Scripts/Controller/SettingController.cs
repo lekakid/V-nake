@@ -142,7 +142,6 @@ public class SettingController : MonoBehaviour
     }
 
     public void Back() {
-        this.enabled = false;
-        GameManager.PopController();
+        GameManager.UndoController();
     }
 }

@@ -12,6 +12,7 @@ public class TitleController : MonoBehaviour
 
     void Start() {
         TitleView.Show();
+        GameManager.SetController(this);
     }
 
     void Update() {
@@ -58,8 +59,7 @@ public class TitleController : MonoBehaviour
     }
 
     public void ShowHowTo() {
-        GameManager.PushController(this);
-        PopupController.enabled = true;
+        GameManager.SetController(PopupController);
     }
 
     public void VisitGallery() {
@@ -67,8 +67,7 @@ public class TitleController : MonoBehaviour
     }
 
     public void ShowSetting() {
-        GameManager.PushController(this);
-        SettingController.enabled = true;
+        GameManager.SetController(SettingController);
     }
 
     public void Quit() {

@@ -48,8 +48,7 @@ public class EndingListController : MonoBehaviour
     }
 
     public void ShowCredit() {
-        GameManager.PushController(this);
-        CreditController.enabled = true;
+        GameManager.SetController(CreditController);
     }
 
     public void ShowEnding() {
@@ -57,8 +56,7 @@ public class EndingListController : MonoBehaviour
     }
 
     public void Close() {
-        this.enabled = false;
-        GameManager.PopController();
+        GameManager.UndoController();
         GameManager.Resume();
     }
 
