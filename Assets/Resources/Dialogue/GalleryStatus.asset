@@ -14,4 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogues:
   - Name: "\uD1B5\uACC4"
-    Content: "\uD1B5\uACC4\uAD00\uB828"
+    Content: "\uC9C0\uAE08\uAE4C\uC9C0 \uAD6C\uCD9C\uB41C \uC804\uD22C\uC6D0: %Status.TotalRescueCount%\uBA85\n\uAC00\uC7A5
+      \uB9CE\uC774 \uAD6C\uCD9C\uD55C \uD310: %Status.MaxRescueCount%\uBA85"
+  - Name: "\uD1B5\uACC4"
+    Content: "\uB204\uC801 \uAC78\uC74C \uC218: %Status.TotalWalkCount%\n\uCD5C\uB300
+      \uAC78\uC74C \uC218: %Status.MaxWalkCount%"
+  - Name: "\uD1B5\uACC4"
+    Content: "\uD50C\uB808\uC774\uD55C \uD69F\uC218: %Status.PlayCount%\n\uD50C\uB808\uC774\uD55C
+      \uC2DC\uAC04: %Status.PlayTime%"
