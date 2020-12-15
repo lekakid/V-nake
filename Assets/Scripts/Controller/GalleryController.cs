@@ -47,6 +47,9 @@ public class GalleryController : MonoBehaviour
                 case "UI_ENDINGLIST":
                     ShowEndingList();
                     break;
+                case "UI_RETURN_TITLE":
+                    GameManager.LoadScene("Title");
+                    break;
                 case "DIALOGUE_OBJECT":
                     Talk(collider.gameObject);
                     break;

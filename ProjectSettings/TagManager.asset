@@ -8,6 +8,7 @@ TagManager:
   - DIALOGUE_OBJECT
   - Block
   - Bush
+  - UI_RETURN_TITLE
   layers:
   - Default
   - TransparentFX
