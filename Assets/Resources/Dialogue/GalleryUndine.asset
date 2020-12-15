@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogues:
   - Name: "\uC815\uBCF4"
-    Content: "\uB300\uC0AC\uAD00\uB828\n\uC6B4\uB514\uB124, \uCD1D %Score.Undine%\uBA85
+    Content: "\uB300\uC0AC\uAD00\uB828\n\uC6B4\uB514\uB124, \uCD1D %Status.Score.Undine%\uBA85
       \uAD6C\uCD9C"

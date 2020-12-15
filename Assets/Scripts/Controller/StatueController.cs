@@ -12,7 +12,7 @@ public class StatueController : MonoBehaviour
     void Awake() {
         InteractionData = GetComponent<InteractionData>();
         
-        if(CharacterDatabase.GetScore(name) > 0) {
+        if(Status.Instance.CharacterRescueCounts[name] > 0) {
             CharacterScriptableObject data = CharacterDatabase.GetCharacterData(name);
             CharacterRenderer.sprite = data.Image;
         }

@@ -59,12 +59,19 @@ public class DialogueController : MonoBehaviour
         Match match;
 
         while(true) {
-            match = Regex.Match(content, @"%Score\..*%");
+            match = Regex.Match(content, @"%.*%");
             if(match.Success) {
-                string info = match.Value.Replace("Score.", "");
-                info = info.Replace("%", "");
-                int score = CharacterDatabase.GetScore(info);
-                content = content.Replace(match.Value, score.ToString());
+                string info = match.Value.Replace("%", "");
+                string data;
+                switch(info) {
+                    case "Status.PlayTime":
+                        data = PlayerPrefs.GetFloat(info).ToString();
+                        break;
+                    default:
+                        data = PlayerPrefs.GetInt(info).ToString();
+                        break;
+                }
+                content = content.Replace(match.Value, data);
             }
             else {
                 break;

@@ -36,7 +36,7 @@ public class SnakeController : MonoBehaviour
     Vector2 _walkDirection;
     Vector2 _lastTailPos;
 
-    // Snake Data
+    // Snake Position Data
     List<Character> _tail = new List<Character>();
     List<Vector2> _tailPositions = new List<Vector2>();
 
@@ -59,6 +59,8 @@ public class SnakeController : MonoBehaviour
 
     void Update()
     {
+        Status.Instance.PlayTime += Time.deltaTime;
+
         if(Input.GetButtonDown("Cancel")) {
             GameManager.SetController(PauseController);
             GameManager.Pause();
@@ -78,10 +80,17 @@ public class SnakeController : MonoBehaviour
     }
 
     IEnumerator SnakeMove() {
+        Status.Instance.PlayCount++;
+
         while(true) {
             yield return new WaitUntil(() => !_adding);
 
             _walkDirection = (_inputBuffer.Count > 0) ? _inputBuffer.Dequeue() : _walkDirection;
+
+            if(_walkDirection.magnitude != 1f) {
+                yield return new WaitForSeconds(InputDelay-0.005f);
+                continue;
+            }
 
             Vector2 NextPos = _tailPositions[0] + _walkDirection;
             _tailPositions.Insert(0, NextPos);
@@ -104,6 +113,7 @@ public class SnakeController : MonoBehaviour
             for(int i = 0; i < _tailPositions.Count; i++) {
                 _tail[i].Walk(_tailPositions[i], InputDelay);
             }
+            Status.Instance.CurrentWalkCount++;
             yield return new WaitForSeconds(InputDelay-0.005f);
 
             if(_tailPositions[0] == (Vector2)Bush.position) {
@@ -113,30 +123,25 @@ public class SnakeController : MonoBehaviour
         }
     }
 
-    public Character SpawnCharacter() {
-        float r = Random.Range(0f, 100f);
-
-        CharacterScriptableObject data = CharacterDatabase.GetRandomCharacterData();
-        CharacterDatabase.AddPoint(data.name);
-
-        Character instance = Instantiate(CharacterPrefab.gameObject).GetComponent<Character>();
-        instance.Init(data);
-        
-        return instance;
-    }
-
     public void AddTail() {
         _adding = true;
 
-        Character tail = SpawnCharacter();
+        float r = Random.Range(0f, 100f);
+
+        CharacterScriptableObject data = CharacterDatabase.GetRandomCharacterData();
+        Status.Instance.CurrentCharacterRescueCounts[data.name]++;
+        Status.Instance.CurrentRescueCount++;
+
+        Character tail = Instantiate(CharacterPrefab.gameObject).GetComponent<Character>();
+        tail.Init(data);
         tail.transform.SetParent(transform);
         tail.transform.position = Bush.position;
-        tail.Spawn(500 - CharacterDatabase.GetScoreSum());
+        tail.Spawn(500 - Status.Instance.CurrentRescueCount);
         
         _tail.Add(tail);
         _tailPositions.Add(_lastTailPos);
 
-        SnakeView.SetScore(CharacterDatabase.GetScoreSum());
+        SnakeView.SetScore(Status.Instance.CurrentRescueCount);
 
         _adding = false;
 
@@ -173,7 +178,8 @@ public class SnakeController : MonoBehaviour
         SoundManager.Instance.PlaySFX("Dead");
         SoundManager.Instance.StopBGM();
         GameManager.SetController(ResultController);
-        CharacterDatabase.UpdateScore();
+        Status.Instance.Save();
+        Status.Instance.Initialize();
     }
 
     public void Reset() {
@@ -196,6 +202,8 @@ public class SnakeController : MonoBehaviour
         Head.CancelWalk();
 
         Bush.transform.position = _defaultBushPos;
+
+        Status.Instance.Initialize();
 
         StartCoroutine("SnakeMove");
     }

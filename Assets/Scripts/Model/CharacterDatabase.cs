@@ -5,12 +5,8 @@ using UnityEngine;
 public class CharacterDatabase : MonoBehaviour
 {
     public List<SpawnRate> SpawnRates;
-    public List<CharacterScriptableObject> Characters;
 
-    public Dictionary<string, int> CurrentRescueScore;
-    public Dictionary<string, int> TotalRescueScore;
-
-    List<string> _characterNames;
+    List<CharacterScriptableObject> _Characters;
 
     [System.Serializable]
     public struct SpawnRate {
@@ -19,23 +15,12 @@ public class CharacterDatabase : MonoBehaviour
     }
 
     void Awake() {
-        CurrentRescueScore = new Dictionary<string, int>();
-        TotalRescueScore = new Dictionary<string, int>();
-        _characterNames = new List<string>();
-
-        foreach(CharacterScriptableObject o in Characters) {
-            _characterNames.Add(o.name);
-            CurrentRescueScore.Add(o.name, 0);
-            TotalRescueScore.Add(o.name, 0);
-        }
-
-        foreach(string n in _characterNames) {
-            TotalRescueScore[n] = PlayerPrefs.GetInt("Score." + n, 0);
-        }
+        CharacterScriptableObject[] list = Resources.LoadAll<CharacterScriptableObject>("Character");
+        _Characters = new List<CharacterScriptableObject>(list);
     }
 
     public CharacterScriptableObject GetCharacterData(string name) {
-        return Characters.Find(x => x.name == name);
+        return _Characters.Find(x => x.name == name);
     }
 
     public CharacterScriptableObject GetRandomCharacterData() {
@@ -51,38 +36,9 @@ public class CharacterDatabase : MonoBehaviour
             r -= SpawnRates[i++].Rate;
         }
 
-        List<CharacterScriptableObject> spawntable = Characters.FindAll(c=>c.Rarity==SpawnRates[i].Rarity);
+        List<CharacterScriptableObject> spawntable = _Characters.FindAll(c=>c.Rarity==SpawnRates[i].Rarity);
         CharacterScriptableObject result = spawntable[(int)Random.Range(0, spawntable.Count)];
 
         return result;
-    }
-
-    public void AddPoint(string name) {
-        CurrentRescueScore[name]++;
-    }
-
-    public int GetScore(string name) {
-        return PlayerPrefs.GetInt($"Score.{name}");
-    }
-
-    public int GetScoreSum() {
-        int result = 0;
-
-        foreach(string n in _characterNames) {
-            result += CurrentRescueScore[n];
-        }
-
-        return result;
-    }
-
-    public void UpdateScore() {
-        foreach(string n in _characterNames) {
-            TotalRescueScore[n] += CurrentRescueScore[n];
-            CurrentRescueScore[n] = 0;
-        }
-
-        foreach(string n in _characterNames) {
-            PlayerPrefs.SetInt("Score." + n, TotalRescueScore[n]);
-        }
     }
 }

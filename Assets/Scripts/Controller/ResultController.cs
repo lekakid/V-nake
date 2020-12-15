@@ -15,7 +15,7 @@ public class ResultController : MonoBehaviour
     }
 
     void OnEnable() {
-        ResultView.DrawResult(CharacterDatabase.Characters, CharacterDatabase.CurrentRescueScore);
+        ResultView.DrawResult();
         ResultView.Show();
     }
 

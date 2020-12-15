@@ -15,4 +15,4 @@ MonoBehaviour:
   Dialogues:
   - Name: "\uC815\uBCF4"
     Content: "\"\uAE30\uB984\uC5D0 \uD280\uAE34 \uC591\uD30C\uAC00 \uC88B\uB2E4\uB124~\"\n\uBE0C\uB77C\uC6B0\uB2C8,
-      \uCD1D %Score.Brownie%\uBA85 \uAD6C\uCD9C"
+      \uCD1D %Status.Score.Brownie%\uBA85 \uAD6C\uCD9C"
