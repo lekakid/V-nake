@@ -204,6 +204,7 @@ public class SnakeController : MonoBehaviour
         Bush.transform.position = _defaultBushPos;
 
         Status.Instance.Initialize();
+        SnakeView.SetScore(0);
 
         StartCoroutine("SnakeMove");
     }
