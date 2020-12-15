@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -66,7 +67,9 @@ public class DialogueController : MonoBehaviour
                 string data;
                 switch(info) {
                     case "Status.PlayTime":
-                        data = PlayerPrefs.GetFloat(info).ToString();
+                        float time = PlayerPrefs.GetFloat(info);
+                        TimeSpan span = TimeSpan.FromSeconds(time);
+                        data = span.ToString("hh':'mm");
                         break;
                     default:
                         data = PlayerPrefs.GetInt(info).ToString();
