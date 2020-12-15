@@ -35,12 +35,13 @@ public class DialogueController : MonoBehaviour
         _currentDialogue = obj.Dialogues;
         _dialogueIndex = 0;
 
+        SoundManager.Instance.PlaySFX("Select");
         DialogueView.Show();
-
         PrintDialogue();
     }
 
     public void PrintNext() {
+        SoundManager.Instance.PlaySFX("Select");
         _dialogueIndex++;
 
         if(_dialogueIndex >= _currentDialogue.Length) {
