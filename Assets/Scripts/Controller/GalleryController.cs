@@ -38,6 +38,12 @@ public class GalleryController : MonoBehaviour
             lastDirection = input;
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.tag == "UI_RETURN_TITLE") {
+            GameManager.LoadScene("Title");
+        }
+    }
+
     bool Interact() {
         Vector2 target = (Vector2)Player.transform.position + lastDirection;
         Collider2D collider = Physics2D.OverlapBox(target, new Vector2(0.5f, 0.5f), 0f, (1 << 8));
@@ -46,9 +52,6 @@ public class GalleryController : MonoBehaviour
             switch(collider.tag) {
                 case "UI_ENDINGLIST":
                     ShowEndingList();
-                    break;
-                case "UI_RETURN_TITLE":
-                    GameManager.LoadScene("Title");
                     break;
                 case "DIALOGUE_OBJECT":
                     Talk(collider.gameObject);
