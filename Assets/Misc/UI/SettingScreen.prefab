@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3463596908272776961}
         m_MethodName: UpVolume
         m_Mode: 3
         m_Arguments:
@@ -143,8 +143,10 @@ GameObject:
   - component: {fileID: 7935525393277412729}
   - component: {fileID: 7935525393277412730}
   - component: {fileID: 7935525393277412731}
-  - component: {fileID: 7935525393277412728}
+  - component: {fileID: 8912086219477012218}
+  - component: {fileID: 5946251915499454878}
   - component: {fileID: 7935525393277412733}
+  - component: {fileID: 3463596908272776961}
   m_Layer: 5
   m_Name: SettingScreen
   m_TagString: Untagged
@@ -169,7 +171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1350, y: 900}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7935525393277412730
@@ -208,7 +210,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7935525393277412728
+--- !u!114 &8912086219477012218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,7 +253,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3463596908272776961}
         m_MethodName: Back
         m_Mode: 1
         m_Arguments:
@@ -262,6 +264,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!225 &5946251915499454878
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935525393277412710}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &7935525393277412733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,10 +288,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e89b22d80dc4446bb563270cf95481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RootView: 0
   MasterMixer: {fileID: 7935525394913366173}
   BGMMixer: {fileID: 7935525394884043439}
   SFXMixer: {fileID: 7935525394377226310}
+--- !u!114 &3463596908272776961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935525393277412710}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0df867195ac24343ae7d68cb1811dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SettingView: {fileID: 7935525393277412733}
 --- !u!1 &7935525393439557792
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +425,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3463596908272776961}
         m_MethodName: UpVolume
         m_Mode: 3
         m_Arguments:
@@ -608,7 +634,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3463596908272776961}
         m_MethodName: DownVolume
         m_Mode: 3
         m_Arguments:
@@ -707,7 +733,6 @@ GameObject:
   - component: {fileID: 7935525394253493106}
   - component: {fileID: 7935525394253493111}
   - component: {fileID: 7935525394253493108}
-  - component: {fileID: 7935525394253493109}
   m_Layer: 5
   m_Name: SettingPanel
   m_TagString: Untagged
@@ -771,49 +796,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7935525394253493109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935525394253493107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 7935525394253493108}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7935525394270526606
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,7 +917,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3463596908272776961}
         m_MethodName: UpVolume
         m_Mode: 3
         m_Arguments:
@@ -1520,7 +1502,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3463596908272776961}
         m_MethodName: DownVolume
         m_Mode: 3
         m_Arguments:
@@ -1814,7 +1796,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3463596908272776961}
         m_MethodName: DownVolume
         m_Mode: 3
         m_Arguments:
