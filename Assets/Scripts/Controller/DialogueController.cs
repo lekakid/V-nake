@@ -12,6 +12,8 @@ public class DialogueController : MonoBehaviour
 
     Dialogue[] _currentDialogue;
     int _dialogueIndex = -1;
+    DialogueAnimationController _dialogueAnimationController = null;
+    GameObject _dialogueAnimation;
 
     void Update()
     {
@@ -32,23 +34,46 @@ public class DialogueController : MonoBehaviour
         DialogueScriptableObject obj = DialogueDatabase.GetDialogue(key);
         if(obj == null)
             return;
+
+        if(obj.AnimationPrefab) {
+            GameObject AnimationObject = Instantiate(obj.AnimationPrefab);
+            AnimationObject.transform.SetParent(transform);
+            AnimationObject.transform.localScale = Vector3.one;
+            
+            _dialogueAnimation = AnimationObject;
+            _dialogueAnimationController = AnimationObject.GetComponent<DialogueAnimationController>();
+            _dialogueAnimationController.StopEvent += DialogueView.Show;
+        }
+        else {
+            DialogueView.Show();
+        }
         
         _currentDialogue = obj.Dialogues;
         _dialogueIndex = 0;
-
-        SoundManager.Instance.PlaySFX("Select");
-        DialogueView.Show();
         PrintDialogue();
     }
 
     public void PrintNext() {
         SoundManager.Instance.PlaySFX("Select");
+        if(_dialogueAnimationController) {
+            // 애니메이션 진행 중
+            if(_dialogueAnimationController.isAnimating) {
+                _dialogueAnimationController.Skip();
+                return;
+            }
+            DialogueView.Hide();
+            _dialogueAnimationController.NextAnimation();
+        }
         _dialogueIndex++;
 
         if(_dialogueIndex >= _currentDialogue.Length) {
             _dialogueIndex = -1;
             DialogueView.Hide();
             GameManager.UndoController();
+
+            if(_dialogueAnimationController) {
+                Destroy(_dialogueAnimation);
+            }
             return;
         }
 
