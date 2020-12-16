@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class StatueController : MonoBehaviour
 {
-    public SpriteRenderer CharacterRenderer;
+    public Transform Player;
     public CharacterDatabase CharacterDatabase;
 
-    InteractionData InteractionData;
+    SpriteRenderer _characterRenderer;
+    SpriteRenderer _baseRenderer;
+    InteractionData _interactionData;
 
     void Awake() {
-        InteractionData = GetComponent<InteractionData>();
+        _baseRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        _characterRenderer = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        _interactionData = GetComponent<InteractionData>();
         
         if(Status.Instance.CharacterRescueCounts[name] > 0) {
             CharacterScriptableObject data = CharacterDatabase.GetCharacterData(name);
-            CharacterRenderer.sprite = data.Image;
+            _characterRenderer.sprite = data.Image;
         }
         else {
-            InteractionData.DialogueKey = "GalleryUnknown";
+            _interactionData.DialogueKey = "GalleryUnknown";
         }
+    }
+
+    void Update() {
+        _characterRenderer.sortingOrder = (Player.position.y > transform.position.y) ? 10 : 0;
+        _baseRenderer.sortingOrder = (Player.position.y > transform.position.y) ? 10 : 0;
     }
 }
