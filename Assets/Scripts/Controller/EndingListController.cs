@@ -6,6 +6,7 @@ public class EndingListController : MonoBehaviour
 {
     public MenuView EndingListView;
     public PopupController CreditController;
+    public DialogueController DialogueController;
 
     void Update() {
         if(Input.GetButtonDown("Cancel")) {
@@ -52,7 +53,9 @@ public class EndingListController : MonoBehaviour
     }
 
     public void ShowEnding() {
-        // TODO : 엔딩 애니메이션 작업 끝나고 추가
+        // TODO: 엔딩 관련 설정 모음 창으로
+        GameManager.SetController(DialogueController);
+        DialogueController.RunDialogueScript("Ending");
     }
 
     public void Close() {
