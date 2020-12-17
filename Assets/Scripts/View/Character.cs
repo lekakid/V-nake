@@ -15,11 +15,6 @@ public class Character : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
     }
-
-    public void Init(CharacterScriptableObject data) {
-        _spriteRenderer.sprite = data.Image;
-        _animator.runtimeAnimatorController = data.AnimationController;
-    }
     
     public void Spawn(int order) {
         _spawned = true;

@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lilith_Controller
+  m_Name: _CharacterAnimationController
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -64,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e05533b65647df2429f4809fe46ae5ea, type: 2}
+  m_Motion: {fileID: 7400000, guid: 02ada9ae23e59c341a103c6bda2e04c5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

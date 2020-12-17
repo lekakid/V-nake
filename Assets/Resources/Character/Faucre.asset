@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac49024bed05f7408947d7900119964, type: 3}
   m_Name: Faucre
   m_EditorClassIdentifier: 
-  Name: Faucre
+  CharacterPrefab: {fileID: 5035269821466844525, guid: 41a8c2d810219b74aa64c3c7e39c9f6f,
+    type: 3}
   Image: {fileID: -8296385383580801948, guid: cf0247feffe554d4c968c7214b5d717c, type: 3}
   Rarity: 2
-  AnimationController: {fileID: 9100000, guid: 272c49524b59d9d48ae7b94e36c5c734, type: 2}

@@ -11,8 +11,7 @@ public class SnakeController : MonoBehaviour
     public PauseController PauseController;
     public ResultController ResultController;
 
-    [Header("Character")]
-    public Character CharacterPrefab;
+    [Header("Model")]
     public CharacterDatabase CharacterDatabase;
 
     [Header("Obejct")]
@@ -132,8 +131,7 @@ public class SnakeController : MonoBehaviour
         Status.Instance.CurrentCharacterRescueCounts[data.name]++;
         Status.Instance.CurrentRescueCount++;
 
-        Character tail = Instantiate(CharacterPrefab.gameObject).GetComponent<Character>();
-        tail.Init(data);
+        Character tail = Instantiate(data.CharacterPrefab).GetComponent<Character>();
         tail.transform.SetParent(transform);
         tail.transform.position = Bush.position;
         tail.Spawn(500 - Status.Instance.CurrentRescueCount);

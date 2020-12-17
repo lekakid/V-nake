@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac49024bed05f7408947d7900119964, type: 3}
   m_Name: Lilith
   m_EditorClassIdentifier: 
-  Name: Lilith
+  CharacterPrefab: {fileID: 5035269821466844525, guid: 70f60564ebdcae840b8780fc393aff4f,
+    type: 3}
   Image: {fileID: -8296385383580801948, guid: 13d434f9a7825dd45ad74245470e39d9, type: 3}
   Rarity: 2
-  AnimationController: {fileID: 9100000, guid: 58b28197c02734d46aac1a57f3f1050a, type: 2}

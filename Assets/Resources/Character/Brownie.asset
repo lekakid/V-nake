@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac49024bed05f7408947d7900119964, type: 3}
   m_Name: Brownie
   m_EditorClassIdentifier: 
-  Name: Brownie
+  CharacterPrefab: {fileID: 5035269821466844525, guid: 760bcd628e3f3404d9086630ff8a65c7,
+    type: 3}
   Image: {fileID: -8296385383580801948, guid: 6b2781f75016bf54ab4143756d79f5ae, type: 3}
   Rarity: 0
-  AnimationController: {fileID: 9100000, guid: a5a36ee51eb9d35489e5730fcfa5501e, type: 2}
