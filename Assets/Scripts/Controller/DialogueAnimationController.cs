@@ -29,4 +29,12 @@ public class DialogueAnimationController : MonoBehaviour
         _animator.speed = 1f;
         isAnimating = true;
     }
+
+    public void PlayBGM(string name) {
+        SoundManager.Instance.PlayBGM(name);
+    }
+
+    public void PlaySFX(string name) {
+        SoundManager.Instance.PlaySFX(name);
+    }
 }
