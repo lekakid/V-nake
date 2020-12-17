@@ -29,8 +29,4 @@ public class DialogueAnimationController : MonoBehaviour
         _animator.speed = 1f;
         isAnimating = true;
     }
-
-    public void Skip() {
-        _animator.speed = 500f;
-    }
 }

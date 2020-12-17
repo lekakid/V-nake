@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
 {
-    public DialogueView DialogueView;
+    public Text SpeakerName;
+    public Text ContentScript;
+    public CanvasView DialogueView;
+    public CanvasGroup DialogueWrapper;
     public DialogueDatabase DialogueDatabase;
     public CharacterDatabase CharacterDatabase;
 
@@ -30,48 +34,57 @@ public class DialogueController : MonoBehaviour
         }
     }
 
+    void OnEnable() {
+        DialogueView.Show();
+    }
+
+    void OnDisable() {
+        if(DialogueView)
+            DialogueView.Hide();
+    }
+
     public void RunDialogueScript(string key) {
         DialogueScriptableObject obj = DialogueDatabase.GetDialogue(key);
         if(obj == null)
             return;
 
+        _currentDialogue = obj.Dialogues;
+        _dialogueIndex = 0;
+
         if(obj.AnimationPrefab) {
             GameObject AnimationObject = Instantiate(obj.AnimationPrefab);
             AnimationObject.transform.SetParent(transform);
+            AnimationObject.transform.SetSiblingIndex(0);
             AnimationObject.transform.localScale = Vector3.one;
             
             _dialogueAnimation = AnimationObject;
             _dialogueAnimationController = AnimationObject.GetComponent<DialogueAnimationController>();
-            _dialogueAnimationController.StopEvent += DialogueView.Show;
+            _dialogueAnimationController.StopEvent += ShowDialogue;
         }
         else {
-            DialogueView.Show();
+            ShowDialogue();
         }
-        
-        _currentDialogue = obj.Dialogues;
-        _dialogueIndex = 0;
         PrintDialogue();
     }
 
     public void PrintNext() {
         SoundManager.Instance.PlaySFX("Select");
         if(_dialogueAnimationController) {
-            // 애니메이션 진행 중
-            if(_dialogueAnimationController.isAnimating) {
-                _dialogueAnimationController.Skip();
+            // 애니메이션 진행 중 키 입력 무시
+            if(_dialogueAnimationController.isAnimating)
                 return;
-            }
-            DialogueView.Hide();
+            
+            HideDialogue();
             _dialogueAnimationController.NextAnimation();
         }
         _dialogueIndex++;
 
         if(_dialogueIndex >= _currentDialogue.Length) {
             _dialogueIndex = -1;
-            DialogueView.Hide();
             GameManager.UndoController();
 
             if(_dialogueAnimationController) {
+                _dialogueAnimationController = null;
                 Destroy(_dialogueAnimation);
             }
             return;
@@ -107,7 +120,24 @@ public class DialogueController : MonoBehaviour
             }
         }
 
-        DialogueView.SetName(name);
-        DialogueView.SetContent(content);
+        SetName(name);
+        SetContent(content);
+    }
+
+    public void ShowDialogue() {
+        if(_currentDialogue[_dialogueIndex].Name != "Invisible")
+            DialogueWrapper.alpha = 1f;
+    }
+
+    public void HideDialogue() {
+        DialogueWrapper.alpha = 0f;
+    }
+
+    public void SetName(string name) {
+        SpeakerName.text = name;
+    }
+
+    public void SetContent(string content) {
+        ContentScript.text = content;
     }
 }
