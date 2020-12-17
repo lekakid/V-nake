@@ -3472,8 +3472,6 @@ MonoBehaviour:
   SnakeView: {fileID: 1873812248}
   PauseController: {fileID: 739026242}
   ResultController: {fileID: 1665362578}
-  CharacterPrefab: {fileID: 6052121727119000102, guid: 160ce36a5c88f3a47960fcd13bc3ce6d,
-    type: 3}
   CharacterDatabase: {fileID: 2009384055}
   Bush: {fileID: 1636397354}
   Head: {fileID: 718190804}

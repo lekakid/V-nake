@@ -45,18 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnRates:
   - Rarity: 0
-    Rate: 97
+    Rate: 77
   - Rarity: 1
-    Rate: 0
+    Rate: 20
   - Rarity: 2
     Rate: 2.7
   - Rarity: 3
     Rate: 0.3
-  Characters:
-  - {fileID: 11400000, guid: aedde3ab937743947b7c7f935edef8ba, type: 2}
-  - {fileID: 11400000, guid: a7d374423c2e8cd4ab5c425f0c3f2f8e, type: 2}
-  - {fileID: 11400000, guid: b4e2b11bea5d9454d80e69e3f0721f8d, type: 2}
-  - {fileID: 11400000, guid: 74c4b9c2d4f3355409117c247b15d07c, type: 2}
-  - {fileID: 11400000, guid: 2f3ba39e1e4340b45a61a4c46458240e, type: 2}
-  - {fileID: 11400000, guid: af07f895d6898a24b89017762f5ea7c1, type: 2}
-  - {fileID: 11400000, guid: e9b4d1860b03a94409c9a17012056339, type: 2}
