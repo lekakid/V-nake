@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bbd779dfb8b4424397878b2a59d7e03, type: 3}
+  m_Name: Ending
+  m_EditorClassIdentifier: 
+  AnimationPrefab: {fileID: 3856675727657586729, guid: f7cd085a9368d924ea0b2a72804fa696,
+    type: 3}
+  Dialogues:
+  - Name: "\uC0AC\uB839\uAD00"
+    Content: "\uC784\uBB34 \uB2E4\uB140\uC624\uB294\uAC70\uB2C8?"
+  - Name: "\uBC1C\uD0A4\uB9AC"
+    Content: "\uADF8...\uADF8\uB807\uC2B5\uB2C8\uB2E4. \uC0AC\uB839\uAD00 \uAC01\uD558"
+  - Name: "\uC0AC\uB839\uAD00"
+    Content: "\uC5ED\uC2DC \uBBFF\uC744\uAC74 \uBC1C\uD0A4\uB9AC\uBC16\uC5D0 \uC5C6\uB2E4\uB2C8\uAE4C"
+  - Name: "\uBC1C\uD0A4\uB9AC"
+    Content: "\uAC10\uC0AC\uD569\uB2C8\uB2E4."
+  - Name: "\uC0AC\uB839\uAD00"
+    Content: "\uC55E\uC73C\uB85C\uB3C4 \uC798 \uBD80\uD0C1\uD574"
+  - Name: "\uBC1C\uD0A4\uB9AC"
+    Content: '...'
+  - Name: "\uC0AC\uB839\uAD00"
+    Content: "\uC0C1\uC744 \uC918\uC57C\uACA0\uB124 \uC624\uB298 \uBC24 \uC0AC\uB839\uAD00\uC2E4\uB85C
+      \uC640\uC918"
+  - Name: Invisible
+    Content: 
+  - Name: Invisible
+    Content: 
