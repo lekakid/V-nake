@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AnimationPrefab: {fileID: 0}
   Dialogues:
-  - Name: "\uC815\uBCF4"
-    Content: "\uD587\uCE19\n\uB9AC\uC81C, \uCD1D %Status.Score.Lise%\uBA85 \uAD6C\uCD9C"
+  - Name: "\uC2DC\uC800\uC2A4 \uB9AC\uC81C"
+    Content: "\"\uD587\uCE19!\""
+  - Name: 
+    Content: "\uC11C\uB958\uC5D0 \uB530\uB974\uBA74...\n\uC2DC\uC800\uC2A4 \uB9AC\uC81C
+      \uBAA8\uB378\uC740 %Status.Score.Lise%\uBA85 \uC788\uB2E4."

@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbd779dfb8b4424397878b2a59d7e03, type: 3}
   m_Name: GalleryBrownie
   m_EditorClassIdentifier: 
+  AnimationPrefab: {fileID: 0}
   Dialogues:
-  - Name: "\uC815\uBCF4"
-    Content: "\"\uAE30\uB984\uC5D0 \uD280\uAE34 \uC591\uD30C\uAC00 \uC88B\uB2E4\uB124~\"\n\uBE0C\uB77C\uC6B0\uB2C8,
-      \uCD1D %Status.Score.Brownie%\uBA85 \uAD6C\uCD9C"
+  - Name: "\uBE0C\uB77C\uC6B0\uB2C8"
+    Content: "\"\uAE30\uB984\uC5D0 \uD280\uAE34 \uC591\uD30C\uAC00 \uC88B\uB2E4\uB124~\n\uB9DB\uC788\uC73C\uB2C8\uAE4C
+      \uC591\uD30C\uAC00 \uC88B\uB2E4\uB124.\""
+  - Name: 
+    Content: "\uC11C\uB958\uC5D0 \uB530\uB974\uBA74...\n\uBE0C\uB77C\uC6B0\uB2C8\uB4E4\uC740
+      %Status.Score.Brownie%\uBA85 \uC788\uB2E4."

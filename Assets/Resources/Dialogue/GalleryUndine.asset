@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbd779dfb8b4424397878b2a59d7e03, type: 3}
   m_Name: GalleryUndine
   m_EditorClassIdentifier: 
+  AnimationPrefab: {fileID: 0}
   Dialogues:
-  - Name: "\uC815\uBCF4"
-    Content: "\uB300\uC0AC\uAD00\uB828\n\uC6B4\uB514\uB124, \uCD1D %Status.Score.Undine%\uBA85
-      \uAD6C\uCD9C"
+  - Name: "P-3M \uC6B4\uB514\uB124"
+    Content: "\"\uBD09\uC96C\uB974. \uB0B4\uAC00 \uC654\uC5B4!\n\uC804\uBD80 \uB098\uD55C\uD14C
+      \uB9E1\uACA8\uB450\uB77C\uAD6C!\""
+  - Name: 
+    Content: "\uC11C\uB958\uC5D0 \uB530\uB974\uBA74...\n\uC6B4\uB514\uB124 \uBAA8\uB378\uC740
+      %Status.Score.Undine%\uBA85 \uC788\uB2E4."

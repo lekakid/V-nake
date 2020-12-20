@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbd779dfb8b4424397878b2a59d7e03, type: 3}
   m_Name: GalleryLilith
   m_EditorClassIdentifier: 
+  AnimationPrefab: {fileID: 0}
   Dialogues:
-  - Name: "\uC815\uBCF4"
-    Content: "\uB300\uC0AC\uAD00\uB828\n\uB9AC\uB9AC\uC2A4, \uCD1D %Status.Score.Lilith%\uBA85
-      \uAD6C\uCD9C"
+  - Name: "\uBE14\uB799 \uB9AC\uB9AC\uC2A4"
+    Content: "\"\uC96C\uC778\uB2D8 \uCC29\uD55C \uB9AC\uB9AC\uCBB8\uAC00 \uAC00\uC694!!\""
+  - Name: 
+    Content: "\uC11C\uB958\uC5D0 \uB530\uB974\uBA74...\n\uBE14\uB799 \uB9AC\uB9AC\uC2A4
+      \uBAA8\uB378\uC740 %Status.Score.Lilith%\uBA85 \uC788\uB2E4."

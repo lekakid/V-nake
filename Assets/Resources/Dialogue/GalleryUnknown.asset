@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbd779dfb8b4424397878b2a59d7e03, type: 3}
   m_Name: GalleryUnknown
   m_EditorClassIdentifier: 
+  AnimationPrefab: {fileID: 0}
   Dialogues:
-  - Name: "\uC815\uBCF4"
-    Content: "\uC544\uC9C1 \uBC1C\uACAC\uD558\uC9C0 \uBABB\uD55C \uC804\uD22C\uC6D0\uC785\uB2C8\uB2E4."
+  - Name: 
+    Content: "\uC544\uC9C1 \uBC1C\uACAC\uD558\uC9C0 \uBABB\uD55C \uC804\uD22C\uC6D0\uC774\uB2E4."

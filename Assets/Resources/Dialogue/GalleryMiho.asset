@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbd779dfb8b4424397878b2a59d7e03, type: 3}
   m_Name: GalleryMiho
   m_EditorClassIdentifier: 
+  AnimationPrefab: {fileID: 0}
   Dialogues:
-  - Name: "\uC815\uBCF4"
-    Content: "\uBC14\uBCF4 \uBC1C\uACAC!\n\uBBF8\uD638, \uCD1D %Status.Score.Miho%\uBA85
-      \uAD6C\uCD9C"
+  - Name: "T-14 \uBBF8\uD638"
+    Content: "\"\uBC14\uBCF4 \uBC1C\uACAC!!!\""
+  - Name: 
+    Content: "\uC11C\uB958\uC5D0 \uB530\uB974\uBA74...\n\uBBF8\uD638 \uBAA8\uB378\uC740
+      %Status.Score.Miho%\uBA85 \uC788\uB2E4."

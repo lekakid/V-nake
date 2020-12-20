@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbd779dfb8b4424397878b2a59d7e03, type: 3}
   m_Name: GalleryFaucre
   m_EditorClassIdentifier: 
+  AnimationPrefab: {fileID: 0}
   Dialogues:
-  - Name: "\uC815\uBCF4"
-    Content: "\uB300\uC0AC\uAD00\uB828\n\uBF40\uB044\uB8E8 \uB300\uB9C8\uC655, \uCD1D
-      %Status.Score.Faucre%\uBA85 \uAD6C\uCD9C"
+  - Name: "\uBF40\uB044\uB8E8 \uB300\uB9C8\uC655"
+    Content: "\"\uCE74\uB9AC\uC2A4\uB9C8 \uC788\uAC8C\uC694?\n\uD6C4\uD6C4, \uBCF8\uC88C\uC758
+      \uC7A5\uB9C9\uC5D0 \uB4E0 \uAC83\uC744 \uD658\uC601\uD55C\uB2E4!\n... \uC774\uB807\uAC8C\uC694?\""
+  - Name: 
+    Content: "\uC11C\uB958\uC5D0 \uB530\uB974\uBA74...\n%Status.Score.Faucre%\uBC88
+      \uBAA9\uACA9 \uBCF4\uACE0\uAC00 \uC788\uB2E4.\n\uB9C8\uC655 \uC5F0\uAE30\uB97C
+      \uBC31\uD1A0\uC5D0\uAC8C \uB4E4\uCF30\uB2E4\uACE0 \uD55C\uB2E4."

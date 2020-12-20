@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AnimationPrefab: {fileID: 0}
   Dialogues:
-  - Name: "\uC815\uBCF4"
-    Content: "\uB300\uC0AC\uAD00\uB828\n\uADF8\uB9AC\uD3F0, \uCD1D %Status.Score.Griffon%\uBA85
-      \uAD6C\uCD9C"
+  - Name: "P/A-00 \uADF8\uB9AC\uD3F0"
+    Content: "\"\uB4E4\uB7EC\uBD99\uC9C0 \uB9D0\uB780 \uB73B\uC774 \uC800\uB9AC \uAC00\uB780
+      \uB73B\uC740\n\uC544\uB2C8\uAC70\uB4E0? \uBB50... 0.5\uBBF8\uD130 \uC815\uB3C4\uB85C
+      \uBD10\uC904\uAC8C.\""
+  - Name: 
+    Content: "\uC11C\uB958\uC5D0 \uB530\uB974\uBA74...\n\uADF8\uB9AC\uD3F0 \uBAA8\uB378\uC740
+      %Status.Score.Griffon%\uBA85 \uC788\uB2E4."

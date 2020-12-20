@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbd779dfb8b4424397878b2a59d7e03, type: 3}
   m_Name: GalleryNightAngel
   m_EditorClassIdentifier: 
+  AnimationPrefab: {fileID: 0}
   Dialogues:
-  - Name: "\uC815\uBCF4"
-    Content: "\uB300\uC0AC\uAD00\uB828\n\uB098\uC774\uD2B8\uC564\uC824, \uCD1D %Status.Score.NightAngel%\uBA85
-      \uAD6C\uCD9C"
+  - Name: "B-11 \uB098\uC774\uD2B8 \uC564\uC824"
+    Content: "\"\uC2A4\uD154\uC2A4\uAE30\uB2A5 \uC791\uB3D9...... \uC6C3\uC5B4?\""
+  - Name: 
+    Content: "\uC11C\uB958\uC5D0 \uB530\uB974\uBA74...\n%Status.Score.NightAngel%\uBC88
+      \uBAA9\uACA9 \uBCF4\uACE0\uAC00 \uC788\uB2E4.\n\uBC14\uBCF4\uAC19\uC740 \uB300\uC7A5\uC744
+      \uCC3E\uB294\uB2E4\uACE0 \uBCF4\uACE0 \uD588\uB2E4."
