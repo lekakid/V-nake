@@ -14636,6 +14636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndingListView: {fileID: 1800947296}
+  EndingBtn: {fileID: 1999404048}
   CreditController: {fileID: 710426576}
   DialogueController: {fileID: 1856397232}
 --- !u!225 &1800947300

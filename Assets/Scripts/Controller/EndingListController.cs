@@ -1,12 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EndingListController : MonoBehaviour
 {
     public MenuView EndingListView;
+    public Text EndingBtn;
     public PopupController CreditController;
     public DialogueController DialogueController;
+
+    void Awake() {
+        if(Status.Instance.Ending)
+            EndingBtn.text = "엔딩";
+    }
 
     void Update() {
         if(Input.GetButtonDown("Cancel")) {
@@ -53,9 +60,10 @@ public class EndingListController : MonoBehaviour
     }
 
     public void ShowEnding() {
-        // TODO: 엔딩 관련 설정 모음 창으로
-        GameManager.SetController(DialogueController);
-        DialogueController.RunDialogueScript("Ending");
+        if(Status.Instance.Ending) {
+            GameManager.SetController(DialogueController);
+            DialogueController.RunDialogueScript("Ending");
+        }
     }
 
     public void Close() {
