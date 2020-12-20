@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7734893d2e6854544824e835f82753dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasShowAnimation: 0
+  hasShowAnimation: 1
   hasHideAnimation: 0
   Selector: {fileID: 1495085973}
 --- !u!225 &4127768

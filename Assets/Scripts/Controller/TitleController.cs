@@ -10,9 +10,12 @@ public class TitleController : MonoBehaviour
     public MenuView TitleView;
     public Animator Animator;
 
+    void Awake() {
+        GameManager.SetController(this);
+    }
+
     void Start() {
         TitleView.Show();
-        GameManager.SetController(this);
     }
 
     void Update() {
