@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EndingTitleScreenController
+  m_Controller: {fileID: 9100000, guid: 1e92cb011e3651b48bb06b26e220e763, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 8e95285342dfcfb48a9f61cf7b00a936, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5d710368f580943458aebed7d2e79de2, type: 2}

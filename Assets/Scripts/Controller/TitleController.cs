@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TitleController : MonoBehaviour
 {
@@ -10,11 +11,15 @@ public class TitleController : MonoBehaviour
     public MenuView TitleView;
     public Animator Animator;
 
+    public RuntimeAnimatorController SpecialAnimator;
+
     void Awake() {
         GameManager.SetController(this);
     }
 
     void Start() {
+        if(Status.Instance.Ending)
+            Animator.runtimeAnimatorController = SpecialAnimator;
         TitleView.Show();
     }
 
