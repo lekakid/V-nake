@@ -5,6 +5,8 @@ using UnityEngine;
 public class GalleryController : MonoBehaviour
 {
     public GameObject Player;
+    public GameObject InteractableMark;
+
     public GalleryPauseController GalleryPauseController;
     public EndingListController EndingListController;
     public DialogueController DialogueController;
@@ -52,10 +54,12 @@ public class GalleryController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "DIALOGUE_OBJECT") {
             visitedDialogueObject = other.gameObject;
+            InteractableMark.SetActive(true);
         }
 
         if(other.tag == "UI_ENDINGLIST") {
             visitedController = EndingListController;
+            InteractableMark.SetActive(true);
         }
 
         if(other.tag == "UI_RETURN_TITLE") {
@@ -74,10 +78,12 @@ public class GalleryController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         if(other.tag == "DIALOGUE_OBJECT") {
             visitedDialogueObject = null;
+            InteractableMark.SetActive(false);
         }
 
         if(other.tag == "UI_ENDINGLIST") {
             visitedController = null;
+            InteractableMark.SetActive(false);
         }
     }
 
