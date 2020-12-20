@@ -9,6 +9,8 @@ TagManager:
   - Block
   - Bush
   - UI_RETURN_TITLE
+  - TELEPORT_CLUB
+  - TELEPORT_GALLERY
   layers:
   - Default
   - TransparentFX
