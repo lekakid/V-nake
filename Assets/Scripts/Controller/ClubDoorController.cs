@@ -5,6 +5,7 @@ using UnityEngine;
 public class ClubDoorController : MonoBehaviour
 {
     public GameObject Door;
+    public GameObject DoorDialogue;
     public Transform Player;
     public SpriteRenderer OpenedDoorRenderer;
 
@@ -12,8 +13,10 @@ public class ClubDoorController : MonoBehaviour
         int brownieCount = Status.Instance.CharacterRescueCounts["Brownie"];
         int goldenBrownieCount = Status.Instance.CharacterRescueCounts["GoldenBrownie"];
 
-        if(brownieCount >= 500 && goldenBrownieCount >= 1)
+        if(brownieCount >= 500 && goldenBrownieCount >= 1) {
             Door.SetActive(false);
+            DoorDialogue.SetActive(false);
+        }
     }
 
     void Update() {
