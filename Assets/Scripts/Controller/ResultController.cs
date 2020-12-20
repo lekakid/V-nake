@@ -24,11 +24,8 @@ public class ResultController : MonoBehaviour
     }
 
     void Update() {
-        if(ResultView.isAnimating) {
-            if(Input.GetButtonDown("Submit")) {
-                _animator.speed = 50f;
-                return;
-            }
+        if(ResultView.isAnimating && Input.anyKeyDown) {
+            ResultView.Skip();
         }
 
         float y = Input.GetAxisRaw("Vertical");

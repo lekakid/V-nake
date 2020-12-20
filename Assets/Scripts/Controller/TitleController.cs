@@ -16,11 +16,8 @@ public class TitleController : MonoBehaviour
     }
 
     void Update() {
-        if(TitleView.isAnimating) {
-            if(Input.anyKeyDown) {
-                Animator.speed = 50f;
-                return;
-            }
+        if(TitleView.isAnimating && Input.anyKeyDown) {
+            TitleView.Skip();
         }
 
         float y = Input.GetAxisRaw("Vertical");

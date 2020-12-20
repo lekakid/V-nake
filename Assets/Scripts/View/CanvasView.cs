@@ -42,6 +42,10 @@ public class CanvasView : MonoBehaviour
         }
     }
 
+    public void Skip() {
+        _animator.speed = 500f;
+    }
+
     public void OnAnimationEnter() {
         isAnimating = true;
     }
