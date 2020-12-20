@@ -9,6 +9,9 @@ public class GalleryController : MonoBehaviour
     public EndingListController EndingListController;
     public DialogueController DialogueController;
 
+    public Transform ClubPoint;
+    public Transform GalleryPoint;
+
     Rigidbody2D rb;
     Vector2 lastDirection;
 
@@ -41,6 +44,14 @@ public class GalleryController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "UI_RETURN_TITLE") {
             GameManager.LoadScene("Title");
+        }
+
+        if(other.tag == "TELEPORT_CLUB") {
+            transform.position = ClubPoint.position;
+        }
+
+        if(other.tag == "TELEPORT_GALLERY") {
+            transform.position = GalleryPoint.position;
         }
     }
 
