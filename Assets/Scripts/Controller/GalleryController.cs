@@ -13,10 +13,12 @@ public class GalleryController : MonoBehaviour
     public Transform GalleryPoint;
 
     Rigidbody2D rb;
+    SpriteRenderer spriteRenderer;
     Vector2 lastDirection;
 
     void Awake() {
         rb = Player.GetComponent<Rigidbody2D>();
+        spriteRenderer = Player.GetComponent<SpriteRenderer>();
 
         GameManager.SetController(this);
     }
@@ -34,6 +36,13 @@ public class GalleryController : MonoBehaviour
 
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
+
+        if(x < 0) {
+            spriteRenderer.flipX = false;
+        }
+        else if(x > 0) {
+            spriteRenderer.flipX = true;
+        }
 
         Vector2 input = new Vector2(x, (x == 0) ? y: 0);
         rb.velocity = input * 5f;
