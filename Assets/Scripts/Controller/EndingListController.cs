@@ -64,6 +64,10 @@ public class EndingListController : MonoBehaviour
             GameManager.SetController(DialogueController);
             DialogueController.RunDialogueScript("Ending");
         }
+        else {
+            GameManager.SetController(DialogueController);
+            DialogueController.RunDialogueScript("NotYet");
+        }
     }
 
     public void Close() {
