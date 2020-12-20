@@ -53,8 +53,10 @@ public class DialogueController : MonoBehaviour
 
         if(obj.AnimationPrefab) {
             GameObject AnimationObject = Instantiate(obj.AnimationPrefab);
+            RectTransform AnimationObejctRect = AnimationObject.GetComponent<RectTransform>();
             AnimationObject.transform.SetParent(transform);
             AnimationObject.transform.SetSiblingIndex(0);
+            AnimationObejctRect.localPosition = Vector3.zero;
             AnimationObject.transform.localScale = Vector3.one;
             
             _dialogueAnimation = AnimationObject;

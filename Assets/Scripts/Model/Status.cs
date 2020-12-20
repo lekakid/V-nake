@@ -19,6 +19,8 @@ public class Status
     public int PlayCount;
     public float PlayTime;
 
+    public bool Ending;
+
     private static Status _instance;
     public static Status Instance {
         get {
@@ -66,6 +68,8 @@ public class Status
 
         PlayCount = PlayerPrefs.GetInt("Status.PlayCount", 0);
         PlayTime = PlayerPrefs.GetFloat("Status.PlayTime", 0f);
+        
+        Ending = PlayerPrefs.GetInt("Status.Ending", 0) == 1;
     }
 
     public void Save() {
@@ -91,5 +95,7 @@ public class Status
 
         PlayerPrefs.SetInt("Status.PlayCount", PlayCount);
         PlayerPrefs.SetFloat("Status.PlayTime", PlayTime);
+
+        PlayerPrefs.SetInt("Status.Ending", Ending ? 1 : 0);
     }
 }

@@ -15,7 +15,6 @@ public class ResultController : MonoBehaviour
     }
 
     void OnEnable() {
-        ResultView.DrawResult();
         ResultView.Show();
     }
 
@@ -52,6 +51,10 @@ public class ResultController : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void DrawResult() {
+        ResultView.DrawResult();
     }
 
     public void Restart() {
