@@ -21,6 +21,7 @@ public class TitleController : MonoBehaviour
         if(Status.Instance.Ending)
             Animator.runtimeAnimatorController = SpecialAnimator;
         TitleView.Show();
+        SoundManager.Instance.PlayBGM("Title");
     }
 
     void Update() {

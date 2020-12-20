@@ -62,7 +62,6 @@ public class PauseController : MonoBehaviour
 
     public void Restart() {
         SnakeController.Reset();
-        SoundManager.Instance.PlayBGM("Snake");
         Resume();
     }
 

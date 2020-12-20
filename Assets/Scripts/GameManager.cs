@@ -38,15 +38,11 @@ public class GameManager : MonoBehaviour
     public static void InitScene(string name) {
         switch(name) {
             case "Snake":
-                Application.targetFrameRate = 60;
-                SoundManager.Instance.PlayBGM("Snake");
-                break;            
             case "Gallery":
                 Application.targetFrameRate = 60;
                 break;
             case "Title":
                 Application.targetFrameRate = 24;
-                SoundManager.Instance.PlayBGM("Title");
                 break;
         }
 

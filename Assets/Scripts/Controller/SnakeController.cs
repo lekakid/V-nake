@@ -55,6 +55,7 @@ public class SnakeController : MonoBehaviour
     void Start() {
         SnakeView.Show();
         StartCoroutine("SnakeMove");
+        SoundManager.Instance.PlayBGM("JaguarMan");
     }
 
     void Update()
@@ -226,6 +227,8 @@ public class SnakeController : MonoBehaviour
 
         Status.Instance.Initialize();
         SnakeView.SetScore(0);
+
+        SoundManager.Instance.PlayBGM("JaguarMan");
 
         StartCoroutine("SnakeMove");
     }
