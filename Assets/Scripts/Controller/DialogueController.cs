@@ -137,6 +137,12 @@ public class DialogueController : MonoBehaviour
 
     public void SetName(string name) {
         SpeakerName.text = name;
+        if(name == "") {
+            SpeakerName.transform.parent.gameObject.SetActive(false);
+        }
+        else {
+            SpeakerName.transform.parent.gameObject.SetActive(true);
+        }
     }
 
     public void SetContent(string content) {
