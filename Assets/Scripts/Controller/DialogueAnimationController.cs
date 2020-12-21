@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DialogueAnimationController : MonoBehaviour
 {
+    public AudioSource SFX;
+
     Animator _animator;
 
     public bool isAnimating { get; private set; }
@@ -30,11 +32,7 @@ public class DialogueAnimationController : MonoBehaviour
         isAnimating = true;
     }
 
-    public void PlayBGM(string name) {
-        // SoundManager.Instance.PlayBGM(name);
-    }
-
-    public void PlaySFX(string name) {
-        // SoundManager.Instance.PlaySFX(name);
+    public void PlaySFX(AudioClip clip) {
+        SFX.PlayOneShot(clip);
     }
 }

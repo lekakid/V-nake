@@ -3536,29 +3536,33 @@ AnimationClip:
     messageOptions: 0
   - time: 8.166667
     functionName: PlaySFX
-    data: Heartbeat
-    objectReferenceParameter: {fileID: 0}
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 7ced189a6599f2349a0c8b5505975827,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 8.833333
     functionName: PlaySFX
-    data: Heartbeat
-    objectReferenceParameter: {fileID: 0}
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 7ced189a6599f2349a0c8b5505975827,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 9.5
     functionName: PlaySFX
-    data: Heartbeat
-    objectReferenceParameter: {fileID: 0}
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 7ced189a6599f2349a0c8b5505975827,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 10.166667
     functionName: PlaySFX
-    data: Heartbeat
-    objectReferenceParameter: {fileID: 0}
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 7ced189a6599f2349a0c8b5505975827,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
