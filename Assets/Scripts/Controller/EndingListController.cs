@@ -7,7 +7,7 @@ public class EndingListController : MonoBehaviour
 {
     public MenuView EndingListView;
     public Text EndingBtn;
-    public PopupController CreditController;
+    public CreditController CreditController;
     public DialogueController DialogueController;
 
     void Awake() {
