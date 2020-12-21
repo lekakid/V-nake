@@ -45,10 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnRates:
   - Rarity: 0
-    Rate: 77
+    Rate: 80
   - Rarity: 1
-    Rate: 20
+    Rate: 18
   - Rarity: 2
-    Rate: 2.8
+    Rate: 1.95
   - Rarity: 3
-    Rate: 0.2
+    Rate: 0.05
