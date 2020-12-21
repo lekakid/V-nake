@@ -11,6 +11,12 @@ TextureImporter:
   - first:
       213: 6552953382835774628
     second: deco
+  - first:
+      213: -2722052996392348784
+    second: DancingBrownie_0
+  - first:
+      213: -6559399525568494677
+    second: DancingBrownie_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -111,7 +117,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -132,7 +138,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 16
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -144,6 +150,48 @@ TextureImporter:
       bones: []
       spriteID: 9a93e27e5e0c0bd47bd03dc84d6107ce
       internalID: 3218353051568008401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DancingBrownie_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11ed8486749d1554e9a77218331613af
+      internalID: -2722052996392348784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DancingBrownie_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a1767bb046394c4f92b0017270645e4
+      internalID: -6559399525568494677
       vertices: []
       indices: 
       edges: []

@@ -50,7 +50,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: f697e7c67d4338844a4eeb39a4d6100d, type: 3}
     - {fileID: 2800000, guid: b3e036b33d67df24990dc4f29a01e3ed, type: 3}
     - {fileID: 2800000, guid: 1164adb3f070f9d4eb0fdc2ac6abb553, type: 3}
-    totalSpriteSurfaceArea: 5632
+    totalSpriteSurfaceArea: 6144
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -68,6 +68,8 @@ SpriteAtlas:
   - {fileID: -8296385383580801948, guid: 18086dc6f6184c041a5270404fbb6cd0, type: 3}
   - {fileID: 3218353051568008401, guid: 6b2781f75016bf54ab4143756d79f5ae, type: 3}
   - {fileID: -8296385383580801948, guid: 6b2781f75016bf54ab4143756d79f5ae, type: 3}
+  - {fileID: -2722052996392348784, guid: 6b2781f75016bf54ab4143756d79f5ae, type: 3}
+  - {fileID: -6559399525568494677, guid: 6b2781f75016bf54ab4143756d79f5ae, type: 3}
   - {fileID: 6552953382835774628, guid: 13d434f9a7825dd45ad74245470e39d9, type: 3}
   - {fileID: 3218353051568008401, guid: 13d434f9a7825dd45ad74245470e39d9, type: 3}
   - {fileID: -8296385383580801948, guid: 13d434f9a7825dd45ad74245470e39d9, type: 3}
@@ -91,6 +93,8 @@ SpriteAtlas:
   - walk_0
   - walk_1
   - walk_0
+  - DancingBrownie_0
+  - DancingBrownie_1
   - deco
   - walk_1
   - walk_0
