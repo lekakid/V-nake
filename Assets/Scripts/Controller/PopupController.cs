@@ -8,7 +8,6 @@ public class PopupController : MonoBehaviour
 
     void Update() {
         if(Input.anyKeyDown) {
-            SoundManager.Instance.PlaySFX("Select");
             GameManager.UndoController();
         }
     }

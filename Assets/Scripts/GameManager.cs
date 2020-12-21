@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
+    public AudioMixer MainMixer;
+
     Stack<MonoBehaviour> ControllerStack = new Stack<MonoBehaviour>();
     MonoBehaviour CurrentController = null;
 
@@ -23,6 +26,13 @@ public class GameManager : MonoBehaviour
 
     void Start() {
         InitScene(SceneManager.GetActiveScene().name);
+        float master = PlayerPrefs.GetFloat("Setting.Master", 0.5f);
+        float bgm = PlayerPrefs.GetFloat("Setting.BGM", 1f);
+        float sfx = PlayerPrefs.GetFloat("Setting.SFX", 1f);
+
+        MainMixer.SetFloat("Master", Mathf.Log10(master) * 20f);
+        MainMixer.SetFloat("BGM", Mathf.Log10(bgm) * 20f);
+        MainMixer.SetFloat("SFX", Mathf.Log10(sfx) * 20f);
     }
 
     void OnApplicationQuit() {

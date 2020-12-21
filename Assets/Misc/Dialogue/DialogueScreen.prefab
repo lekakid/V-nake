@@ -84,6 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3463171766969692947}
   - component: {fileID: 3463171766969692940}
+  - component: {fileID: 3781146513487887490}
   - component: {fileID: 7034077913642868513}
   - component: {fileID: 3463171766969692946}
   - component: {fileID: 3463171766969692941}
@@ -126,6 +127,103 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!82 &3781146513487887490
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463171766969692944}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -2169165348434618430, guid: 85270bd1a7cb522489bdb1fcc18cdc70,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 102022adfea60a644b888cf8b64973df, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &7034077913642868513
 Animator:
   serializedVersion: 3
@@ -157,8 +255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b299213ac2d4246baa01762d2488e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasShowAnimation: 0
-  hasHideAnimation: 0
 --- !u!114 &3463171766969692941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +271,7 @@ MonoBehaviour:
   ContentScript: {fileID: 3463171767378044933}
   DialogueView: {fileID: 3463171766969692946}
   DialogueWrapper: {fileID: 3463171767811956197}
+  SelectSFX: {fileID: 3781146513487887490}
   DialogueDatabase: {fileID: 0}
   CharacterDatabase: {fileID: 0}
 --- !u!1 &3463171767378044939

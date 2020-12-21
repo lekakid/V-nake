@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(AudioSource))]
 public class MenuSelector : MonoBehaviour
 {
     public RectTransform Selector;
@@ -11,9 +12,11 @@ public class MenuSelector : MonoBehaviour
     public int Value { get; private set; }
 
     List<RectTransform> _menuPos;
+    AudioSource _selectSFX;
 
     void Awake() {
         _menuPos = new List<RectTransform>();
+        _selectSFX = GetComponent<AudioSource>();
         
         foreach(Transform child in BtnGroup) {
             _menuPos.Add(child.GetComponent<RectTransform>());
@@ -23,7 +26,7 @@ public class MenuSelector : MonoBehaviour
     public void Select(int index) {
         Selector.position = _menuPos[index].position;
         Value = index;
-        SoundManager.Instance.PlaySFX("Select");
+        _selectSFX.Play();
     }
 
     public void SelectPrev() {

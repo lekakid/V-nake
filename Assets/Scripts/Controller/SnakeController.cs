@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class SnakeController : MonoBehaviour
 {
@@ -19,12 +20,16 @@ public class SnakeController : MonoBehaviour
     public Transform Bush;
     public Character Head;
 
+    [Header("Audio")]
+    public AudioSource BGM;
+    public AudioSource BushSFX;
+    public AudioSource DeadSFX;
+
     [Header("Misc")]
     public Transform BorderLimit;
 
-    [Header("Delay")]
-    public float InputDelay = 0.12f;
-    public float SpawnDelay = 0.12f;
+    // Move Delay
+    float _delay = 0.12f;
 
     // Default Position
     Vector2 _defaultPos;
@@ -55,7 +60,6 @@ public class SnakeController : MonoBehaviour
     void Start() {
         SnakeView.Show();
         StartCoroutine("SnakeMove");
-        SoundManager.Instance.PlayBGM("JaguarMan");
     }
 
     void Update()
@@ -89,7 +93,7 @@ public class SnakeController : MonoBehaviour
             _walkDirection = (_inputBuffer.Count > 0) ? _inputBuffer.Dequeue() : _walkDirection;
 
             if(_walkDirection.magnitude != 1f) {
-                yield return new WaitForSeconds(InputDelay-0.005f);
+                yield return new WaitForSeconds(_delay-0.005f);
                 continue;
             }
 
@@ -112,10 +116,10 @@ public class SnakeController : MonoBehaviour
             }
 
             for(int i = 0; i < _tailPositions.Count; i++) {
-                _tail[i].Walk(_tailPositions[i], InputDelay);
+                _tail[i].Walk(_tailPositions[i], _delay);
             }
             Status.Instance.CurrentWalkCount++;
-            yield return new WaitForSeconds(InputDelay-0.005f);
+            yield return new WaitForSeconds(_delay-0.005f);
 
             if(_tailPositions[0] == (Vector2)Bush.position) {
                 AddTail();
@@ -145,7 +149,7 @@ public class SnakeController : MonoBehaviour
 
         _adding = false;
 
-        SoundManager.Instance.PlaySFX("Bush");
+        BushSFX.Play();
     }
 
     public void MoveBush() {
@@ -191,8 +195,8 @@ public class SnakeController : MonoBehaviour
     public void GameOver() {
         GameManager.Pause();
         Head.GetComponent<Animator>().SetBool("isDefeat", true);
-        SoundManager.Instance.PlaySFX("Dead");
-        SoundManager.Instance.StopBGM();
+        DeadSFX.Play();
+        BGM.DOFade(0f, 0.6f).SetUpdate(true);
         GameManager.SetController(ResultController);
         ResultController.DrawResult();
         if(CheckEndingShow()) {
@@ -228,7 +232,7 @@ public class SnakeController : MonoBehaviour
         Status.Instance.Initialize();
         SnakeView.SetScore(0);
 
-        SoundManager.Instance.PlayBGM("JaguarMan");
+        BGM.volume = 1f;
 
         StartCoroutine("SnakeMove");
     }

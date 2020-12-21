@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class DialogueController : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class DialogueController : MonoBehaviour
     public Text ContentScript;
     public CanvasView DialogueView;
     public CanvasGroup DialogueWrapper;
+    public AudioSource SelectSFX;
+    public AudioMixer MainMixer;
+
     public DialogueDatabase DialogueDatabase;
     public CharacterDatabase CharacterDatabase;
 
@@ -62,6 +66,8 @@ public class DialogueController : MonoBehaviour
             _dialogueAnimation = AnimationObject;
             _dialogueAnimationController = AnimationObject.GetComponent<DialogueAnimationController>();
             _dialogueAnimationController.StopEvent += ShowDialogue;
+
+            MainMixer.SetFloat("Game", 0f);
         }
         else {
             ShowDialogue();
@@ -70,7 +76,8 @@ public class DialogueController : MonoBehaviour
     }
 
     public void PrintNext() {
-        SoundManager.Instance.PlaySFX("Select");
+        SelectSFX.Play();
+
         if(_dialogueAnimationController) {
             // 애니메이션 진행 중 키 입력 무시
             if(_dialogueAnimationController.isAnimating)
@@ -88,6 +95,7 @@ public class DialogueController : MonoBehaviour
             if(_dialogueAnimationController) {
                 _dialogueAnimationController = null;
                 Destroy(_dialogueAnimation);
+                MainMixer.SetFloat("Game", 1f);
             }
             return;
         }

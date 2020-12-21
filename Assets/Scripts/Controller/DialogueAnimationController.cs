@@ -31,10 +31,10 @@ public class DialogueAnimationController : MonoBehaviour
     }
 
     public void PlayBGM(string name) {
-        SoundManager.Instance.PlayBGM(name);
+        // SoundManager.Instance.PlayBGM(name);
     }
 
     public void PlaySFX(string name) {
-        SoundManager.Instance.PlaySFX(name);
+        // SoundManager.Instance.PlaySFX(name);
     }
 }
