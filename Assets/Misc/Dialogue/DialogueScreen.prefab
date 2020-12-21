@@ -272,6 +272,7 @@ MonoBehaviour:
   DialogueView: {fileID: 3463171766969692946}
   DialogueWrapper: {fileID: 3463171767811956197}
   SelectSFX: {fileID: 3781146513487887490}
+  MainMixer: {fileID: 24100000, guid: 85270bd1a7cb522489bdb1fcc18cdc70, type: 2}
   DialogueDatabase: {fileID: 0}
   CharacterDatabase: {fileID: 0}
 --- !u!1 &3463171767378044939
