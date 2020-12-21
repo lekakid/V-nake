@@ -84,6 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3463171766969692947}
   - component: {fileID: 3463171766969692940}
+  - component: {fileID: 7034077913642868513}
   - component: {fileID: 3463171766969692946}
   - component: {fileID: 3463171766969692941}
   m_Layer: 5
@@ -125,6 +126,25 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!95 &7034077913642868513
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463171766969692944}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 58a839bbc4eaca0448197ae62340ed43, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &3463171766969692946
 MonoBehaviour:
   m_ObjectHideFlags: 0

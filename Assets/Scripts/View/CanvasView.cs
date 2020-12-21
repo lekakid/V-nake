@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CanvasGroup))]
 public class CanvasView : MonoBehaviour
 {
+    public bool isAnimating { get; private set; }
+
     CanvasGroup _canvasGroup;
     Animator _animator;
-    public bool hasShowAnimation;
-    public bool hasHideAnimation;
-    public bool isAnimating { get; private set; }
 
     void Awake() {
         _canvasGroup = GetComponent<CanvasGroup>();
@@ -23,23 +23,11 @@ public class CanvasView : MonoBehaviour
     }
 
     public void Show() {
-        _canvasGroup.alpha = 1;
-        _canvasGroup.interactable = true;
-        _canvasGroup.blocksRaycasts = true;
-
-        if(_animator && hasShowAnimation) {
-            _animator.SetTrigger("Show");
-        }
+        _animator.SetBool("Enabled", true);
     }
 
     public void Hide() {
-        _canvasGroup.alpha = 0;
-        _canvasGroup.interactable = false;
-        _canvasGroup.blocksRaycasts = false;
-
-        if(_animator && hasHideAnimation) {
-            _animator.SetTrigger("Hide");
-        }
+        _animator.SetBool("Enabled", false);
     }
 
     public void Skip() {

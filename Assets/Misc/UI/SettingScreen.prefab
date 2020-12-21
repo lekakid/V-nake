@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 7935525393277412731}
   - component: {fileID: 8912086219477012218}
   - component: {fileID: 5946251915499454878}
+  - component: {fileID: 7513621353214475869}
   - component: {fileID: 7935525393277412733}
   - component: {fileID: 3463596908272776961}
   m_Layer: 5
@@ -276,6 +277,25 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!95 &7513621353214475869
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935525393277412710}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 58a839bbc4eaca0448197ae62340ed43, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7935525393277412733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e89b22d80dc4446bb563270cf95481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasShowAnimation: 0
+  hasHideAnimation: 0
   MasterMixer: {fileID: 7935525394913366173}
   BGMMixer: {fileID: 7935525394884043439}
   SFXMixer: {fileID: 7935525394377226310}

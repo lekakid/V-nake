@@ -6,8 +6,8 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EndingTitleScreenController
+  m_Name: TitleScreenAnimationController
   m_Controller: {fileID: 9100000, guid: 58a839bbc4eaca0448197ae62340ed43, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: 47e945f272ea7074aa7409382160f1a7, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 5d710368f580943458aebed7d2e79de2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8e95285342dfcfb48a9f61cf7b00a936, type: 2}
