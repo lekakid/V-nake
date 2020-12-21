@@ -22,8 +22,9 @@ public class SnakeController : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource BGM;
-    public AudioSource BushSFX;
-    public AudioSource DeadSFX;
+    public AudioSource SFX;
+    public AudioClip BushSFX;
+    public AudioClip DeadSFX;
 
     [Header("Misc")]
     public Transform BorderLimit;
@@ -149,7 +150,7 @@ public class SnakeController : MonoBehaviour
 
         _adding = false;
 
-        BushSFX.Play();
+        SFX.PlayOneShot(BushSFX);
     }
 
     public void MoveBush() {
@@ -195,7 +196,7 @@ public class SnakeController : MonoBehaviour
     public void GameOver() {
         GameManager.Pause();
         Head.GetComponent<Animator>().SetBool("isDefeat", true);
-        DeadSFX.Play();
+        SFX.PlayOneShot(DeadSFX);
         BGM.DOFade(0f, 0.6f).SetUpdate(true);
         GameManager.SetController(ResultController);
         ResultController.DrawResult();
