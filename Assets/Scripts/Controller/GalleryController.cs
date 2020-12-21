@@ -33,8 +33,10 @@ public class GalleryController : MonoBehaviour
         }
 
         if(Input.GetButtonDown("Submit")) {
-            if(Interact())
+            if(Interact()) {
+                rb.velocity = Vector2.zero;
                 return;
+            }
         }
 
         float x = Input.GetAxisRaw("Horizontal");
