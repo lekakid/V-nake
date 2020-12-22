@@ -50,7 +50,7 @@ public class GalleryController : MonoBehaviour
         }
 
         Vector2 input = new Vector2(x, (x == 0) ? y: 0);
-        rb.velocity = input * 5f;
+        rb.velocity = input * 7f;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
