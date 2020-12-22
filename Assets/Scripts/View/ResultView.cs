@@ -7,6 +7,7 @@ using TMPro;
 public class ResultView : MenuView
 {
     public Transform Grid;
+    public Text Score;
     public GameObject CountPrefab;
 
     public void DrawResult() {
@@ -26,5 +27,7 @@ public class ResultView : MenuView
                 i.transform.SetParent(Grid, false);
             }
         }
+
+        Score.text = $"{Status.Instance.CurrentRescueCount}명 구출";
     }
 }
