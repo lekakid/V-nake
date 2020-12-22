@@ -70,6 +70,7 @@ public class PauseController : MonoBehaviour
     }
 
     public void ReturnTitle() {
+        Status.Instance.Initialize();
         GameManager.LoadScene("Title");
     }
 

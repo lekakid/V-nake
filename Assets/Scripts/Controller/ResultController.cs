@@ -83,6 +83,8 @@ public class ResultController : MonoBehaviour
     }
 
     public void ReturnTitle() {
+        Status.Instance.Save();
+        Status.Instance.Initialize();
         GameManager.LoadScene("Title");
     }
 }

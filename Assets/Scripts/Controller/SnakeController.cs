@@ -187,8 +187,6 @@ public class SnakeController : MonoBehaviour
 
     public void Reset() {
         StopCoroutine("SnakeMove");
-
-        Status.Instance.Save();
         
         _lastInput = Vector2.zero;
         _walkDirection = Vector2.zero;
