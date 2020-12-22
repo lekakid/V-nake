@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EndingAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: f26de82d0feddf345bcd932d6147bd48, type: 3}
+    - {fileID: 2800000, guid: 0f98e402d2c92af4ab95d485c58bc733, type: 3}
+    - {fileID: 2800000, guid: e6089e32da8b9774d8cfde2c0a97059a, type: 3}
+    - {fileID: 2800000, guid: 05b8cc24b179d3f448d79e5486f281e2, type: 3}
+    - {fileID: 2800000, guid: f8161f8e2b943324abcba798e03edccd, type: 3}
+    - {fileID: 21300000, guid: f8161f8e2b943324abcba798e03edccd, type: 3}
+    - {fileID: 2800000, guid: 3ef89824bb1680140a927eca573ceff5, type: 3}
+    - {fileID: 2800000, guid: 4946eaf3626bad546b95efec2ea0fd65, type: 3}
+    - {fileID: 2800000, guid: 6327af18bd847734a9b222a622fa25a5, type: 3}
+    - {fileID: 2800000, guid: 000a822ed3dc97045b8aee65343f3dea, type: 3}
+    - {fileID: 2800000, guid: 98dedb19c76439f479651e50b6e8f292, type: 3}
+    - {fileID: 2800000, guid: 2497308f4672a0f46b9353c0aa946244, type: 3}
+    - {fileID: 2800000, guid: 9cb21eefb35966648be8dde196c600e5, type: 3}
+    - {fileID: 2800000, guid: 0528b5a4802f3e34ab411337073e915c, type: 3}
+    - {fileID: 2800000, guid: dbae09bf4e602bf40954f887c38ca762, type: 3}
+    - {fileID: 2800000, guid: 85c1294c868c7cb40992f3d01262766f, type: 3}
+    totalSpriteSurfaceArea: 8151855
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 0f98e402d2c92af4ab95d485c58bc733, type: 3}
+  - {fileID: 21300000, guid: e6089e32da8b9774d8cfde2c0a97059a, type: 3}
+  - {fileID: 21300000, guid: 4946eaf3626bad546b95efec2ea0fd65, type: 3}
+  - {fileID: 21300000, guid: 3ef89824bb1680140a927eca573ceff5, type: 3}
+  - {fileID: 21300000, guid: 05b8cc24b179d3f448d79e5486f281e2, type: 3}
+  - {fileID: 21300000, guid: 0528b5a4802f3e34ab411337073e915c, type: 3}
+  - {fileID: 21300000, guid: 6327af18bd847734a9b222a622fa25a5, type: 3}
+  - {fileID: 21300000, guid: 98dedb19c76439f479651e50b6e8f292, type: 3}
+  - {fileID: 21300000, guid: 85c1294c868c7cb40992f3d01262766f, type: 3}
+  - {fileID: 21300000, guid: f26de82d0feddf345bcd932d6147bd48, type: 3}
+  - {fileID: 21300000, guid: 000a822ed3dc97045b8aee65343f3dea, type: 3}
+  - {fileID: 21300000, guid: f8161f8e2b943324abcba798e03edccd, type: 3}
+  - {fileID: 21300000, guid: 2497308f4672a0f46b9353c0aa946244, type: 3}
+  - {fileID: 21300000, guid: dbae09bf4e602bf40954f887c38ca762, type: 3}
+  - {fileID: 21300000, guid: 9cb21eefb35966648be8dde196c600e5, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Background2
+  - Commander
+  - Hand Down
+  - Fade
+  - Doki Doki
+  - Valkyrie Front 1
+  - Hand Up
+  - TFP
+  - Valkyrie Shy
+  - Background
+  - Heart
+  - EndingSpecialImage
+  - Valkyrie Back
+  - Valkyrie Hot
+  - Valkyrie Back Surprised
+  m_Tag: EndingAtlas
+  m_IsVariant: 0

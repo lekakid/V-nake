@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 256
+      m_MaxTextureSize: 2048
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 0
@@ -35,7 +35,7 @@ SpriteAtlas:
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
-      padding: 4
+      padding: 2
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
@@ -44,10 +44,12 @@ SpriteAtlas:
     packables:
     - {fileID: 2800000, guid: 8adec47f0da96f04b99f237846ea1a3a, type: 3}
     - {fileID: 2800000, guid: 1cd378f8fd87abe4daddd4228c84e24c, type: 3}
-    totalSpriteSurfaceArea: 2560
+    - {fileID: 2800000, guid: fda5cf95b94be2a4180f19d351d8f11f, type: 3}
+    totalSpriteSurfaceArea: 2816
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: fda5cf95b94be2a4180f19d351d8f11f, type: 3}
   - {fileID: 9214522175769462251, guid: 1cd378f8fd87abe4daddd4228c84e24c, type: 3}
   - {fileID: -3938865984922550181, guid: 1cd378f8fd87abe4daddd4228c84e24c, type: 3}
   - {fileID: 7652805371216193885, guid: 1cd378f8fd87abe4daddd4228c84e24c, type: 3}
@@ -59,6 +61,7 @@ SpriteAtlas:
   - {fileID: 4296193443984631328, guid: 8adec47f0da96f04b99f237846ea1a3a, type: 3}
   - {fileID: -2770932246066905560, guid: 8adec47f0da96f04b99f237846ea1a3a, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Count
   - TileA'
   - TileA
   - TileB

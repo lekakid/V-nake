@@ -35,44 +35,41 @@ SpriteAtlas:
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
-      padding: 4
+      padding: 2
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 0
+      enableRotation: 1
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: be870d1c2d315834e82c45804cd6a8cb, type: 3}
     - {fileID: 2800000, guid: 5bc241794ff22704a9d811a222c9d494, type: 3}
-    - {fileID: 2800000, guid: 8d4dbf9cf3195254481bbacfe119dc26, type: 3}
-    - {fileID: 2800000, guid: bbe99e5083fc17742ba93eeba385a836, type: 3}
-    - {fileID: 2800000, guid: d6fced35233fec94c8fdcb177b59c7ca, type: 3}
-    - {fileID: 2800000, guid: fda5cf95b94be2a4180f19d351d8f11f, type: 3}
     - {fileID: 2800000, guid: 7ed5e7c4be64c84429b7ecb7ab967bbb, type: 3}
-    - {fileID: 2800000, guid: e1db0ca5616bacd4cb05cd7b12877503, type: 3}
+    - {fileID: 2800000, guid: 82c1304265b1dc24994071de2a2a60b1, type: 3}
+    - {fileID: 2800000, guid: bbe99e5083fc17742ba93eeba385a836, type: 3}
+    - {fileID: 2800000, guid: 851d1885d65dd4f4ab9fb60c2977390b, type: 3}
+    - {fileID: 2800000, guid: d6fced35233fec94c8fdcb177b59c7ca, type: 3}
     - {fileID: 2800000, guid: fcb312af8478d2c45ab4b6df3a92c8d2, type: 3}
-    totalSpriteSurfaceArea: 2219740
+    totalSpriteSurfaceArea: 2420188
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: bbe99e5083fc17742ba93eeba385a836, type: 3}
+  - {fileID: 21300000, guid: 82c1304265b1dc24994071de2a2a60b1, type: 3}
   - {fileID: 21300000, guid: 7ed5e7c4be64c84429b7ecb7ab967bbb, type: 3}
   - {fileID: 21300000, guid: d6fced35233fec94c8fdcb177b59c7ca, type: 3}
-  - {fileID: 21300000, guid: fda5cf95b94be2a4180f19d351d8f11f, type: 3}
-  - {fileID: 21300000, guid: e1db0ca5616bacd4cb05cd7b12877503, type: 3}
+  - {fileID: 21300000, guid: 851d1885d65dd4f4ab9fb60c2977390b, type: 3}
   - {fileID: 21300000, guid: 5bc241794ff22704a9d811a222c9d494, type: 3}
   - {fileID: 21300000, guid: be870d1c2d315834e82c45804cd6a8cb, type: 3}
-  - {fileID: 21300000, guid: 8d4dbf9cf3195254481bbacfe119dc26, type: 3}
   - {fileID: 21300000, guid: fcb312af8478d2c45ab4b6df3a92c8d2, type: 3}
   m_PackedSpriteNamesToIndex:
   - light
+  - Hidden
   - Valkyrie_Shadow
   - howto
-  - Count
-  - Credit
+  - pinklight
   - Valkyrie
   - title
-  - setting
   - Mask(Circle)
   m_Tag: UIAtlas
   m_IsVariant: 0
