@@ -6,6 +6,7 @@ public class ResultController : MonoBehaviour
 {
     public ResultView ResultView;
     public SnakeController SnakeController;
+    public DialogueController DialogueController;
     public CharacterDatabase CharacterDatabase;
 
     Animator _animator;
@@ -16,11 +17,6 @@ public class ResultController : MonoBehaviour
 
     void OnEnable() {
         ResultView.Show();
-    }
-
-    void OnDisable() {
-        if(ResultView != null)
-            ResultView.Hide();
     }
 
     void Update() {
@@ -50,12 +46,38 @@ public class ResultController : MonoBehaviour
         }
     }
 
+    bool CheckEndingShow() {
+        if(Status.Instance.Ending)
+            return false;
+
+        foreach(string name in Status.Instance.CharacterRescueCounts.Keys) {
+            if(Status.Instance.CharacterRescueCounts[name] < 1)
+                return false;
+        }
+
+        if(Status.Instance.CurrentRescueCount < 80){
+            return false;
+        }
+
+        return true;
+    }
+
+    public void ShowEnding() {
+        if(CheckEndingShow()) {
+            Status.Instance.Ending = true;
+            GameManager.SetController(DialogueController);
+            DialogueController.RunDialogueScript("Ending");
+            Status.Instance.Save();
+        }
+    }
+
     public void DrawResult() {
         ResultView.DrawResult();
     }
 
     public void Restart() {
         SnakeController.Reset();
+        ResultView.Hide();
         GameManager.UndoController();
         GameManager.Resume();
     }

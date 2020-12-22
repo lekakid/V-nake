@@ -11,7 +11,6 @@ public class SnakeController : MonoBehaviour
     [Header("Controller")]
     public PauseController PauseController;
     public ResultController ResultController;
-    public DialogueController DialogueController;
 
     [Header("Model")]
     public CharacterDatabase CharacterDatabase;
@@ -177,22 +176,6 @@ public class SnakeController : MonoBehaviour
         return false;
     }
 
-    bool CheckEndingShow() {
-        if(Status.Instance.Ending)
-            return false;
-
-        foreach(string name in Status.Instance.CharacterRescueCounts.Keys) {
-            if(Status.Instance.CharacterRescueCounts[name] < 1)
-                return false;
-        }
-
-        if(Status.Instance.CurrentRescueCount < 80){
-            return false;
-        }
-
-        return true;
-    }
-
     public void GameOver() {
         GameManager.Pause();
         Head.GetComponent<Animator>().SetBool("isDefeat", true);
@@ -200,17 +183,12 @@ public class SnakeController : MonoBehaviour
         BGM.DOFade(0f, 0.6f).SetUpdate(true);
         GameManager.SetController(ResultController);
         ResultController.DrawResult();
-        if(CheckEndingShow()) {
-            Status.Instance.Ending = true;
-            GameManager.SetController(DialogueController);
-            DialogueController.RunDialogueScript("Ending");
-        }
-        Status.Instance.Save();
-        Status.Instance.Initialize();
     }
 
     public void Reset() {
         StopCoroutine("SnakeMove");
+
+        Status.Instance.Save();
         
         _lastInput = Vector2.zero;
         _walkDirection = Vector2.zero;

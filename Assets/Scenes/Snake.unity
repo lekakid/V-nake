@@ -5386,7 +5386,6 @@ MonoBehaviour:
   SnakeView: {fileID: 1873812248}
   PauseController: {fileID: 739026242}
   ResultController: {fileID: 1665362578}
-  DialogueController: {fileID: 274554211}
   CharacterDatabase: {fileID: 2009384055}
   Bush: {fileID: 1636397354}
   Head: {fileID: 718190804}
@@ -10963,7 +10962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6666667}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11000,6 +10999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResultView: {fileID: 1665362580}
   SnakeController: {fileID: 825843522}
+  DialogueController: {fileID: 274554211}
   CharacterDatabase: {fileID: 2009384055}
 --- !u!95 &1665362579
 Animator:
@@ -11694,8 +11694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8354682349897007965, guid: 1164adb3f070f9d4eb0fdc2ac6abb553,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb5ad320ab9665f4bb1449147eeaec51, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
