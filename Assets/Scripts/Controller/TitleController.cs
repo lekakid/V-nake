@@ -26,6 +26,7 @@ public class TitleController : MonoBehaviour
     void Update() {
         if(TitleView.isAnimating && Input.anyKeyDown) {
             TitleView.Skip();
+            return;
         }
 
         float y = Input.GetAxisRaw("Vertical");
