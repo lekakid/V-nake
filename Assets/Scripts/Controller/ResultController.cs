@@ -22,6 +22,7 @@ public class ResultController : MonoBehaviour
     void Update() {
         if(ResultView.isAnimating && Input.anyKeyDown) {
             ResultView.Skip();
+            return;
         }
 
         float y = Input.GetAxisRaw("Vertical");
