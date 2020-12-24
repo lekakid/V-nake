@@ -59,6 +59,7 @@ public class SnakeController : MonoBehaviour
 
     void Start() {
         SnakeView.Show();
+        Status.Instance.Initialize();
         StartCoroutine("SnakeMove");
     }
 
@@ -183,6 +184,7 @@ public class SnakeController : MonoBehaviour
         BGM.DOFade(0f, 0.6f).SetUpdate(true);
         GameManager.SetController(ResultController);
         ResultController.DrawResult();
+        Status.Instance.Save();
     }
 
     public void Reset() {

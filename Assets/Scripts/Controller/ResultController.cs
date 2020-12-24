@@ -68,9 +68,9 @@ public class ResultController : MonoBehaviour
     public void ShowEnding() {
         if(CheckEndingShow()) {
             Status.Instance.Ending = true;
+            Status.Instance.Save();
             GameManager.SetController(DialogueController);
             DialogueController.RunDialogueScript("Ending");
-            Status.Instance.Save();
         }
     }
 
@@ -86,8 +86,6 @@ public class ResultController : MonoBehaviour
     }
 
     public void ReturnTitle() {
-        Status.Instance.Save();
-        Status.Instance.Initialize();
         GameManager.LoadScene("Title");
     }
 }
