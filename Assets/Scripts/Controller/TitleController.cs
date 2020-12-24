@@ -24,8 +24,10 @@ public class TitleController : MonoBehaviour
     }
 
     void Update() {
-        if(TitleView.isAnimating && Input.anyKeyDown) {
-            TitleView.Skip();
+        if(TitleView.isAnimating) {
+            if(Input.GetButtonDown("Submit")) {
+                TitleView.Skip();
+            }
             return;
         }
 
