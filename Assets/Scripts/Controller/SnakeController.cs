@@ -209,6 +209,7 @@ public class SnakeController : MonoBehaviour
         Status.Instance.Initialize();
         SnakeView.SetScore(0);
 
+        BGM.DOKill();
         BGM.volume = 1f;
 
         StartCoroutine("SnakeMove");
