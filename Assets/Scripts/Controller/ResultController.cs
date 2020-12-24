@@ -20,8 +20,10 @@ public class ResultController : MonoBehaviour
     }
 
     void Update() {
-        if(ResultView.isAnimating && Input.anyKeyDown) {
-            ResultView.Skip();
+        if(ResultView.isAnimating) {
+            if(Input.GetButtonDown("Submit")) {
+                ResultView.Skip();
+            }
             return;
         }
 
