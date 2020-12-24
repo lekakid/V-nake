@@ -7,7 +7,7 @@ public class CreditController : MonoBehaviour
     public CanvasView CreditView;
 
     void Update() {
-        if(Input.GetButtonDown("Cancel")) {
+        if(Input.GetButtonDown("Cancel") || Input.GetButtonDown("Submit")) {
             Back();
         }
     }
